@@ -124,6 +124,16 @@ class Sonos
       else
         return callback new Error({err:err, data:data}), false
 
+  next: (callback) ->
+    action = '"urn:schemas-upnp-org:service:AVTransport:1#Next"'
+    body = '<u:Next xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><Speed>1</Speed></u:Next>'
+    @request TRANSPORT_ENDPOINT, action, body, "u:NextResponse", (err, data) ->
+      if err then return callback err
+      if data[0]["$"]["xmlns:u"] is "urn:schemas-upnp-org:service:AVTransport:1"
+        return callback null, true
+      else
+        return callback new Error({err:err, data:data}), false
+
   queueNext: (uri, callback) ->
     console.log uri
     action = '"urn:schemas-upnp-org:service:AVTransport:1#SetAVTransportURI"'
