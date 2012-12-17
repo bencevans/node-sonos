@@ -32,8 +32,12 @@ withinEnvelope = (body) ->
 #
 
 class Sonos
+
   constructor: (@host, @port=1400) ->
 
+  #
+  # Structure, Send, Receive and Format HTTP Request
+  #
   request: (endpoint, action, body, responseTag, callback) ->
 
     request
@@ -47,9 +51,12 @@ class Sonos
       if err then return callback err
       (new xml2js.Parser()).parseString body, (err, json) ->
         if err then return callback err
-        callback null, json["s:Envelope"]['s:Body'][0][responseTag][0]
+        console.log JSON.stringify json["s:Envelope"]['s:Body'], null, 2
+        callback null, json["s:Envelope"]['s:Body'][0][responseTag]
 
-
+  #
+  # Get the Current Track Info
+  #
   currentTrack: (callback) ->
     _this = this
     endpoint = TRANSPORT_ENDPOINT
@@ -79,11 +86,51 @@ class Sonos
               callback null, null
 
 
-  play: (url, callback) ->
-    callback null, true
+  play: (uri, callback) ->
+    if callback? and uri?
+      # Play URL
+      @queueNext uri, (err, queued) ->
+        if err then return callback err
+        console.log err, queued
+
+    else if uri?
+      # Just Play
+      callback = uri
+      action = '"urn:schemas-upnp-org:service:AVTransport:1#Play"'
+      body = '<u:Play xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><Speed>1</Speed></u:Play>'
+      @request TRANSPORT_ENDPOINT, action, body, "u:PlayResponse", (err, data) ->
+        if data[0]["$"]["xmlns:u"] is "urn:schemas-upnp-org:service:AVTransport:1"
+          return callback null, true
+        else
+          return callback new Error({err:err, data:data}), false
+    else
+      throw new Error "Please Provide Callback"
+
+  stop: (callback) ->
+    action = '"urn:schemas-upnp-org:service:AVTransport:1#Stop"'
+    body = '<u:Stop xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><Speed>1</Speed></u:Stop>'
+    @request TRANSPORT_ENDPOINT, action, body, "u:StopResponse", (err, data) ->
+      if data[0]["$"]["xmlns:u"] is "urn:schemas-upnp-org:service:AVTransport:1"
+        return callback null, true
+      else
+        return callback new Error({err:err, data:data}), false
 
   pause: (callback) ->
-    callback null, true
+    action = '"urn:schemas-upnp-org:service:AVTransport:1#Pause"'
+    body = '<u:Pause xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><Speed>1</Speed></u:Pause>'
+    @request TRANSPORT_ENDPOINT, action, body, "u:PauseResponse", (err, data) ->
+      if data[0]["$"]["xmlns:u"] is "urn:schemas-upnp-org:service:AVTransport:1"
+        return callback null, true
+      else
+        return callback new Error({err:err, data:data}), false
+
+  queueNext: (uri, callback) ->
+    console.log uri
+    action = '"urn:schemas-upnp-org:service:AVTransport:1#SetAVTransportURI"'
+    body = '<u:SetAVTransportURI xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><CurrentURI>' + uri + '</CurrentURI><CurrentURIMetaData></CurrentURIMetaData></u:SetAVTransportURI>'
+    response = @request TRANSPORT_ENDPOINT, action, body, "u:SetAVTransportURIResponse", (err, data) ->
+      callback err, data
+
 
 #
 # Search "Class"
