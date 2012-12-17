@@ -2,6 +2,10 @@
 
 Node.js Interface to [Sonos](http://sonos.com)
 
+**This is horrible code and very hacky but useful. To find examples/what API's been implemented, check out the examples folder.**
+
+Feel free to open pull-requests and ask questions @bencevans.
+
 ## API (Design)
 
 
