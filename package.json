@@ -17,6 +17,8 @@
   "author": "Ben Evans <ben@bensbit.co.uk> (http://bensbit.co.uk)",
   "license": "None",
   "dependencies": {
-    "upnp-client": "0.0.1"
+    "upnp-client": "0.0.1",
+    "request": "~2.12.0",
+    "xml2js": "~0.2.2"
   }
 }
