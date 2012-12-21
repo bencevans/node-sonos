@@ -51,7 +51,6 @@ class Sonos
       if err then return callback err
       (new xml2js.Parser()).parseString body, (err, json) ->
         if err then return callback err
-        console.log JSON.stringify json["s:Envelope"]['s:Body'], null, 2
         callback null, json["s:Envelope"]['s:Body'][0][responseTag]
 
   #
@@ -70,7 +69,7 @@ class Sonos
     responseTag = "u:GetPositionInfoResponse"
 
     @request endpoint, action, body, responseTag, (err, data) ->
-      metadata = data.TrackMetaData
+      metadata = data[0].TrackMetaData
       if metadata
         (new xml2js.Parser()).parseString metadata, (err, data) ->
           unless err
