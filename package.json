@@ -20,7 +20,6 @@
     "upnp-client": "0.0.1",
     "request": "~2.12.0",
     "xml2js": "~0.2.2",
-    "coffee-script": "~1.4.0",
     "debug": "~0.7.0"
   }
 }
