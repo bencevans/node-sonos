@@ -2,27 +2,37 @@
 
 Node.js Interface to [Sonos](http://sonos.com)
 
-**This is horrible code and very hacky but useful. To find examples/what API's been implemented, check out the examples folder.**
+Please open [pull-requests](https://github.com/bencevans/node-sonos) and ask questions [@bencevans](https://twitter.com/bencevans).
 
-Feel free to open pull-requests and ask questions @bencevans.
+## API
 
-## API (Design)
+For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blob/master/README.md) file, else…
 
-
-* search()
-* Class: Sonos
-  * currentTrack(callback)
-  * play([url], callback)
-  * pause(callback)
-  * next(callback)
-  * previous(callback)
-  * mute(callback)
-  * volume(callback)
-  * bass([value], callback)
-  * treble([value], callback)
-* Class: Search
+* search([deviceAvailableListener])
+* Class: Search()
   * Event: 'DeviceAvailable'
+* Class: Sonos(host, [port])
+  * currentTrack(callback)
+  * play([url], [callback])
+  * pause([callback])
+  * stop([callback])
+  * next([callback])
+  * previous([callback])
+  * queueNext(url, [callback])
 
+## Examples
+
+Additional examples can be found in the [/examples](https://github.com/bencevans/node-sonos/tree/master/examples) directory within the repository.
+
+## Installation
+
+*Via npm*
+
+    npm install sonos
+
+*Via Git*
+
+    npm install git://github.com/bencevans/node-sonos.git
 
 ## Licence
 
