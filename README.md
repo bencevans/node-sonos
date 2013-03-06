@@ -6,7 +6,7 @@ Please open [pull-requests](https://github.com/bencevans/node-sonos) and ask que
 
 ## API
 
-For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blob/master/README.md) file, else…
+For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blob/master/API.md) file, else…
 
 * search([deviceAvailableListener])
 * Class: Search()
