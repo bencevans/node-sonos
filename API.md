@@ -1,56 +1,343 @@
-## sonos.search([deviceAvailableListener])
+Sonos
+-----
 
-Returns a new `sonos.Search` object.
+This module exports 3 items:
 
-The `deviceAvailableListener` is a function which is automatically
-added to the `'DeviceAvailable'` event.
+    var sonos = require('sonos');
 
-## Class: sonos.Search
+    // sonos.search - searches for Sonos devices on network
 
-This is an Object that extends EventEmitter.
-
-### Event: 'DeviceAvailable'
-
-`function (sonos) { }`
-
-Emitted each time there is a response from an initial search.
- `sonos` is an instance of `sonos.Sonos`
-
-## Class: sonos.Sonos(host, [port])
-
-The host is either the IP or DNS name of your Sonos device, unless specified the port will default to 1400.
-
-### sonos.currentTrack(callback)
-
-Receives metadata on the current track playing, including `title`, `artist`, `album` and `albumArtURI`.
-
-Example:
-
-    sonos.currentTrack(function(err, track) {
-      if(err) throw err;
-      console.log('Artist: ' + track.artist + ', title:' + track.title);
+    sonos.search(function(device) {
+      // device is an instance of sonos.Sonos
+      device.currentTrack(console.log);
     });
-    
-### sonos.play([url], [callback])
 
-Start playing a stream from a provided url or resume queue.
+    // var s = new sonos.Sonos(host, [port]);
+    var s = new sonos.Sonos('192.168.2.17')
+    s.currentTrack(console.log);
 
-### sonos.pause([callback])
+    // sonos.Services - wrappers arounds all UPNP services provided by sonsos
+    // These aren't used internally by the module at all but may be usefull
+    // for more complex projects.
 
-Pauses the current track
+###var Sonos = new sonos.Sonos(host, port)###
 
-### sonos.stop([callback])
+Sonos "Class"
+####Parameters####
 
-Stops the queue.
+* host *String* IP/DNS
+* port *Number* undefined
+* * *
 
-### sonos.next([callback])
 
-Starts playing next track.
+###Sonos.prototype.request = function(endpoint, action, body, responseTag, callback)###
 
-### sonos.previous([callback])
+UPnP HTTP Request
+####Parameters####
 
-Starts playing the previous track.
+* endpoint *String* HTTP Path
+* action *String* UPnP Call/Function/Action
+* body *String* undefined
+* responseTag *String* Expected Response Container XML Tag
+* callback *Function* (err, data)
 
-###sonos.queueNext(url, [callback])
+####Returns####
 
-Queue a stream from a url after the current track.
+*Void* undefined
+* * *
+
+
+###Sonos.prototype.currentTrack = function(callback)###
+
+Get Current Track
+####Parameters####
+
+* callback *Function* (err, track)
+
+####Returns####
+
+*Void* undefined
+* * *
+
+
+###Sonos.prototype.parseDIDL = function(didl)###
+
+Parse DIDL into track structure
+####Parameters####
+
+* didl *String* undefined
+
+####Returns####
+
+*object* undefined
+* * *
+
+
+
+###Sonos.prototype.getVolume = function(callback)###
+
+Get Current Volume
+####Parameters####
+
+* callback *Function* (err, volume)
+
+####Returns####
+
+*Void* undefined
+* * *
+
+
+
+###Sonos.prototype.getMuted = function(callback)###
+
+Get Current Muted
+####Parameters####
+
+* callback *Function* (err, muted)
+
+####Returns####
+
+*Void* undefined
+* * *
+
+
+
+###Sonos.prototype.play = function(uri, callback)###
+
+Resumes Queue or Plays Provided URI
+####Parameters####
+
+* uri *String* Optional - URI to a Audio Stream
+* callback *Function* (err, playing)
+
+####Returns####
+
+*Void* undefined
+* * *
+
+
+
+###Sonos.prototype.stop = function(callback)###
+
+Stop What's Playing
+####Parameters####
+
+* callback *Function* (err, stopped)
+
+####Returns####
+
+*Void* undefined
+* * *
+
+
+
+###Sonos.prototype.pause = function(callback)###
+
+Pause Current Queue
+####Parameters####
+
+* callback *Function* (err, paused)
+
+####Returns####
+
+*Void* undefined
+* * *
+
+
+
+###Sonos.prototype.seek = function(seconds, callback)###
+
+Seek the current track
+####Parameters####
+
+* callback *Function* (err, seeked)
+
+####Returns####
+
+*Void* undefined
+* * *
+
+
+
+###Sonos.prototype.next = function(callback)###
+
+Play next in queue
+####Parameters####
+
+* callback *Function* (err, movedToNext)
+
+####Returns####
+
+*Void* undefined
+* * *
+
+
+
+###Sonos.prototype.previous = function(callback)###
+
+Play previous in queue
+####Parameters####
+
+* callback *Function* (err, movedToPrevious)
+
+####Returns####
+
+*Void* undefined
+* * *
+
+
+
+###Sonos.prototype.queueNext = function(uri, callback)###
+
+Queue a Song Next
+####Parameters####
+
+* uri *String* URI to Audio Stream
+* callback *Function* (err, queued)
+
+####Returns####
+
+*[type]* undefined
+* * *
+
+
+
+###Sonos.prototype.flush = function(callback)###
+
+Flush queue
+####Parameters####
+
+* callback *Function* (err, flushed)
+
+####Returns####
+
+*Void* undefined
+* * *
+
+
+
+###Sonos.prototype.getLEDState = function(callback)###
+
+Get the LED State
+####Parameters####
+
+* callback *Function* (err, state) state is a string, "On" or "Off"
+* * *
+
+
+
+###Sonos.prototype.setLEDState = function(desiredState, callback)###
+
+Set the LED State
+####Parameters####
+
+* desiredState *String* "On"/"Off"
+* callback *Function* (err)
+* * *
+
+
+
+###Sonos.prototype.getZoneInfo = function(callback)###
+
+Get Zone Info
+####Parameters####
+
+* callback *Function* (err, info)
+* * *
+
+
+
+###Sonos.prototype.getZoneAttrs = function(callback)###
+
+Get Zone Attributes
+####Parameters####
+
+* callback *Function* (err, data)
+* * *
+
+
+
+###Sonos.prototype.setName = function(name, callback)###
+
+Set Name
+####Parameters####
+
+* name *String* undefined
+* callback *Function* (err, data)
+
+####Returns####
+
+*[type]* undefined
+* * *
+
+
+
+###Sonos.prototype.setPlayMode = function(playmode, callback)###
+
+Set Play Mode
+####Parameters####
+
+* undefined *String* undefined
+* callback *Function* (err, data)
+
+####Returns####
+
+*[type]* undefined
+* * *
+
+
+
+###Sonos.prototype.setVolume = function(volume, callback)###
+
+Set Volume
+####Parameters####
+
+* volume *String* 0..100
+* callback *Function* (err, data)
+
+####Returns####
+
+*[type]* undefined
+* * *
+
+
+
+###Sonos.prototype.setMuted = function(muted, callback)###
+
+Set Muted
+####Parameters####
+
+* muted *Boolean* undefined
+* callback *Function* (err, data)
+
+####Returns####
+
+*[type]* undefined
+* * *
+
+
+Search
+------
+
+###var Search = function Search()###
+
+Search "Class"
+Emits 'DeviceAvailable' on a Sonos Component Discovery
+* * *
+
+
+search
+------
+
+###var search = sonos.search(listener)###
+
+Create a Search Instance (emits 'DeviceAvailable' with a found Sonos Component)
+####Parameters####
+
+* Optional *Function* 'DeviceAvailable' listener (sonos)
+
+####Returns####
+
+{Search/EventEmitter Instance}
+* * *
+
