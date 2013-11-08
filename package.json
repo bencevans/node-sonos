@@ -30,7 +30,7 @@
     "underscore": "~1.5.1",
     "upnp-client": "0.0.1",
     "xml2js": "~0.2.8",
-    "request": "~2.26.0"
+    "request": "~2.27.0"
   },
   "bugs": {
     "url": "http://github.com/bencevans/node-sonos/issues"
