@@ -34,5 +34,9 @@
   },
   "bugs": {
     "url": "http://github.com/bencevans/node-sonos/issues"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt": "~0.4.2"
   }
 }
