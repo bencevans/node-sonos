@@ -1,0 +1,9 @@
+language: node_js
+services:
+  - redis-server
+env:
+  - TEST_CMD="lint"
+node_js:
+  - "0.10"
+script:
+  - grunt lint
