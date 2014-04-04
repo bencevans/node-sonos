@@ -13,6 +13,7 @@ For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blo
   * Event: 'DeviceAvailable'
 * Class: Sonos(host, [port])
   * request(endpoint, action, body, responseTag, callback)
+  * getMusicLibrary(search, options, callback)
   * currentTrack(callback)
   * parseDIDL(didl)
   * getVolume(callback)
