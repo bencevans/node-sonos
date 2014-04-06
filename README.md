@@ -25,6 +25,7 @@ For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blo
   * next(callback)
   * previous(callback)
   * queueNext(uri, callback)
+  * addToQueue(uri, positionInQueue, callback)
   * flush(callback)
   * getLEDState(callback)
   * setLEDState(desiredState, callback)

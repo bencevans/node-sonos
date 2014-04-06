@@ -215,6 +215,21 @@ Queue a Song Next
 
 
 
+###Sonos.prototype.addToQueue = function(uri, positionInQueue, callback)###
+
+Add a song to the queue
+####Parameters####
+
+* uri *String* URI to Audio Stream
+* positionInQueue *Number* Position in queue at which to add song (1-indexed, 0 means end of queue)
+* callback *Function* (err, queued)
+
+####Returns####
+
+*[type]* undefined
+* * *
+
+
 ###Sonos.prototype.flush = function(callback)###
 
 Flush queue
