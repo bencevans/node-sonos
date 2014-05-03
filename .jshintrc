@@ -13,6 +13,15 @@
   "quotmark": "single",
   "camelcase": false,
   "newcap": true,
-  "eqeqeq": true
+  "eqeqeq": true,
+  "globals" : {
+    /* MOCHA */
+    "describe" : false,
+    "it" : false,
+    "before" : false,
+    "beforeEach" : false,
+    "after" : false,
+    "afterEach" : false
+  }
 
 }
