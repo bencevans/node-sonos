@@ -1,6 +1,6 @@
 # node-sonos
 
-[![npm](http://img.shields.io/npm/v/npm.svg)](https://www.npmjs.org/package/sonos)
+[![npm](http://img.shields.io/npm/v/sonos.svg)](https://www.npmjs.org/package/sonos)
 [![build](http://img.shields.io/travis/bencevans/node-sonos/master.svg)](https://travis-ci.org/bencevans/node-sonos)
 [![code climate](http://img.shields.io/codeclimate/github/bencevans/node-sonos.svg)](https://codeclimate.com/github/bencevans/node-sonos)
 [![gittip](https://img.shields.io/gittip/bencevans.svg)](https://www.gittip.com/bencevans/)
