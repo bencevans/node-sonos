@@ -8,3 +8,4 @@ env:
   - TEST_CMD=test
 before_script:
   - npm install -g grunt-cli
+script: grunt travis
