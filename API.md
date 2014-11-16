@@ -17,7 +17,7 @@ This module exports 3 items:
     s.currentTrack(console.log);
 
     // sonos.Services - wrappers arounds all UPNP services provided by sonsos
-    // These aren't used internally by the module at all but may be usefull
+    // These aren't used internally by the module at all but may be useful
     // for more complex projects.
 
 ###var Sonos = new sonos.Sonos(host, port)###
