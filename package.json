@@ -30,19 +30,21 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "async": "^0.9.0",
     "debug": "~0.7.2",
+    "ip": "~0.3.0",
+    "request": "~2.27.0",
     "underscore": "~1.5.1",
     "upnp-client": "0.0.1",
-    "xml2js": "~0.2.8",
-    "request": "~2.27.0",
-    "ip": "~0.3.0"
+    "xml2js": "~0.2.8"
   },
   "bugs": {
     "url": "http://github.com/bencevans/node-sonos/issues"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "~0.8.0",
     "grunt": "~0.4.2",
-    "grunt-mocha-test": "~0.10.2"
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-mocha-test": "~0.10.2",
+    "keypress": "^0.2.1"
   }
 }
