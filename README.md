@@ -55,9 +55,9 @@ Additional examples can be found in the [/examples](https://github.com/bencevans
 
     npm install git://github.com/bencevans/node-sonos.git
 
-## Licence
+## License
 
-(MIT Licence)
+(MIT License)
 
     Copyright (c) 2012 Ben Evans
 
