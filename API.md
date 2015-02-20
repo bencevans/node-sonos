@@ -27,6 +27,7 @@ Sonos "Class"
 
 * host *String* IP/DNS
 * port *Number* undefined
+
 * * *
 
 
@@ -66,6 +67,18 @@ Get Current Track
 ####Parameters####
 
 * callback *Function* (err, track)
+
+####Returns####
+
+*Void* undefined
+* * *
+
+###Sonos.prototype.getCurrentState = function(callback)###
+
+Get current playback state
+####Parameters####
+
+* callback *Function* (err, state)
 
 ####Returns####
 
@@ -251,6 +264,7 @@ Get the LED State
 ####Parameters####
 
 * callback *Function* (err, state) state is a string, "On" or "Off"
+
 * * *
 
 
@@ -262,6 +276,7 @@ Set the LED State
 
 * desiredState *String* "On"/"Off"
 * callback *Function* (err)
+
 * * *
 
 
@@ -272,6 +287,7 @@ Get Zone Info
 ####Parameters####
 
 * callback *Function* (err, info)
+
 * * *
 
 
@@ -282,6 +298,29 @@ Get Zone Attributes
 ####Parameters####
 
 * callback *Function* (err, data)
+
+* * *
+
+
+
+###Sonos.prototype.getTopology = function(callback)###
+
+Get Zones in contact with current Zone with Group Data
+####Parameters####
+
+* callback *Function* (err, topology)
+
+* * *
+
+
+
+###Sonos.prototype.deviceDescription = function(callback)###
+
+Get Information provided by /xml/device_description.xml
+####Parameters####
+
+* callback *Function* (err, info)
+
 * * *
 
 
@@ -297,6 +336,7 @@ Set Name
 ####Returns####
 
 *[type]* undefined
+
 * * *
 
 
