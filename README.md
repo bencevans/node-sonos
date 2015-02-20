@@ -18,10 +18,13 @@ For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blo
   * Event: 'DeviceAvailable'
 * Class: Sonos(host, [port])
   * currentTrack(callback)
+  * deviceDescription(callback)
   * flush(callback)
+  * getCurrentState(callback)
   * getLEDState(callback)
   * getMusicLibrary(search, options, callback)
   * getMuted(callback)
+  * getTopology(callback)
   * getVolume(callback)
   * getZoneAttrs(callback)
   * getZoneInfo(callback)
