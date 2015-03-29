@@ -9,7 +9,9 @@ var TIMEOUT = 2000,// Search for 2 seconds, increase this value if not all devic
 function getBridges(deviceList){
   var bridges = [];
   deviceList.forEach(function(device){
-    if (device.CurrentZoneName === 'BRIDGE' && bridges.indexOf(device.ip + ':' + device.port) === -1) bridges.push(device.ip + ':' + device.port);
+    if (device.CurrentZoneName === 'BRIDGE' && bridges.indexOf(device.ip + ':' + device.port) === -1) {
+      bridges.push(device.ip + ':' + device.port);
+    }
   });
   return bridges;
 }
@@ -17,7 +19,9 @@ function getBridges(deviceList){
 function getBridgeDevices(deviceList) {
   var bridgeDevices = [];
   deviceList.forEach(function(device){
-    if (device.CurrentZoneName === 'BRIDGE') bridgeDevices.push(device);
+    if (device.CurrentZoneName === 'BRIDGE') {
+      bridgeDevices.push(device);
+    }
   });
   return bridgeDevices;
 }
@@ -25,7 +29,9 @@ function getBridgeDevices(deviceList) {
 function getZones(deviceList){
   var zones = [];
   deviceList.forEach(function(device){
-    if (zones.indexOf(device.CurrentZoneName) === -1 && device.CurrentZoneName !== 'BRIDGE') zones.push(device.CurrentZoneName);
+    if (zones.indexOf(device.CurrentZoneName) === -1 && device.CurrentZoneName !== 'BRIDGE') {
+      zones.push(device.CurrentZoneName);
+    }
   });
   return zones;
 }
@@ -33,7 +39,9 @@ function getZones(deviceList){
 function getZoneDevices(zone, deviceList) {
   var zoneDevices = [];
   deviceList.forEach(function(device){
-    if (device.CurrentZoneName === zone) zoneDevices.push(device);
+    if (device.CurrentZoneName === zone) {
+      zoneDevices.push(device);
+    }
   });
   return zoneDevices;
 }
@@ -41,7 +49,9 @@ function getZoneDevices(zone, deviceList) {
 function getZoneCoordinator(zone, deviceList) {
   var coordinator;
   deviceList.forEach(function(device){
-    if (device.CurrentZoneName === zone && device.coordinator === 'true') coordinator = device;
+    if (device.CurrentZoneName === zone && device.coordinator === 'true') {
+      coordinator = device;
+    }
   });
   return coordinator;
 }
@@ -53,9 +63,13 @@ sonos.search({timeout: TIMEOUT}, function (device, model) {
   var data = {ip:device.host, port:device.port, model:model};
 
   device.getZoneAttrs(function (err, attrs) {
-    if (!err) _.extend(data, attrs);
+    if (!err) {
+      _.extend(data, attrs);
+    }
     device.getZoneInfo(function (err, info) {
-      if (!err) _.extend(data, info);
+      if (!err) {
+        _.extend(data, info);
+      }
       device.getTopology(function (err, info) {
         if (!err) {
           info.zones.forEach(function(group){
@@ -83,7 +97,9 @@ setTimeout(function() {
   console.log('\nZones (coordinator):\n--------------------');
   getZones(devices).forEach(function(zone){
     var coordinator = getZoneCoordinator(zone, devices);
-    if (coordinator !== undefined) console.log(zone + ' (' + coordinator.ip + ':' + coordinator.port + ')');
+    if (coordinator !== undefined) {
+      console.log(zone + ' (' + coordinator.ip + ':' + coordinator.port + ')');
+    }
     getZoneDevices(zone, devices).forEach(function(device){
       console.log('\t' + JSON.stringify(device));
     });
