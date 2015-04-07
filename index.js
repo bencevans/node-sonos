@@ -1,1 +1,1 @@
-module.exports = require('./lib/sonos');
+module.exports = require('./lib/sonos')

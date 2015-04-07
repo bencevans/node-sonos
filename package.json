@@ -4,7 +4,8 @@
   "description": "Node.js Sonos Interface",
   "main": "index.js",
   "scripts": {
-    "test": "grunt"
+    "lint": "standard",
+    "test": "mocha test/ && npm run lint"
   },
   "repository": {
     "type": "git",
@@ -41,8 +42,6 @@
     "url": "http://github.com/bencevans/node-sonos/issues"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "~0.8.0",
-    "grunt": "~0.4.2",
-    "grunt-mocha-test": "~0.10.2"
+    "standard": "^3.3.2"
   }
 }
