@@ -1,107 +1,106 @@
-var _ = require('underscore');
-var sonos = require('../index');
+var _ = require('underscore')
+var sonos = require('../index')
 
 var TIMEOUT = 2000,// Search for 2 seconds, increase this value if not all devices are shown
-    devices = [];
+  devices = []
 
-// Functions to process device information
+  // Functions to process device information
 
-function getBridges(deviceList){
-  var bridges = [];
-  deviceList.forEach(function(device){
+function getBridges (deviceList) {
+  var bridges = []
+  deviceList.forEach(function (device) {
     if (device.CurrentZoneName === 'BRIDGE' && bridges.indexOf(device.ip + ':' + device.port) === -1) {
-      bridges.push(device.ip + ':' + device.port);
+      bridges.push(device.ip + ':' + device.port)
     }
-  });
-  return bridges;
+  })
+  return bridges
 }
 
-function getBridgeDevices(deviceList) {
-  var bridgeDevices = [];
-  deviceList.forEach(function(device){
+function getBridgeDevices (deviceList) {
+  var bridgeDevices = []
+  deviceList.forEach(function (device) {
     if (device.CurrentZoneName === 'BRIDGE') {
-      bridgeDevices.push(device);
+      bridgeDevices.push(device)
     }
-  });
-  return bridgeDevices;
+  })
+  return bridgeDevices
 }
 
-function getZones(deviceList){
-  var zones = [];
-  deviceList.forEach(function(device){
+function getZones (deviceList) {
+  var zones = []
+  deviceList.forEach(function (device) {
     if (zones.indexOf(device.CurrentZoneName) === -1 && device.CurrentZoneName !== 'BRIDGE') {
-      zones.push(device.CurrentZoneName);
+      zones.push(device.CurrentZoneName)
     }
-  });
-  return zones;
+  })
+  return zones
 }
 
-function getZoneDevices(zone, deviceList) {
-  var zoneDevices = [];
-  deviceList.forEach(function(device){
+function getZoneDevices (zone, deviceList) {
+  var zoneDevices = []
+  deviceList.forEach(function (device) {
     if (device.CurrentZoneName === zone) {
-      zoneDevices.push(device);
+      zoneDevices.push(device)
     }
-  });
-  return zoneDevices;
+  })
+  return zoneDevices
 }
 
-function getZoneCoordinator(zone, deviceList) {
-  var coordinator;
-  deviceList.forEach(function(device){
+function getZoneCoordinator (zone, deviceList) {
+  var coordinator
+  deviceList.forEach(function (device) {
     if (device.CurrentZoneName === zone && device.coordinator === 'true') {
-      coordinator = device;
+      coordinator = device
     }
-  });
-  return coordinator;
+  })
+  return coordinator
 }
 
 // Search and collect device information
 
 sonos.search({timeout: TIMEOUT}, function (device, model) {
-
-  var data = {ip:device.host, port:device.port, model:model};
+  var data = {ip: device.host, port: device.port, model: model}
 
   device.getZoneAttrs(function (err, attrs) {
     if (!err) {
-      _.extend(data, attrs);
+      _.extend(data, attrs)
     }
     device.getZoneInfo(function (err, info) {
       if (!err) {
-        _.extend(data, info);
+        _.extend(data, info)
       }
       device.getTopology(function (err, info) {
         if (!err) {
-          info.zones.forEach(function(group){
+          info.zones.forEach(function (group) {
             if (group.location === 'http://' + data.ip + ':' + data.port + '/xml/device_description.xml') {
-              _.extend(data, group);
+              _.extend(data, group)
             }
-          });
+          })
         }
-        devices.push(data);
-      });
-    });
-  });
-});
+        devices.push(data)
+      })
+    })
+  })
+})
 
 // Display device information in structured form
 
-setTimeout(function() {
-  console.log('\nBridges:\n--------');
-  getBridges(devices).forEach(function(bridge){
-    console.log(bridge);
-    getBridgeDevices(devices).forEach(function(device){
-      console.log('\t' + JSON.stringify(device));
-    });
-  });
-  console.log('\nZones (coordinator):\n--------------------');
-  getZones(devices).forEach(function(zone){
-    var coordinator = getZoneCoordinator(zone, devices);
+setTimeout(function () {
+  console.log('\nBridges:\n--------')
+  getBridges(devices).forEach(function (bridge) {
+    console.log(bridge)
+    getBridgeDevices(devices).forEach(function (device) {
+      console.log('\t' + JSON.stringify(device))
+    })
+  })
+  console.log('\nZones (coordinator):\n--------------------')
+  getZones(devices).forEach(function (zone) {
+    var coordinator = getZoneCoordinator(zone, devices)
     if (coordinator !== undefined) {
-      console.log(zone + ' (' + coordinator.ip + ':' + coordinator.port + ')');
+      console.log(zone + ' (' + coordinator.ip + ':' + coordinator.port + ')')
     }
-    getZoneDevices(zone, devices).forEach(function(device){
-      console.log('\t' + JSON.stringify(device));
-    });
-  });
-}, TIMEOUT);
+    getZoneDevices(zone, devices).forEach(function (device) {
+      console.log('\t' + JSON.stringify(device))
+    })
+  })
+}, TIMEOUT)
