@@ -4,8 +4,6 @@ node_js:
 matrix:
   fast_finish: true
 env:
-  - TEST_CMD=lint
-  - TEST_CMD=test
-before_script:
-  - npm install -g grunt-cli
-script: grunt travis
+  - CMD=lint
+  - CMD=test
+script: npm run env-run
