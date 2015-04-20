@@ -2,7 +2,7 @@
 
 [![npm](http://img.shields.io/npm/v/sonos.svg)](https://www.npmjs.org/package/sonos)
 [![build](http://img.shields.io/travis/bencevans/node-sonos/master.svg)](https://travis-ci.org/bencevans/node-sonos)
-[![code climate](http://img.shields.io/codeclimate/github/bencevans/node-sonos.svg)](https://codeclimate.com/github/bencevans/node-sonos)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 [![gittip](https://img.shields.io/gittip/bencevans.svg)](https://www.gittip.com/bencevans/)
 
 Node.js Interface to [Sonos](http://sonos.com)
