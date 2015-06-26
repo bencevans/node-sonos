@@ -64,7 +64,7 @@ Additional examples can be found in the [/examples](https://github.com/bencevans
 * Stephen Wan (@stephen)
 * Marshall T. Rose (@mrose17)
 
-And a big thanks to all you other [contributors](https://github.com/bencevans/node-sonos/graphs/contributors)! Pull-requests are beutiful things.
+And a big thanks to all you other [contributors](https://github.com/bencevans/node-sonos/graphs/contributors)! Pull-requests are beautiful things.
 
 ## Licence
 
