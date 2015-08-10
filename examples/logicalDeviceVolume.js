@@ -1,6 +1,10 @@
 var Sonos = require('../');
 var keypress = require('keypress');
 
+Sonos.LogicalDevice.search(function(err, groups) {
+  console.log(err, groups);
+});
+
 var dev = new Sonos.LogicalDevice([
   { host: '172.17.106.196', port: 1400 },
   { host: '172.17.107.66', port: 1400 }
