@@ -105,3 +105,38 @@ describe('Sonos', function () {
   })
 
 })
+
+describe('search', function () {
+  var sonos = require('../index');
+
+  it('should emit a timeout event when timeout is hit', function (done) {
+    var errTimeout = setTimeout(function () {
+      assert(false, 'Event never fired')
+      done()
+    }, 100)
+
+    var search = sonos.search({timeout: 10}, function (device, model) {});
+
+    search.on('timeout', function () {
+      assert(true)
+      done()
+    })
+
+  })
+
+  it('should not emit a timeout event when no timeout option is passed in', function (done) {
+    var errTimeout = setTimeout(function () {
+      assert(true)
+      done()
+    }, 10)
+
+    var search = sonos.search(function (device, model) {})
+
+    search.on('timeout', function () {
+      assert(false, 'Timeout event should never fire')
+      done()
+    })
+
+  })
+
+})
