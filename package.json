@@ -32,18 +32,18 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "debug": "~0.7.2",
-    "underscore": "~1.5.1",
+    "debug": "0.7.4",
+    "underscore": "1.5.2",
     "upnp-client": "0.0.1",
-    "xml2js": "~0.2.8",
-    "request": "~2.27.0",
-    "ip": "~0.3.0"
+    "xml2js": "0.2.8",
+    "request": "2.27.0",
+    "ip": "0.3.3"
   },
   "bugs": {
     "url": "http://github.com/bencevans/node-sonos/issues"
   },
   "devDependencies": {
-    "mocha": "^2.2.3",
-    "standard": "^3.3.2"
+    "mocha": "2.3.3",
+    "standard": "3.13.2"
   }
 }
