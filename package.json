@@ -32,7 +32,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "debug": "0.7.4",
+    "debug": "2.2.0",
     "underscore": "1.5.2",
     "upnp-client": "0.0.1",
     "xml2js": "0.2.8",
