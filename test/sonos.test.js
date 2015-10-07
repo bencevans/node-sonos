@@ -66,7 +66,6 @@ describe('Sonos', function () {
         uri: 'http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3',
         metadata: 'test'
       })
-
     })
   })
 
@@ -82,7 +81,6 @@ describe('Sonos', function () {
       }
 
       sonos.queueNext('http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3', function () {})
-
     })
 
     it('should accept object in place of uri', function (done) {
@@ -99,9 +97,6 @@ describe('Sonos', function () {
         uri: 'http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3',
         metadata: '<test>"hello"</test>'
       }, function () {})
-
     })
-
   })
-
 })

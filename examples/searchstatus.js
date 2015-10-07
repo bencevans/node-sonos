@@ -1,5 +1,5 @@
-var sonos = require('../'),
-  debug = require('debug')('search')
+var sonos = require('../')
+var debug = require('debug')('search')
 
 sonos.search(function (sonos) {
   debug("Found Sonos '%s'", sonos.host)

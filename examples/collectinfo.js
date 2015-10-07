@@ -1,8 +1,8 @@
 var _ = require('underscore')
 var sonos = require('../index')
 
-var TIMEOUT = 2000,// Search for 2 seconds, increase this value if not all devices are shown
-  devices = []
+var TIMEOUT = 2000 // Search for 2 seconds, increase this value if not all devices are shown
+var devices = []
 
   // Functions to process device information
 
