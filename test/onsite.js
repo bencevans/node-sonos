@@ -1,4 +1,4 @@
-const assert = require('assert')
+/* eslint-env mocha */
 const sonos = require('../')
 
 describe('sonos.search()', function () {
