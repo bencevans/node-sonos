@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "standard",
     "test": "mocha test/",
+    "coverage": "nyc npm test",
     "env-run": "npm run $CMD"
   },
   "repository": {
@@ -44,6 +45,7 @@
   },
   "devDependencies": {
     "mocha": "2.3.3",
+    "nyc": "^3.2.2",
     "standard": "3.13.2"
   }
 }
