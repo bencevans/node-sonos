@@ -37,7 +37,7 @@
     "upnp-client": "0.0.1",
     "xml2js": "0.4.15",
     "request": "2.66.0",
-    "ip": "1.0.2"
+    "ip": "1.1.0"
   },
   "bugs": {
     "url": "http://github.com/bencevans/node-sonos/issues"
