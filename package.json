@@ -36,7 +36,7 @@
     "underscore": "1.8.3",
     "upnp-client": "0.0.1",
     "xml2js": "0.4.15",
-    "request": "2.66.0",
+    "request": "2.67.0",
     "ip": "1.1.0"
   },
   "bugs": {
