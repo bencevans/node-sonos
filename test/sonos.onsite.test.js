@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 const sonos = require('../')
 
 describe('Search Music Library', function () {
