@@ -1,6 +1,7 @@
 /* eslint-env mocha */
-var assert = require('assert')
-var Sonos = require('../index').Sonos
+const assert = require('assert')
+const sonos = require('../')
+const Sonos = sonos.Sonos
 
 describe('Sonos', function () {
   describe('play()', function () {
@@ -102,25 +103,22 @@ describe('Sonos', function () {
 })
 
 describe('search', function () {
-  var sonos = require('../index');
-
   it('should emit a timeout event when timeout is hit', function (done) {
-    var errTimeout = setTimeout(function () {
+    setTimeout(function () {
       assert(false, 'Event never fired')
       done()
     }, 100)
 
-    var search = sonos.search({timeout: 10}, function (device, model) {});
+    var search = sonos.search({ timeout: 10 }, function (device, model) {})
 
     search.on('timeout', function () {
       assert(true)
       done()
     })
-
   })
 
   it('should not emit a timeout event when no timeout option is passed in', function (done) {
-    var errTimeout = setTimeout(function () {
+    setTimeout(function () {
       assert(true)
       done()
     }, 10)
@@ -131,7 +129,5 @@ describe('search', function () {
       assert(false, 'Timeout event should never fire')
       done()
     })
-
   })
-
 })
