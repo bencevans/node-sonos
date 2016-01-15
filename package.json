@@ -36,7 +36,7 @@
     "debug": "2.2.0",
     "underscore": "1.8.3",
     "upnp-client": "0.0.1",
-    "xml2js": "0.4.15",
+    "xml2js": "0.4.16",
     "request": "2.67.0",
     "ip": "1.1.0"
   },
