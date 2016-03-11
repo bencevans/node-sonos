@@ -409,3 +409,16 @@ Create a Search Instance (emits 'DeviceAvailable' with a found Sonos Component)
 
 {Search/EventEmitter Instance}
 * * *
+
+
+###Search.prototype.destroy = function(callback)###
+
+Stops searching and destroy the Search object
+####Parameters####
+
+* callback *Function* ()
+
+####Returns####
+
+*[type]* undefined
+* * *
