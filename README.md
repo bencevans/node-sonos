@@ -15,6 +15,7 @@ For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blo
 * search([deviceAvailableListener])
 * Class: Search()
   * Event: 'DeviceAvailable'
+  * destroy()
 * Class: Sonos(host, [port])
   * currentTrack(callback)
   * deviceDescription(callback)

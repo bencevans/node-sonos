@@ -130,4 +130,17 @@ describe('search', function () {
       done()
     })
   })
+
+  it('should not emit a timeout event after search is stopped', function (done) {
+    var search = sonos.search({ timeout: 10 }, function (device, model) {})
+
+    search.on('timeout', function () {
+      assert(false, 'Timeout event should never fire')
+      done()
+    })
+    search.destroy(function () {
+      assert(true)
+      done()
+    })
+  })
 })
