@@ -3,16 +3,15 @@ const assert = require('assert')
 const sonos = require('../')
 
 describe('On site Sonos', function () {
-  describe('Search Music Library', function () {
-    var device = null
-
-    before(function (done) {
-      sonos.search(function (dev) {
-        device = dev
-        done()
-      })
+  var device = null
+  before(function (done) {
+    sonos.search(function (dev) {
+      device = dev
+      done()
     })
+  })
 
+  describe('Search Music Library', function () {
     it('returns search results from the Sonos library', function (done) {
       // TODO: Verify data response
       device.searchMusicLibrary('tracks', 'Newton', {}, done)
