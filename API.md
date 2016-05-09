@@ -52,7 +52,7 @@ UPnP HTTP Request
 Get Music Library
 ####Parameters
 
-* search *String* artists, albumArtists, albums, genres, composers, tracks, playlists, or share
+* search *String* artists, albumArtists, albums, genres, composers, tracks, playlists, sonos_playlists, or share
 * options *Object* Default {start:0, total:100}
 * callback *Function* (err, data) data - {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
 

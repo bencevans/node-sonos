@@ -45,4 +45,12 @@ describe('On site Sonos', function () {
       })
     })
   })
+
+  it('should return Sonos playlists', function (done) {
+    device.searchMusicLibrary('sonos_playlists', null, {}, function (err, result) {
+      assert(err !== false)
+      assert(result)
+      done()
+    })
+  })
 })
