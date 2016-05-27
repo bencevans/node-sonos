@@ -106,20 +106,77 @@ describe('Sonos', function () {
       sonos.queueNext('http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3', function () {})
     })
 
-    it('should accept object in place of uri', function (done) {
+    it('should accept a uri string', function (done) {
       var sonos = new Sonos('localhost', 1400)
 
-      sonos.request = function (endpoint, action, body) {
-        assert(endpoint === '/MediaRenderer/AVTransport/Control')
-        assert(action === '"urn:schemas-upnp-org:service:AVTransport:1#SetAVTransportURI"')
-        assert(body === '<u:SetAVTransportURI xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><CurrentURI>http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3</CurrentURI><CurrentURIMetaData>&lt;test&gt;&quot;hello&quot;&lt;/test&gt;</CurrentURIMetaData></u:SetAVTransportURI>')
-        done()
+      var actionCounter = 0
+
+      sonos.request = function (endpoint, action, body, _, callback) {
+        actionCounter++
+
+        if (actionCounter === 1) {
+          assert(endpoint === '/MediaRenderer/AVTransport/Control')
+          assert(action === '"urn:schemas-upnp-org:service:AVTransport:1#SetAVTransportURI"')
+          assert(body === '<u:SetAVTransportURI xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><CurrentURI>http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3</CurrentURI><CurrentURIMetaData></CurrentURIMetaData></u:SetAVTransportURI>')
+          callback(null, [{
+            FirstTrackNumberEnqueued: ['1'],
+            NewQueueLength: ['1'],
+            NumTracksAdded: ['1']
+          }])
+        } else if (actionCounter === 2) {
+          assert(endpoint === '/MediaRenderer/AVTransport/Control')
+          assert(action === '"urn:schemas-upnp-org:service:AVTransport:1#Seek"')
+          assert(body === '<u:Seek xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><Unit>TRACK_NR</Unit><Target>1</Target></u:Seek>')
+          callback(null, [{
+            $: {'xmlns:u': 'urn:schemas-upnp-org:service:AVTransport:1'}
+          }])
+        } else if (actionCounter === 3) {
+          assert(endpoint === '/MediaRenderer/AVTransport/Control')
+          assert(action === '"urn:schemas-upnp-org:service:AVTransport:1#Play"')
+          assert(body === '<u:Play xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><Speed>1</Speed></u:Play>')
+          done()
+        }
+      }
+
+      sonos.queueNext('http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3')
+    })
+
+    it('should be able to accept an object instead of uri', function (done) {
+      var sonos = new Sonos('localhost', 1400)
+
+      var actionCounter = 0
+
+      sonos.request = function (endpoint, action, body, _, callback) {
+        actionCounter++
+
+        if (actionCounter === 1) {
+          assert(endpoint === '/MediaRenderer/AVTransport/Control')
+          assert(action === '"urn:schemas-upnp-org:service:AVTransport:1#AddURIToQueue"')
+          assert(body === '<u:AddURIToQueue xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><EnqueuedURI>http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3</EnqueuedURI><EnqueuedURIMetaData>test</EnqueuedURIMetaData><DesiredFirstTrackNumberEnqueued>0</DesiredFirstTrackNumberEnqueued><EnqueueAsNext>1</EnqueueAsNext></u:AddURIToQueue>')
+          callback(null, [{
+            FirstTrackNumberEnqueued: ['1'],
+            NewQueueLength: ['1'],
+            NumTracksAdded: ['1']
+          }])
+        } else if (actionCounter === 2) {
+          assert(endpoint === '/MediaRenderer/AVTransport/Control')
+          assert(action === '"urn:schemas-upnp-org:service:AVTransport:1#Seek"')
+          assert(body === '<u:Seek xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><Unit>TRACK_NR</Unit><Target>1</Target></u:Seek>')
+          callback(null, [{
+            $: {'xmlns:u': 'urn:schemas-upnp-org:service:AVTransport:1'}
+          }])
+        } else if (actionCounter === 3) {
+          assert(endpoint === '/MediaRenderer/AVTransport/Control')
+          assert(action === '"urn:schemas-upnp-org:service:AVTransport:1#Play"')
+          assert(body === '<u:Play xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><Speed>1</Speed></u:Play>')
+          done()
+        }
       }
 
       sonos.queueNext({
         uri: 'http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3',
-        metadata: '<test>"hello"</test>'
-      }, function () {})
+        metadata: 'test'
+      })
     })
   })
 })

@@ -47,6 +47,7 @@ UPnP HTTP Request
 *Void* undefined
 * * *
 
+
 ###Sonos.prototype.getMusicLibrary = function(search, options, callback)
 
 Get Music Library
@@ -61,6 +62,7 @@ Get Music Library
 *Void* undefined
 * * *
 
+
 ###Sonos.prototype.currentTrack = function(callback)###
 
 Get Current Track
@@ -72,6 +74,7 @@ Get Current Track
 
 *Void* undefined
 * * *
+
 
 ###Sonos.prototype.getCurrentState = function(callback)###
 
@@ -99,7 +102,6 @@ Parse DIDL into track structure
 * * *
 
 
-
 ###Sonos.prototype.getVolume = function(callback)###
 
 Get Current Volume
@@ -111,7 +113,6 @@ Get Current Volume
 
 *Void* undefined
 * * *
-
 
 
 ###Sonos.prototype.getMuted = function(callback)###
@@ -127,20 +128,18 @@ Get Current Muted
 * * *
 
 
-
 ###Sonos.prototype.play = function(uri, callback)###
 
 Resumes Queue or Plays Provided URI
 ####Parameters####
 
-* uri *String* Optional - URI to a Audio Stream
+* uri *String* Optional - URI to Audio Stream, also supports Spotify resource ids (e.g. ```spotify:artist:<id>```, ```spotify:album:<id>```, ```spotify:track:<id>```, and ```spotify:user:<user>:playlist:<id>```
 * callback *Function* (err, playing)
 
 ####Returns####
 
 *Void* undefined
 * * *
-
 
 
 ###Sonos.prototype.stop = function(callback)###
@@ -156,7 +155,6 @@ Stop What's Playing
 * * *
 
 
-
 ###Sonos.prototype.pause = function(callback)###
 
 Pause Current Queue
@@ -168,7 +166,6 @@ Pause Current Queue
 
 *Void* undefined
 * * *
-
 
 
 ###Sonos.prototype.seek = function(seconds, callback)###
@@ -184,6 +181,19 @@ Seek the current track
 * * *
 
 
+###Sonos.prototype.selectTrack = function(trackNr, callback)###
+
+Select specific track in queue
+####Parameters####
+
+* trackNr *Number* Number of track in queue (optional, indexed from 1)
+* callback *Function* (err, seeked)
+
+####Returns####
+
+*Void* undefined
+* * *
+
 
 ###Sonos.prototype.next = function(callback)###
 
@@ -198,7 +208,6 @@ Play next in queue
 * * *
 
 
-
 ###Sonos.prototype.previous = function(callback)###
 
 Play previous in queue
@@ -210,7 +219,6 @@ Play previous in queue
 
 *Void* undefined
 * * *
-
 
 
 ###Sonos.prototype.queueNext = function(uri, callback)###
@@ -227,13 +235,27 @@ Queue a Song Next
 * * *
 
 
+###Sonos.prototype.playSpotifyRadio = function(artistId, artistName, callback)###
+
+Add a song to the queue
+####Parameters####
+
+* artistId *String* Spotify Id to for artist (e.g. ```spotify:artist:<id>```) 
+* artistName *String* Name of artist to use for radio station name
+* callback *Function* (err, queued)
+
+####Returns####
+
+*[type]* undefined
+* * *
+
 
 ###Sonos.prototype.queue = function(uri, positionInQueue, callback)###
 
 Add a song to the queue
 ####Parameters####
 
-* uri *String* URI to Audio Stream
+* uri *String* URI to Audio Stream, also supports Spotify resource ids (e.g. ```spotify:artist:<id>```, ```spotify:album:<id>```, ```spotify:track:<id>```, and ```spotify:user:<user>:playlist:<id>```
 * positionInQueue *Number* Position in queue at which to add song (optional, indexed from 1,
 defaults to end of queue, 0 to explicitly set end of queue)
 * callback *Function* (err, queued)
@@ -257,7 +279,6 @@ Flush queue
 * * *
 
 
-
 ###Sonos.prototype.getLEDState = function(callback)###
 
 Get the LED State
@@ -266,7 +287,6 @@ Get the LED State
 * callback *Function* (err, state) state is a string, "On" or "Off"
 
 * * *
-
 
 
 ###Sonos.prototype.setLEDState = function(desiredState, callback)###
@@ -280,7 +300,6 @@ Set the LED State
 * * *
 
 
-
 ###Sonos.prototype.getZoneInfo = function(callback)###
 
 Get Zone Info
@@ -289,7 +308,6 @@ Get Zone Info
 * callback *Function* (err, info)
 
 * * *
-
 
 
 ###Sonos.prototype.getZoneAttrs = function(callback)###
@@ -302,7 +320,6 @@ Get Zone Attributes
 * * *
 
 
-
 ###Sonos.prototype.getTopology = function(callback)###
 
 Get Zones in contact with current Zone with Group Data
@@ -313,7 +330,6 @@ Get Zones in contact with current Zone with Group Data
 * * *
 
 
-
 ###Sonos.prototype.deviceDescription = function(callback)###
 
 Get Information provided by /xml/device_description.xml
@@ -322,7 +338,6 @@ Get Information provided by /xml/device_description.xml
 * callback *Function* (err, info)
 
 * * *
-
 
 
 ###Sonos.prototype.setName = function(name, callback)###
@@ -340,7 +355,6 @@ Set Name
 * * *
 
 
-
 ###Sonos.prototype.setPlayMode = function(playmode, callback)###
 
 Set Play Mode
@@ -352,8 +366,8 @@ Set Play Mode
 ####Returns####
 
 *[type]* undefined
-* * *
 
+* * *
 
 
 ###Sonos.prototype.setVolume = function(volume, callback)###
@@ -367,8 +381,8 @@ Set Volume
 ####Returns####
 
 *[type]* undefined
-* * *
 
+* * *
 
 
 ###Sonos.prototype.setMuted = function(muted, callback)###
@@ -382,6 +396,7 @@ Set Muted
 ####Returns####
 
 *[type]* undefined
+
 * * *
 
 
@@ -392,6 +407,7 @@ Search
 
 Search "Class"
 Emits 'DeviceAvailable' on a Sonos Component Discovery
+
 * * *
 
 
@@ -408,6 +424,7 @@ Create a Search Instance (emits 'DeviceAvailable' with a found Sonos Component)
 ####Returns####
 
 {Search/EventEmitter Instance}
+
 * * *
 
 
@@ -421,4 +438,5 @@ Stops searching and destroy the Search object
 ####Returns####
 
 *[type]* undefined
+
 * * *
