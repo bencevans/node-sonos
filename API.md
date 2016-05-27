@@ -53,7 +53,7 @@ UPnP HTTP Request
 Get Music Library
 ####Parameters
 
-* search *String* artists, albumArtists, albums, genres, composers, tracks, playlists, or share
+* search *String* artists, albumArtists, albums, genres, composers, tracks, playlists, sonos_playlists, or share
 * options *Object* Default {start:0, total:100}
 * callback *Function* (err, data) data - {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
 
@@ -398,6 +398,53 @@ Set Muted
 *[type]* undefined
 
 * * *
+
+
+
+###Sonos.prototype.getFavoritesRadioStations = function(options, callback)
+
+Get Favorites Radio Stations
+####Parameters
+
+* options *Object* Default {start:0, total:100}
+* callback *Function* (err, data) data - {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
+
+####Returns####
+
+*Void* undefined
+* * *
+
+
+
+###Sonos.prototype.getFavoritesRadioShows = function(options, callback)
+
+Get Favorites Radio Shows
+####Parameters
+
+* options *Object* Default {start:0, total:100}
+* callback *Function* (err, data) data - {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
+
+####Returns####
+
+*Void* undefined
+* * *
+
+
+
+###Sonos.prototype.getFavoritesRadio = function(favoriteRadioType, options, callback)
+
+Get Favorites Radio for a given type
+####Parameters
+
+* favoriteRadioType *String* stations, shows
+* options *Object* Default {start:0, total:100}
+* callback *Function* (err, data) data - {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
+
+####Returns####
+
+*Void* undefined
+* * *
+
 
 
 Search
