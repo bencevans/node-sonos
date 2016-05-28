@@ -32,33 +32,33 @@ playSpotifyUri(spotifyUri, (err, result) => {
   if (!this.sonos) {
     return callback('No Sonos controller found')
   }
-async.series([
-  (next) => {
-    this.sonos.selectQueue((err, selectQueueResult) => {
-      if (err) {
-        return next(err)
-      }
-      return next(null)
-    })
-  },
-  (next) => {
-    this.sonos.flush((err, flushQueueResult) => {
-      if (err) {
-        return next(err)
-      }
-      return next(null)
-    })
-  },
-  (next) => {
-     this.sonos.setVolume("25", (err, volumeResult) => {
-     if (err) {
-       return next(err)
-     }
-     return next(null)
-    })
-  },
-  (next) => {
-    this.sonos.play(spotifyUri, (err, playResult) => {
+  async.series([
+    (next) => {
+      this.sonos.selectQueue((err, selectQueueResult) => {
+        if (err) {
+          return next(err)
+        }
+        return next(null)
+      })
+    },
+    (next) => {
+      this.sonos.flush((err, flushQueueResult) => {
+        if (err) {
+          return next(err)
+        }
+        return next(null)
+      })
+    },
+    (next) => {
+      this.sonos.setVolume("25", (err, volumeResult) => {
+        if (err) {
+          return next(err)
+        }
+        return next(null)
+      })
+    },
+    (next) => {
+      this.sonos.play(spotifyUri, (err, playResult) => {
         if (err) {
           return next(err)
         }
@@ -67,9 +67,9 @@ async.series([
     }
   ], (err) => {
     if (err) {
-        return callback('Error playing Spotify uri')
+      return console.log('Error playing Spotify uri')
     }
-    return callback(null, 'Succeeded')
+    return console.log(null, 'Succeeded')
   })
 })
 
