@@ -18,6 +18,8 @@ var sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
 // This assumes you have the Spotify music service connected to
 // your Sonos system.
 
+var spotifyUri = 'spotify:track:1AhDOtG9vPSOmsWgNW0BEY'
+
 this.sonos.play(spotifyUri, (err, result) => {
   if (err) {
     return console.log(err)
