@@ -17,16 +17,15 @@ var sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
 //     Top tracks by Queen - spotify:artistTopTracks:1dfeR4HaWDbWqFHLkxsg1d
 //     Queen playlist (public user) - spotify:user:lorrainehelen:playlist:2ytnaITywUiPoS9JDYig5I
 //
-// The sample code below selects the queue, clears it, sets the volume 
-// and then plays the music through the Spotify service by specifying 
+// The sample code below selects the queue, clears it, sets the volume
+// and then plays the music through the Spotify service by specifying
 // the appropriate Spotify uri.
 //
-// This assumes you have the Spotify music service connected to 
+// This assumes you have the Spotify music service connected to
 // your Sonos system.
 
-playSpotifyUri(spotifyUri, (err, result) => {
-  console.log('sonosService playSpotifyTracks')
-  if (!artistId) {
+function playSpotifyUri(spotifyUri, callback) {
+  if (!spotifyUri) {
     return callback('Missing artistId param in playSpotifyUri')
   }
   if (!this.sonos) {
@@ -50,7 +49,7 @@ playSpotifyUri(spotifyUri, (err, result) => {
       })
     },
     (next) => {
-      this.sonos.setVolume("25", (err, volumeResult) => {
+      this.sonos.setVolume('25', (err, volumeResult) => {
         if (err) {
           return next(err)
         }
@@ -67,11 +66,11 @@ playSpotifyUri(spotifyUri, (err, result) => {
     }
   ], (err) => {
     if (err) {
-      return console.log('Error playing Spotify uri')
+      return callback('Error playing Spotify uri')
     }
-    return console.log(null, 'Succeeded')
+    return callback(null, 'Succeeded')
   })
-})
+}
 
 // This example plays curated artist radio on Spotify. The
 // artistId is found in the same way as described above. The
@@ -83,6 +82,6 @@ var artistName = 'Queen'
 
 sonos.playSpotifyRadio(artistId, artistName, (err, result) => {
   if (err) {
-    console.log(err)
+    return console.log(err)
   }
 })
