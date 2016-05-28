@@ -25,72 +25,64 @@ var sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
 // your Sonos system.
 
 playSpotifyUri(spotifyUri, (err, result) => {
-    console.log('sonosService playSpotifyTracks');
-
-    if (!artistId) {
-        return callback('Missing artistId param in playSpotifyUri');
-    }
-
-    if (!this.sonos) {
-        return callback('No Sonos controller found');
-    }
-    
-    async.series([
-        (next) => {
-            this.sonos.selectQueue((err, selectQueueResult) => {
-                if (err) {
-                    return next(err);
-                }
-                
-                return next(null);
-            });
-        },
-        
-        (next) => {
-            this.sonos.flush((err, flushQueueResult) => {
-                if (err) {
-                    return next(err);
-                }
-                
-                return next(null);
-            });
-        },
-
-        (next) => {
-            this.sonos.setVolume("25", (err, volumeResult) => {
-                if (err) {
-                    return next(err);
-                }
-                
-                return next(null);
-            });
-        },
-
-        (next) => {
-            this.sonos.play(spotifyUri, (err, playResult) => {
-                if (err) {
-                    return next(err);
-                }
-
-                return next(null);
-            });
-        }
-        
-    ], (err) => {
+  console.log('sonosService playSpotifyTracks')
+  if (!artistId) {
+    return callback('Missing artistId param in playSpotifyUri')
+  }
+  if (!this.sonos) {
+    return callback('No Sonos controller found')
+  }
+async.series([
+  (next) => {
+    this.sonos.selectQueue((err, selectQueueResult) => {
+      if (err) {
+        return next(err)
+      }
+      return next(null)
+    })
+  },
+  (next) => {
+    this.sonos.flush((err, flushQueueResult) => {
+      if (err) {
+        return next(err)
+      }
+      return next(null)
+    })
+  },
+  (next) => {
+     this.sonos.setVolume("25", (err, volumeResult) => {
+     if (err) {
+       return next(err)
+     }
+     return next(null)
+    })
+  },
+  (next) => {
+    this.sonos.play(spotifyUri, (err, playResult) => {
         if (err) {
-            return callback('Error playing Spotify uri');
+          return next(err)
         }
-        return callback(null, 'Succeeded');
-    });
-});
+        return next(null)
+      })
+    }
+  ], (err) => {
+    if (err) {
+        return callback('Error playing Spotify uri')
+    }
+    return callback(null, 'Succeeded')
+  })
+})
 
-// This example plays curated artist radio on Spotify. The 
-// artistId is found in the same way as described above. The 
+// This example plays curated artist radio on Spotify. The
+// artistId is found in the same way as described above. The
 // artistName is just a string to be used in the Sonos Queue
 // as the name for the radio station playlist.
 
+var artistId = '1dfeR4HaWDbWqFHLkxsg1d'
+var artistName = 'Queen'
+
 sonos.playSpotifyRadio(artistId, artistName, (err, result) => {
-    if (err) {
-        console.log(err);
-    }
-});
+  if (err) {
+    console.log(err)
+  }
+})
