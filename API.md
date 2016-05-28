@@ -140,14 +140,12 @@ Resumes Queue or Plays Provided URI
 
 *Void* undefined
 
-
 ####Notes####
 ```
     spotify:track:<id>
     spotify:album:<id>
     spotify:artistTopTracks:<id>
     spotify:user:<userid>:playlist:<id>
-    spotify:artistRadio:<id>
 ```
 * * *
 
@@ -265,7 +263,7 @@ Add a song to the queue
 Add a song to the queue
 ####Parameters####
 
-* uri *String* URI to Audio Stream, also supports Spotify resource ids (e.g. ```spotify:artist:<id>```, ```spotify:album:<id>```, ```spotify:track:<id>```, and ```spotify:user:<user>:playlist:<id>```
+* uri *String* URI to Audio Stream, also supports Spotify resource ids (see notes)
 * positionInQueue *Number* Position in queue at which to add song (optional, indexed from 1,
 defaults to end of queue, 0 to explicitly set end of queue)
 * callback *Function* (err, queued)
@@ -273,6 +271,14 @@ defaults to end of queue, 0 to explicitly set end of queue)
 ####Returns####
 
 *[type]* undefined
+
+####Notes####
+```
+    spotify:track:<id>
+    spotify:album:<id>
+    spotify:artistTopTracks:<id>
+    spotify:user:<userid>:playlist:<id>
+```
 * * *
 
 
