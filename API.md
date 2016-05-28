@@ -133,12 +133,22 @@ Get Current Muted
 Resumes Queue or Plays Provided URI
 ####Parameters####
 
-* uri *String* Optional - URI to Audio Stream, also supports Spotify resource ids (e.g. ```spotify:artist:<id>```, ```spotify:album:<id>```, ```spotify:track:<id>```, and ```spotify:user:<user>:playlist:<id>```
+* uri *String* Optional - URI to Audio Stream, also supports Spotify resource ids (see notes)
 * callback *Function* (err, playing)
 
 ####Returns####
 
 *Void* undefined
+
+
+####Notes####
+```
+    spotify:track:<id>
+    spotify:album:<id>
+    spotify:artistTopTracks:<id>
+    spotify:user:<userid>:playlist:<id>
+    spotify:artistRadio:<id>
+```
 * * *
 
 

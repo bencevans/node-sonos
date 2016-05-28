@@ -15,7 +15,7 @@ var sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
 //     Bohemian Rhapsody track - spotify:track:1AhDOtG9vPSOmsWgNW0BEY
 //     A night at the opera album - spotify:album:1TSZDcvlPtAnekTaItI3qO
 //     Top tracks by Queen - spotify:artistTopTracks:1dfeR4HaWDbWqFHLkxsg1d
-//     Queen playlist (public user) - spotify:user:26iFraqozskd5POrzg68pr
+//     Queen playlist (public user) - spotify:user:lorrainehelen:playlist:2ytnaITywUiPoS9JDYig5I
 //     Spotify curated artist radio - spotify:artistRadio:1dfeR4HaWDbWqFHLkxsg1d
 //
 // The sample code below selects the queue, clears it, sets the volume 
