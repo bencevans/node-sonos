@@ -24,9 +24,14 @@ var sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
 // This assumes you have the Spotify music service connected to
 // your Sonos system.
 
-function playSpotifyUri(spotifyUri, callback) {
+var spotifyUri = 'spotify:track:1AhDOtG9vPSOmsWgNW0BEY'
+
+playSpotifyUri(spotifyUri, (err, result) => {
+  if (err) {
+    return console.log('playSpotifyUri failed')
+  }
   if (!spotifyUri) {
-    return callback('Missing artistId param in playSpotifyUri')
+    return console.log('Missing artistId param in playSpotifyUri')
   }
   if (!this.sonos) {
     return callback('No Sonos controller found')
@@ -66,11 +71,11 @@ function playSpotifyUri(spotifyUri, callback) {
     }
   ], (err) => {
     if (err) {
-      return callback('Error playing Spotify uri')
+      return console.log('Error playing Spotify uri')
     }
-    return callback(null, 'Succeeded')
+    return console.log(null, 'Succeeded')
   })
-}
+})
 
 // This example plays curated artist radio on Spotify. The
 // artistId is found in the same way as described above. The
