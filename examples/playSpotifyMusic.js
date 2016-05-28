@@ -16,7 +16,6 @@ var sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
 //     A night at the opera album - spotify:album:1TSZDcvlPtAnekTaItI3qO
 //     Top tracks by Queen - spotify:artistTopTracks:1dfeR4HaWDbWqFHLkxsg1d
 //     Queen playlist (public user) - spotify:user:lorrainehelen:playlist:2ytnaITywUiPoS9JDYig5I
-//     Spotify curated artist radio - spotify:artistRadio:1dfeR4HaWDbWqFHLkxsg1d
 //
 // The sample code below selects the queue, clears it, sets the volume 
 // and then plays the music through the Spotify service by specifying 
@@ -83,4 +82,15 @@ playSpotifyUri(spotifyUri, (err, result) => {
         }
         return callback(null, 'Succeeded');
     });
+});
+
+// This example plays curated artist radio on Spotify. The 
+// artistId is found in the same way as described above. The 
+// artistName is just a string to be used in the Sonos Queue
+// as the name for the radio station playlist.
+
+sonos.playSpotifyRadio(artistId, artistName, (err, result) => {
+    if (err) {
+        console.log(err);
+    }
 });
