@@ -1,10 +1,8 @@
-var async = require('async')
 var Sonos = require('../').Sonos
 var sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
 
 // This example demonstrates playing various spotify uri types.
-// Just replace the spotify uri used in the Play command below
-// with your own. These uris can be obtained by using the Spotify
+// The Spotify uris can be obtained by using the Spotify
 // REST apis:
 //     https://developer.spotify.com/web-api/console/
 //
@@ -17,62 +15,14 @@ var sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
 //     Top tracks by Queen - spotify:artistTopTracks:1dfeR4HaWDbWqFHLkxsg1d
 //     Queen playlist (public user) - spotify:user:lorrainehelen:playlist:2ytnaITywUiPoS9JDYig5I
 //
-// The sample code below selects the queue, clears it, sets the volume
-// and then plays the music through the Spotify service by specifying
-// the appropriate Spotify uri.
-//
 // This assumes you have the Spotify music service connected to
 // your Sonos system.
 
-var spotifyUri = 'spotify:track:1AhDOtG9vPSOmsWgNW0BEY'
-
-function playSpotifyUri (spotifyUri, callback) {
-  if (!spotifyUri) {
-    return callback('Missing artistId param in playSpotifyUri')
+this.sonos.play(spotifyUri, (err, result) => {
+  if (err) {
+    return console.log(err)
   }
-  if (!this.sonos) {
-    return callback('No Sonos controller found')
-  }
-  async.series([
-    (next) => {
-      this.sonos.selectQueue((err, selectQueueResult) => {
-        if (err) {
-          return next(err)
-        }
-        return next(null)
-      })
-    },
-    (next) => {
-      this.sonos.flush((err, flushQueueResult) => {
-        if (err) {
-          return next(err)
-        }
-        return next(null)
-      })
-    },
-    (next) => {
-      this.sonos.setVolume('25', (err, volumeResult) => {
-        if (err) {
-          return next(err)
-        }
-        return next(null)
-      })
-    },
-    (next) => {
-      this.sonos.play(spotifyUri, (err, playResult) => {
-        if (err) {
-          return next(err)
-        }
-        return next(null)
-      })
-    }
-  ], (err) => {
-    if (err) {
-      return callback('Error playing Spotify uri')
-    }
-    return callback(null, 'Succeeded')
-  })
-}
+})
 
 // This example plays curated artist radio on Spotify. The
 // artistId is found in the same way as described above. The
