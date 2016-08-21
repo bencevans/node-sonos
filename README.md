@@ -12,8 +12,8 @@ Please open [pull-requests](https://github.com/bencevans/node-sonos) and ask que
 
 For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blob/master/API.md) file, else…
 
-* search([deviceAvailableListener])
-* Class: Search()
+* search([options], [deviceAvailableListener])
+* Class: Search([options])
   * Event: 'DeviceAvailable'
   * destroy()
 * Class: Sonos(host, [port])
