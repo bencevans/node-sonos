@@ -28,6 +28,7 @@ For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blo
   * getVolume(callback)
   * getZoneAttrs(callback)
   * getZoneInfo(callback)
+  * getQueue(callback)
   * next(callback)
   * parseDIDL(didl)
   * pause(callback)
