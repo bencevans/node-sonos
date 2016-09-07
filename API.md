@@ -243,6 +243,18 @@ defaults to end of queue, 0 to explicitly set end of queue)
 *[type]* undefined
 * * *
 
+###Sonos.prototype.getQueue = function(callback)###
+
+Get elements in queue
+####Parameters####
+
+* callback *Function* (err, data)
+
+####Returns####
+
+*[type]* undefined
+* * *
+
 
 ###Sonos.prototype.flush = function(callback)###
 
