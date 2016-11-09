@@ -1,8 +1,8 @@
 // var webhost = '192.168.2.25'
 var text = 'Ben Evens made a nice node JS library for your sonos system'
 
-var Sonos = require('../')
-var sonos = new Sonos.Sonos('192.168.2.14')
+var Sonos = require('../').Sonos
+var sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
 
 // Replace all spaces with a _ because Sonos doesn't support spaces
 text = text.replace(/ /g, '_')
