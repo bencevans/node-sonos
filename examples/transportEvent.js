@@ -12,13 +12,11 @@ x.listen(function (err) {
   })
 
   x.on('serviceEvent', function (endpoint, sid, data) {
-
-    //It's a shame the data isn't in a nice track object, but this might need some more work.
+    // It's a shame the data isn't in a nice track object, but this might need some more work.
     // At this moment we know something is changed, either the play state or an other song.
     console.log('Received event from', endpoint, '(' + sid + ') with data:', data, '\n\n')
     sonos.currentTrack(function (err, track) {
       console.log(err, track)
     })
-
   })
 })
