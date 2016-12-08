@@ -281,6 +281,18 @@ defaults to end of queue, 0 to explicitly set end of queue)
 ```
 * * *
 
+###Sonos.prototype.getQueue = function(callback)###
+
+Get elements in queue
+####Parameters####
+
+* callback *Function* (err, data)
+
+####Returns####
+
+*[type]* undefined
+* * *
+
 
 ###Sonos.prototype.flush = function(callback)###
 
@@ -466,22 +478,29 @@ Get Favorites Radio for a given type
 Search
 ------
 
-###var Search = function Search()###
+###var Search = function Search([options])###
 
 Search "Class"
 Emits 'DeviceAvailable' on a Sonos Component Discovery
+Listens on a random UDP port, or the specified port in options
 
+####Parameters####
+
+* Optional *Object* with options - {port: {Number}}
 * * *
 
 
 search
 ------
 
-###var search = sonos.search(listener)###
+###var search = sonos.search([options], [listener])###
 
 Create a Search Instance (emits 'DeviceAvailable' with a found Sonos Component)
+Listens on a random UDP port, or the specified port in options
+
 ####Parameters####
 
+* Optional *Object* with options - {port: {Number}}
 * Optional *Function* 'DeviceAvailable' listener (sonos)
 
 ####Returns####

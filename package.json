@@ -1,6 +1,6 @@
 {
   "name": "sonos",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "description": "Node.js Sonos Interface",
   "main": "index.js",
   "scripts": {
@@ -33,18 +33,18 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "debug": "2.2.0",
+    "debug": "^2.3.3",
+    "ip": "1.1.4",
+    "request": "^2.79.0",
     "underscore": "1.8.3",
     "upnp-client": "0.0.1",
-    "xml2js": "0.4.15",
-    "request": "2.67.0",
-    "ip": "1.1.0"
+    "xml2js": "0.4.17"
   },
   "bugs": {
     "url": "http://github.com/bencevans/node-sonos/issues"
   },
   "devDependencies": {
-    "mocha": "2.3.4",
-    "standard": "5.4.1"
+    "mocha": "^3.2.0",
+    "standard": "*"
   }
 }
