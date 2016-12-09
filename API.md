@@ -243,6 +243,21 @@ Queue a Song Next
 * * *
 
 
+###Sonos.prototype.playTuneinRadio = function(stationId, stationTitle, callback)###
+
+Add tunein radio station to the queue
+####Parameters####
+
+* stationId *String* tunein radio station id
+* stationTitle *String* tunein radio station title
+* callback *Function* (err, queued)
+
+####Returns####
+
+*[type]* undefined
+* * *
+
+
 ###Sonos.prototype.playSpotifyRadio = function(artistId, artistName, callback)###
 
 Add a song to the queue

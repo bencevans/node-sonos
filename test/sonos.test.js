@@ -188,6 +188,21 @@ describe('Sonos', function () {
     })
   })
 
+  describe('playTuneinRadio()', function () {
+    it('should generate play command', function (done) {
+      var sonos = new Sonos('localhost', 1400)
+
+      sonos.request = function (endpoint, action, body) {
+        assert(endpoint === '/MediaRenderer/AVTransport/Control')
+        assert(action === '"urn:schemas-upnp-org:service:AVTransport:1#SetAVTransportURI"')
+        assert(body === '<u:SetAVTransportURI xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><CurrentURI>x-sonosapi-stream:s34682?sid=254&amp;flags=8224&amp;sn=0</CurrentURI><CurrentURIMetaData>&lt;DIDL-Lite xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:upnp=&quot;urn:schemas-upnp-org:metadata-1-0/upnp/&quot; xmlns:r=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot; xmlns=&quot;urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/&quot;&gt;&lt;item id=&quot;F00092020s34682&quot; parentID=&quot;L&quot; restricted=&quot;true&quot;&gt;&lt;dc:title&gt;88.5 | Jazz24 (Jazz)&lt;/dc:title&gt;&lt;upnp:class&gt;object.item.audioItem.audioBroadcast&lt;/upnp:class&gt;&lt;desc id=&quot;cdudn&quot; nameSpace=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot;&gt;SA_RINCON65031_&lt;/desc&gt;&lt;/item&gt;&lt;/DIDL-Lite&gt;</CurrentURIMetaData></u:SetAVTransportURI>')
+        done()
+      }
+
+      sonos.playTuneinRadio('34682', '88.5 | Jazz24 (Jazz)', function () {})
+    })
+  })
+
   describe('playSpotifyRadio()', function () {
     it('should generate play command', function (done) {
       var sonos = new Sonos('localhost', 1400)
