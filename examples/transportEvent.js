@@ -2,7 +2,7 @@ var Sonos = require('../index').Sonos
 var Listener = require('../lib/events/listener')
 
 var sonos = new Sonos(process.env.SONOS_HOST || '192.168.96.55')
-var x = new Listener(sonos)
+var x = new Listener(sonos, {'interface': 'public'}) // Specify interface name when using multiple interfaces. or public for default.
 x.listen(function (err) {
   if (err) throw err
 
