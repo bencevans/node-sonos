@@ -1,2 +1,15 @@
-node_modules
+# Logs
+logs
 *.log
+
+node_modules
+
+# TSD Typings
+typings
+
+# VS
+.vscode
+config/*local.json
+
+# Ignore Mac DS_Store files
+.DS_Store
