@@ -36,6 +36,7 @@
     "debug": "^2.3.3",
     "ip": "1.1.4",
     "request": "^2.79.0",
+    "safe-buffer": "^5.0.1",
     "underscore": "1.8.3",
     "upnp-client": "0.0.1",
     "xml2js": "0.4.17"
