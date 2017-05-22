@@ -1,7 +1,7 @@
 Sonos
 -----
 
-This module exports 3 items:
+This module exports 4 items:
 
     var sonos = require('sonos');
 
@@ -19,6 +19,13 @@ This module exports 3 items:
     // sonos.Services - wrappers arounds all UPNP services provided by sonsos
     // These aren't used internally by the module at all but may be useful
     // for more complex projects.
+
+    // sonos.SpotifyRegion - map with service IDs for different Spotify regions
+
+    var s = new sonos.Sonos('192.168.2.17')
+    s.setSpotifyRegion(sonos.SpotifyRegion.EU);
+    // OR (US is default)
+    s.setSpotifyRegion(sonos.SpotifyRegion.US);
 
 ###var Sonos = new sonos.Sonos(host, port)###
 
@@ -263,7 +270,7 @@ Add tunein radio station to the queue
 Add a song to the queue
 ####Parameters####
 
-* artistId *String* Spotify Id to for artist (e.g. ```spotify:artist:<id>```) 
+* artistId *String* Spotify Id to for artist (e.g. ```spotify:artist:<id>```)
 * artistName *String* Name of artist to use for radio station name
 * callback *Function* (err, queued)
 
@@ -488,6 +495,17 @@ Get Favorites Radio for a given type
 *Void* undefined
 * * *
 
+###Sonos.prototype.setSpotifyRegion = function(region)
+
+Sets the Spotify Region
+####Parameters
+
+* region *String* region service id (US: 3079, EU: 2311)
+
+####Returns####
+
+*Void* undefined
+* * *
 
 
 Search
