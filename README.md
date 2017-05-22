@@ -44,6 +44,7 @@ For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blo
   * setPlayMode(mode, callback)
   * setVolume(volume, callback)
   * stop(callback)
+  * setSpotifyRegion(region)
 
 ## Examples
 

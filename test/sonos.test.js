@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 const assert = require('assert')
-const sonos = require('../')
-const Sonos = sonos.Sonos
+const SONOS = require('../')
+const Sonos = SONOS.Sonos
 
 describe('Sonos', function () {
   describe('play()', function () {
@@ -135,6 +135,20 @@ describe('Sonos', function () {
       sonos.queue('spotify:track:1AhDOtG9vPSOmsWgNW0BEY', function () {})
     })
 
+    it('should accept a Spotify EU track uri', function (done) {
+      var sonos = new Sonos('localhost', 1400)
+      sonos.setSpotifyRegion(SONOS.SpotifyRegion.EU)
+
+      sonos.request = function (endpoint, action, body) {
+        assert(endpoint === '/MediaRenderer/AVTransport/Control')
+        assert(action === '"urn:schemas-upnp-org:service:AVTransport:1#AddURIToQueue"')
+        assert(body === '<u:AddURIToQueue xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><EnqueuedURI>spotify%3atrack%3a1AhDOtG9vPSOmsWgNW0BEY</EnqueuedURI><EnqueuedURIMetaData>&lt;DIDL-Lite xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:upnp=&quot;urn:schemas-upnp-org:metadata-1-0/upnp/&quot; xmlns:r=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot; xmlns=&quot;urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/&quot;&gt;&lt;item id=&quot;00032020spotify%3atrack%3a1AhDOtG9vPSOmsWgNW0BEY&quot; restricted=&quot;true&quot;&gt;&lt;dc:title&gt;&lt;/dc:title&gt;&lt;upnp:class&gt;object.item.audioItem.musicTrack&lt;/upnp:class&gt;&lt;desc id=&quot;cdudn&quot; nameSpace=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot;&gt;SA_RINCON2311_X_#Svc2311-0-Token&lt;/desc&gt;&lt;/item&gt;&lt;/DIDL-Lite&gt;</EnqueuedURIMetaData><DesiredFirstTrackNumberEnqueued>0</DesiredFirstTrackNumberEnqueued><EnqueueAsNext>1</EnqueueAsNext></u:AddURIToQueue>')
+        done()
+      }
+
+      sonos.queue('spotify:track:1AhDOtG9vPSOmsWgNW0BEY', function () {})
+    })
+
     it('should accept a Spotify album uri', function (done) {
       var sonos = new Sonos('localhost', 1400)
 
@@ -168,6 +182,20 @@ describe('Sonos', function () {
         assert(endpoint === '/MediaRenderer/AVTransport/Control')
         assert(action === '"urn:schemas-upnp-org:service:AVTransport:1#AddURIToQueue"')
         assert(body === '<u:AddURIToQueue xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><EnqueuedURI>x-rincon-cpcontainer:0006206cspotify%3auser%3a26iFraqozskd5POrzg68pr</EnqueuedURI><EnqueuedURIMetaData>&lt;DIDL-Lite xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:upnp=&quot;urn:schemas-upnp-org:metadata-1-0/upnp/&quot; xmlns:r=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot; xmlns=&quot;urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/&quot;&gt;&lt;item id=&quot;0006206cspotify%3auser%3a26iFraqozskd5POrzg68pr&quot; restricted=&quot;true&quot;&gt;&lt;dc:title&gt;&lt;/dc:title&gt;&lt;upnp:class&gt;object.container.playlistContainer&lt;/upnp:class&gt;&lt;desc id=&quot;cdudn&quot; nameSpace=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot;&gt;SA_RINCON3079_X_#Svc3079-0-Token&lt;/desc&gt;&lt;/item&gt;&lt;/DIDL-Lite&gt;</EnqueuedURIMetaData><DesiredFirstTrackNumberEnqueued>0</DesiredFirstTrackNumberEnqueued><EnqueueAsNext>1</EnqueueAsNext></u:AddURIToQueue>')
+        done()
+      }
+
+      sonos.queue('spotify:user:26iFraqozskd5POrzg68pr', function () {})
+    })
+
+    it('should accept a Spotify EU user public playlist uri', function (done) {
+      var sonos = new Sonos('localhost', 1400)
+      sonos.setSpotifyRegion(SONOS.SpotifyRegion.EU)
+
+      sonos.request = function (endpoint, action, body) {
+        assert(endpoint === '/MediaRenderer/AVTransport/Control')
+        assert(action === '"urn:schemas-upnp-org:service:AVTransport:1#AddURIToQueue"')
+        assert(body === '<u:AddURIToQueue xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><EnqueuedURI>x-rincon-cpcontainer:0006206cspotify%3auser%3a26iFraqozskd5POrzg68pr</EnqueuedURI><EnqueuedURIMetaData>&lt;DIDL-Lite xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:upnp=&quot;urn:schemas-upnp-org:metadata-1-0/upnp/&quot; xmlns:r=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot; xmlns=&quot;urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/&quot;&gt;&lt;item id=&quot;0006206cspotify%3auser%3a26iFraqozskd5POrzg68pr&quot; restricted=&quot;true&quot;&gt;&lt;dc:title&gt;&lt;/dc:title&gt;&lt;upnp:class&gt;object.container.playlistContainer&lt;/upnp:class&gt;&lt;desc id=&quot;cdudn&quot; nameSpace=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot;&gt;SA_RINCON2311_X_#Svc2311-0-Token&lt;/desc&gt;&lt;/item&gt;&lt;/DIDL-Lite&gt;</EnqueuedURIMetaData><DesiredFirstTrackNumberEnqueued>0</DesiredFirstTrackNumberEnqueued><EnqueueAsNext>1</EnqueueAsNext></u:AddURIToQueue>')
         done()
       }
 
@@ -257,7 +285,7 @@ describe('search', function () {
       done()
     }, 100)
 
-    var search = sonos.search({ timeout: 10 }, function (device, model) {})
+    var search = SONOS.search({ timeout: 10 }, function (device, model) {})
 
     search.on('timeout', function () {
       assert(true)
@@ -271,7 +299,7 @@ describe('search', function () {
       done()
     }, 10)
 
-    var search = sonos.search(function (device, model) {})
+    var search = SONOS.search(function (device, model) {})
 
     search.on('timeout', function () {
       assert(false, 'Timeout event should never fire')
@@ -280,7 +308,7 @@ describe('search', function () {
   })
 
   it('should not emit a timeout event after search is stopped', function (done) {
-    var search = sonos.search({ timeout: 10 }, function (device, model) {})
+    var search = SONOS.search({ timeout: 10 }, function (device, model) {})
 
     search.on('timeout', function () {
       assert(false, 'Timeout event should never fire')
