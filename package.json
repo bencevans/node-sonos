@@ -1,6 +1,6 @@
 {
   "name": "sonos",
-  "version": "0.14.1",
+  "version": "0.15.0",
   "description": "Node.js Sonos Interface",
   "main": "index.js",
   "scripts": {
