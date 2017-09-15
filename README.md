@@ -41,6 +41,7 @@ For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blo
   * setLEDState(desiredState, callback)
   * setMuted(muted, callback)
   * setName(name, callback)
+  * getPlayMode(callback)
   * setPlayMode(mode, callback)
   * setVolume(volume, callback)
   * stop(callback)
