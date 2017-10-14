@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.17.0
+
+* Fixed issues encoding URIs - [#185](https://github.com/bencevans/node-sonos/issues/185) [#188](https://github.com/bencevans/node-sonos/pull/188) [@gupsho](https://github.com/gupsho)
+* Added .getPlayMode - [#183](https://github.com/bencevans/node-sonos/pull/184) [#184](https://github.com/bencevans/node-sonos/pull/184) [@bencevans](https://github.com/bencevans)
 
 ## v0.16.0
 
