@@ -106,6 +106,19 @@ describe('Sonos', function () {
       sonos.queue('http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3', function () {})
     })
 
+    it('should encode html characters in uri', function (done) {
+      var sonos = new Sonos('localhost', 1400)
+
+      sonos.request = function (endpoint, action, body) {
+        assert(endpoint === '/MediaRenderer/AVTransport/Control')
+        assert(action === '"urn:schemas-upnp-org:service:AVTransport:1#AddURIToQueue"')
+        assert(body === '<u:AddURIToQueue xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><EnqueuedURI>x-sonos-spotify:spotify%3atrack%3a01Bz4Mijhe7m7qRvq2Ujpn?sid=12&amp;flags=8224&amp;sn=2</EnqueuedURI><EnqueuedURIMetaData></EnqueuedURIMetaData><DesiredFirstTrackNumberEnqueued>0</DesiredFirstTrackNumberEnqueued><EnqueueAsNext>1</EnqueueAsNext></u:AddURIToQueue>')
+        done()
+      }
+
+      sonos.queue('x-sonos-spotify:spotify%3atrack%3a01Bz4Mijhe7m7qRvq2Ujpn?sid=12&flags=8224&sn=2', function () {})
+    })
+
     it('should accept object in place of uri', function (done) {
       var sonos = new Sonos('localhost', 1400)
 
