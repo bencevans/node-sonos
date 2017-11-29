@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.18.0
+
+* Added queuePosition to currentTrack() response - [#191](https://github.com/bencevans/node-sonos/pull/191) [@sammygriffiths](https://github.com/sammygriffiths)
+* Fixed a missing options param in searchLibrary example - [#189](https://github.com/bencevans/node-sonos/pull/189) [@gupsho](https://github.com/gupsho)
+
 ## v0.17.0
 
 * Fixed issues encoding URIs - [#185](https://github.com/bencevans/node-sonos/issues/185) [#188](https://github.com/bencevans/node-sonos/pull/188) [@gupsho](https://github.com/gupsho)
