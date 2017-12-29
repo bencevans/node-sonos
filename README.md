@@ -46,6 +46,12 @@ For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blo
   * setVolume(volume, callback)
   * stop(callback)
   * setSpotifyRegion(region)
+  * startListening(options, callback)
+  * stopListening(callback)
+  * Event: 'TrackChanged'
+  * Event: 'VolumeChanged'
+  * Event: 'StateChanged'
+  * Event: 'Muted'
 
 ## Examples
 
