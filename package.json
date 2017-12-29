@@ -45,7 +45,7 @@
     "url": "http://github.com/bencevans/node-sonos/issues"
   },
   "devDependencies": {
-    "mocha": "^3.2.0",
+    "mocha": "^4.1.0",
     "standard": "*"
   }
 }
