@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.19.0
+
+* Friendly event listening - [#195](https://github.com/bencevans/node-sonos/pull/195) [@svrooij](https://github.com/svrooij)
+* Updated deps mocha@4.1.0 xml2js@0.4.19 request@2.83.0 ip@1.1.5 debug@3.1.0
+* Dropped support for node v4
+
 ## v0.18.0
 
 * Added queuePosition to currentTrack() response - [#191](https://github.com/bencevans/node-sonos/pull/191) [@sammygriffiths](https://github.com/sammygriffiths)
