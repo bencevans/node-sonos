@@ -2,9 +2,11 @@ var Sonos = require('../index').Sonos
 
 var sonos = new Sonos(process.env.SONOS_HOST || '192.168.96.56')
 
-sonos.startListening(function (err) {
-  console.log('Error startListening %s', err)
-})
+// You don't need to call startListening anymore, is called implicit by subscribing
+// You can however if you want to specify a certain interface.
+// sonos.startListening(function (err, success) {
+//   console.log('Error startListening %s', err)
+// })
 
 sonos.on('StateChanged', state => {
   console.log('State changed to %s', state)
