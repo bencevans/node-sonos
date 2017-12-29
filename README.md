@@ -1,5 +1,7 @@
 # node-sonos
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/bencevans/node-sonos.svg)](https://greenkeeper.io/)
+
 [![npm](http://img.shields.io/npm/v/sonos.svg?style=flat-square)](https://www.npmjs.org/package/sonos)
 [![build](http://img.shields.io/travis/bencevans/node-sonos/master.svg?style=flat-square)](https://travis-ci.org/bencevans/node-sonos)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
