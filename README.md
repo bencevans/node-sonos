@@ -1,12 +1,56 @@
-# node-sonos
+<h1 align="center">
+  <br>
+  <a href="https://github.com/bencevans/node-sonos"><img src="./logo.svg" alt="node-sonos logo" width="200"></a>
+  <br>
+  <br/>
+  node-sonos
+  <br>
+  <br>
+</h1>
 
-[![npm](http://img.shields.io/npm/v/sonos.svg?style=flat-square)](https://www.npmjs.org/package/sonos)
-[![build](http://img.shields.io/travis/bencevans/node-sonos/master.svg?style=flat-square)](https://travis-ci.org/bencevans/node-sonos)
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
+<p align="center">
+  <b>Control your Sonos devices with JavaScript (node.js)</b>
+</p>
 
-Node.js Interface to [Sonos](http://sonos.com)
+<p align="center">
+  <a href="https://travis-ci.org/bencevans/node-sonos">
+    <img src="http://img.shields.io/travis/bencevans/node-sonos/master.svg?style=flat-square"
+         alt="Travis Build">
+  </a>
+  <a href="https://www.npmjs.com/package/sonos">
+    <img src="https://img.shields.io/npm/v/sonos.svg?style=flat-square"
+         alt="NPM Version">
+  </a>
+  <a href="https://www.npmjs.com/package/sonos">
+    <img src="https://img.shields.io/npm/dm/sonos.svg?style=flat-square"
+         alt="NPM Downloads">
+  </a>
+  <a href="https://github.com/feross/standard">
+    <img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square"
+         alt="Standard Codestyle">
+  </a>
+</p>
 
-Please open [pull-requests](https://github.com/bencevans/node-sonos) and ask questions [@bencevans](https://twitter.com/bencevans).
+**node-sonos** gives you the power to control all your Sonos devices from your own apps in JavaScript. Automatically discover your devices on the network and control the playback and queue with instant events announcing change.
+
+## Features
+
+* Device Discovery
+* Queue Control
+* Volume Control
+* Spotify Support
+* Radio
+* Change Events
+
+## Install
+
+Published versions (reccomended)
+
+    $ npm install sonos
+
+From the repo, living on the edge
+
+    $ npm install git://github.com/bencevans/node-sonos.git
 
 ## API
 
@@ -53,19 +97,25 @@ For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blo
   * Event: 'StateChanged'
   * Event: 'Muted'
 
+## In The Wild
+
+node-sonos in use across the interwebs. Missing yours? [Add it](https://github.com/bencevans/node-sonos/edit/master/README.md) and send us a pull request!
+
+### Apps
+
+* **[AirSonos](https://github.com/stephen/airsonos)** - Apple AirPlay (iOS, OS X) support to all Sonos devices on a network.
+* **[sonos-cli](https://github.com/bencevans/sonos-cli)** - Command Line Interface for Sonos
+* **[sonos2mqtt](https://github.com/svrooij/sonos2mqtt)** - Bridge between Sonos and an MQTT server
+* **[homebridge-zp](https://github.com/ebaauw/homebridge-zp)** - Homebridge plugin for Sonos ZonePlayer
+
+### Writeups
+
+* **[How we gave our studio WWE-style entrances using iBeacons and Sonos]()** - A technical run-down of using futuristic technology for sheer entertainment value
+
+
 ## Examples
 
 Additional examples can be found in the [/examples](https://github.com/bencevans/node-sonos/tree/master/examples) directory within the repository.
-
-## Installation
-
-*Via npm*
-
-    npm install sonos
-
-*Via Git*
-
-    npm install git://github.com/bencevans/node-sonos.git
 
 ## Maintainers
 
@@ -77,25 +127,4 @@ And a big thanks to all you other [contributors](https://github.com/bencevans/no
 
 ## Licence
 
-(MIT Licence)
-
-    Copyright (c) 2012 Ben Evans
-
-    Permission is hereby granted, free of charge, to any person obtaining
-    a copy of this software and associated documentation files (the
-    "Software"), to deal in the Software without restriction, including
-    without limitation the rights to use, copy, modify, merge, publish,
-    distribute, sublicense, and/or sell copies of the Software, and to
-    permit persons to whom the Software is furnished to do so, subject to
-    the following conditions:
-
-    The above copyright notice and this permission notice shall be
-    included in all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+MIT © [Ben Evans](https://bencevans.io)
