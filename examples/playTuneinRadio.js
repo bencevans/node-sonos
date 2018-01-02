@@ -7,7 +7,7 @@ var sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
 var stationId = '34682'
 var stationTitle = '88.5 | Jazz24 (Jazz)'
 
-sonos.playSpotifyRadio(stationId, stationTitle, (err, result) => {
+sonos.playTuneinRadio(stationId, stationTitle, (err, result) => {
   if (err) {
     return console.log(err)
   }
