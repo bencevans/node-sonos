@@ -20,7 +20,7 @@ var sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
 
 var spotifyUri = 'spotify:track:1AhDOtG9vPSOmsWgNW0BEY'
 
-this.sonos.play(spotifyUri, (err, result) => {
+sonos.play(spotifyUri, (err, result) => {
   if (err) {
     return console.log(err)
   }
