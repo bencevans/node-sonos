@@ -21,7 +21,7 @@
     "play",
     "interface"
   ],
-  "author": "Ben Evans <ben@bensbit.co.uk> (http://bensbit.co.uk)",
+  "author": "Ben Evans <ben@bensbit.co.uk> (https://bencevans.io/)",
   "contributors": [
     {
       "name": "Marshall Rose",
@@ -30,6 +30,11 @@
     {
       "name": "Stephen Wan",
       "email": "stephen@stephenwan.net"
+    },
+    {
+      "name": "Stephan van Rooij",
+      "email": "github@svrooij.nl",
+      "url": "https://svrooij.nl/"
     }
   ],
   "license": "MIT",
