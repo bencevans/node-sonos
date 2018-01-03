@@ -156,6 +156,27 @@ spotify:user:<userid>:playlist:<id>
 ```
 * * *
 
+### Sonos.prototype.playWithoutQueue = function(uri, callback) ###
+
+Plays an uri without using the queue
+#### Parameters ####
+
+* uri *String* Optional - URI to Audio Stream, also supports Spotify resource ids (see notes)
+* callback *Function* (err, playing)
+
+#### Returns ####
+
+*Void* undefined
+
+#### Notes ####
+```text
+spotify:track:<id>
+spotify:album:<id>
+spotify:artistTopTracks:<id>
+spotify:user:<userid>:playlist:<id>
+```
+* * *
+
 
 ### Sonos.prototype.stop = function(callback) ###
 
