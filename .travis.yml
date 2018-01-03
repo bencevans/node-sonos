@@ -1,12 +1,15 @@
 language: node_js
+cache:
+  directories:
+    - ~/.npm
+notifications:
+  email: false
 node_js:
-  - 6
-  - 8
-  - 9
-sudo: false
-matrix:
-  fast_finish: true
-env:
-  - CMD=lint
-  - CMD=test
-script: npm run env-run
+  - '9'
+  - '8'
+  - '6'
+after_success:
+  - npm run semantic-release
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
