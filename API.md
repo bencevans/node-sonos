@@ -137,7 +137,7 @@ Get Current Muted
 
 ### Sonos.prototype.play = function(uri, callback) ###
 
-Resumes Queue or Plays Provided URI
+Resumes Queue or adds provided url to queue and starts playing
 #### Parameters ####
 
 * uri *String* Optional - URI to Audio Stream, also supports Spotify resource ids (see notes)
@@ -148,11 +148,32 @@ Resumes Queue or Plays Provided URI
 *Void* undefined
 
 #### Notes ####
+```text
+spotify:track:<id>
+spotify:album:<id>
+spotify:artistTopTracks:<id>
+spotify:user:<userid>:playlist:<id>
 ```
-    spotify:track:<id>
-    spotify:album:<id>
-    spotify:artistTopTracks:<id>
-    spotify:user:<userid>:playlist:<id>
+* * *
+
+### Sonos.prototype.playWithoutQueue = function(uri, callback) ###
+
+Plays an uri without using the queue
+#### Parameters ####
+
+* uri *String* Optional - URI to Audio Stream, also supports Spotify resource ids (see notes)
+* callback *Function* (err, playing)
+
+#### Returns ####
+
+*Void* undefined
+
+#### Notes ####
+```text
+spotify:track:<id>
+spotify:album:<id>
+spotify:artistTopTracks:<id>
+spotify:user:<userid>:playlist:<id>
 ```
 * * *
 
@@ -241,7 +262,7 @@ Play previous in queue
 Queue a Song Next
 #### Parameters ####
 
-* uri *String* URI to Audio Stream
+* uri *String* URI to Audio Stream, also supports Spotify resources ids (see play)
 * callback *Function* (err, queued)
 
 #### Returns ####
@@ -252,7 +273,7 @@ Queue a Song Next
 
 ### Sonos.prototype.playTuneinRadio = function(stationId, stationTitle, callback) ###
 
-Add tunein radio station to the queue
+Directly plays a TuneIn station (queue isn't used)
 #### Parameters ####
 
 * stationId *String* tunein radio station id
@@ -267,7 +288,7 @@ Add tunein radio station to the queue
 
 ### Sonos.prototype.playSpotifyRadio = function(artistId, artistName, callback) ###
 
-Add a song to the queue
+Starts playing the artists radio (queue isn't used)
 #### Parameters ####
 
 * artistId *String* Spotify Id to for artist (e.g. ```spotify:artist:<id>```)
@@ -295,11 +316,12 @@ defaults to end of queue, 0 to explicitly set end of queue)
 *[type]* undefined
 
 #### Notes ####
-```
-    spotify:track:<id>
-    spotify:album:<id>
-    spotify:artistTopTracks:<id>
-    spotify:user:<userid>:playlist:<id>
+
+```text
+spotify:track:<id>
+spotify:album:<id>
+spotify:artistTopTracks:<id>
+spotify:user:<userid>:playlist:<id>
 ```
 * * *
 
