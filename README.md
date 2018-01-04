@@ -90,6 +90,10 @@ For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blo
   * setVolume(volume, callback)
   * stop(callback)
   * setSpotifyRegion(region)
+  * alarmClockService()
+    * ListAlarms(callback)
+    * PatchAlarm(id,options,callback)
+    * SetAlarm(id,enabled,callback)
   * startListening(options, callback)
   * stopListening(callback)
   * Event: 'TrackChanged'

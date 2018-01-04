@@ -11,8 +11,8 @@ alarmService.ListAlarms((err, res) => {
   console.log('Got alarms %s', JSON.stringify(res, null, 2))
 })
 
-// Disable an alarm by ID
-// var alarmId = 310
+// // Disable an alarm by ID
+// var alarmId = 76
 // alarmService.SetAlarm(alarmId, false, (err, res) => {
 //   if (err) {
 //     console.log('Error disabeling alarm %d %j', alarmId, err)
