@@ -1,0 +1,40 @@
+{{#modules}}
+{{#name}}
+# {{name}}
+{{/name}}
+
+{{#description}}{{{description}}}{{/description}}
+
+{{#hasRequires}}
+**Requires:**
+
+{{#requires}}
++ {{{req}}}
+{{/requires}}
+
+{{/hasRequires}}
+{{#hasMembers}}
+**Members:**
+
+{{#members}}
++ {{{member}}}
+{{/members}}
+
+{{/hasMembers}}
+{{#examples}}
+**Example:**
+```js
+{{{examples}}}
+```
+
+{{/examples}}
+* * *
+
+{{#functions}}
+{{> function}}
+{{/functions}}
+{{#classes}}
+{{> class}}
+{{/classes}}
+{{/modules}}
+* * *

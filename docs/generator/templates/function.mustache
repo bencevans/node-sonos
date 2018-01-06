@@ -1,0 +1,33 @@
+### {{#moduleName}}{{moduleName}}.{{/moduleName}}{{#className}}{{className}}.{{/className}}{{name}}({{#paramsString}}{{paramsString}}{{/paramsString}}){{#version}} {{version}}{{/version}}
+
+{{#description}}
+{{{description}}}
+
+{{/description}}
+{{#deprecated}}
+Deprecated: {{{deprecated}}}
+
+{{/deprecated}}
+{{#hasParams}}
+**Parameters**:
+
+{{/hasParams}}
+{{#params}}
+{{#nested}}+ {{/nested}}**{{name}}**: {{#typesString}}`{{typesString}}`{{/typesString}}{{#description}}, {{{description}}}{{/description}}
+
+{{/params}}
+{{#fires}}
+**Fires**: {{.}}
+
+{{/fires}}
+{{#returns}}
+**Returns**: {{#typesString}}`{{typesString}}`{{/typesString}}{{#description}}, {{{description}}}{{/description}}
+{{/returns}}
+
+{{#examples}}
+**Example**:
+```js
+{{{examples}}}
+```
+
+{{/examples}}
