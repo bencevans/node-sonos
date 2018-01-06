@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/bencevans/node-sonos"><img src="./logo.svg" alt="node-sonos logo" width="200"></a>
+  <a href="https://github.com/bencevans/node-sonos"><img src="https://cdn.rawgit.com/bencevans/node-sonos/0f2775ab/logo.svg" alt="node-sonos logo" width="200"></a>
   <br>
   <br/>
   node-sonos
@@ -94,6 +94,8 @@ For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blo
     * ListAlarms(callback)
     * PatchAlarm(id,options,callback)
     * SetAlarm(id,enabled,callback)
+  * joinGroup(otherDeviceName, callback)
+  * leaveGroup(callback)
   * startListening(options, callback)
   * stopListening(callback)
   * Event: 'TrackChanged'
@@ -114,8 +116,7 @@ node-sonos in use across the interwebs. Missing yours? [Add it](https://github.c
 
 ### Writeups
 
-* **[How we gave our studio WWE-style entrances using iBeacons and Sonos]()** - A technical run-down of using futuristic technology for sheer entertainment value
-
+* **[How we gave our studio WWE-style entrances using iBeacons and Sonos](https://hackernoon.com/how-we-gave-our-studio-wwe-style-entrances-using-ibeacons-and-sonos-92dd2f54983)** - A technical run-down of using futuristic technology for sheer entertainment value
 
 ## Examples
 
@@ -126,6 +127,7 @@ Additional examples can be found in the [/examples](https://github.com/bencevans
 * Ben Evans (@bencevans)
 * Stephen Wan (@stephen)
 * Marshall T. Rose (@mrose17)
+* Stephan van Rooij (@svrooij)
 
 And a big thanks to all you other [contributors](https://github.com/bencevans/node-sonos/graphs/contributors)! Pull-requests are beautiful things.
 
