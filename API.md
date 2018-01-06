@@ -529,6 +529,15 @@ Sets the Spotify Region
 *Void* undefined
 * * *
 
+### Sonos.prototype.alarmClockService = function()
+
+Get an instance of the new AlarmClock service
+
+#### Returns ####
+
+*AlarmClock*
+* * *
+
 
 Search
 ------
