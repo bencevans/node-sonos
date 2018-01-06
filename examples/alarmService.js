@@ -9,6 +9,15 @@ alarmService.ListAlarms((err, res) => {
     return
   }
   console.log('Got alarms %s', JSON.stringify(res, null, 2))
+  // // Make sure your friends come late for work, no, not a good idea (but you could!)
+  // res.CurrentAlarmList.array.forEach(alarm => {
+  //   if (alarm.Enabled === '1') {
+  //     alarmService.SetAlarm(alarm.ID, false, (err, result) => {
+  //       if(err) console.log('Got error %j',err)
+  //       console.log('Alarm %s disabled', alarm.ID)
+  //     })
+  //   }
+  // })
 })
 
 // // Disable an alarm by ID
