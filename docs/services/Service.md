@@ -1,6 +1,6 @@
-# Service
+# sonos
 
-This is used as a base service for all other services
+Sonos library to control (almost) everything from your sonos devices
 
 **Requires:**
 
@@ -15,7 +15,7 @@ This is used as a base service for all other services
 
 Create a new instance of Service
 
-### Service.Service.htmlEntities(input)
+### sonos.Service.htmlEntities(input)
 
 Encodes characters not allowed within html/xml tags
 

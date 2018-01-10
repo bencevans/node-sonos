@@ -1,6 +1,6 @@
-# MusicServices
+# sonos
 
-A service to modify everything related to MusicServices
+Sonos library to control (almost) everything from your sonos devices
 
 **Requires:**
 

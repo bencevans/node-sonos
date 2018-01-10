@@ -1,6 +1,6 @@
-# ContentDirectory
+# sonos
 
-A service to modify everything related to ContentDirectory
+Sonos library to control (almost) everything from your sonos devices
 
 **Requires:**
 

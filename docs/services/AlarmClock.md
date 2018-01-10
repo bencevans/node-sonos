@@ -1,6 +1,6 @@
-# AlarmClock
+# sonos
 
-A service to modify everything related to Alarms
+Sonos library to control (almost) everything from your sonos devices
 
 **Requires:**
 
@@ -12,7 +12,7 @@ A service to modify everything related to Alarms
 
 Create a new instance of AlarmClock
 
-### AlarmClock.AlarmClock.CreateAlarm(options, callback)
+### sonos.AlarmClock.CreateAlarm(options, callback)
 
 Create an alarm, but using the sonos app it advised (because you most likely cannot set the ProgramMetaData correctly)
 
@@ -44,7 +44,7 @@ Create an alarm, but using the sonos app it advised (because you most likely can
 
 **Returns**: `void`
 
-### AlarmClock.AlarmClock.DestroyAlarm(id, callback)
+### sonos.AlarmClock.DestroyAlarm(id, callback)
 
 Delete an alarm
 
@@ -56,7 +56,7 @@ Delete an alarm
 
 **Returns**: `void`
 
-### AlarmClock.AlarmClock.ListAlarms(callback)
+### sonos.AlarmClock.ListAlarms(callback)
 
 Get all the alarms known to sonos
 
@@ -66,7 +66,7 @@ Get all the alarms known to sonos
 
 **Returns**: `void`
 
-### AlarmClock.AlarmClock.SetAlarm(id, enabled, callback)
+### sonos.AlarmClock.SetAlarm(id, enabled, callback)
 
 Enable/disable an alarm
 
@@ -80,7 +80,7 @@ Enable/disable an alarm
 
 **Returns**: `void`
 
-### AlarmClock.AlarmClock.PatchAlarm(id, options, callback)
+### sonos.AlarmClock.PatchAlarm(id, options, callback)
 
 Update only some properties of an Alarm
 

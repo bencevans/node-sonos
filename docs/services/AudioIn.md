@@ -1,6 +1,6 @@
-# AudioIn
+# sonos
 
-A service to modify everything related to AudioIn
+Sonos library to control (almost) everything from your sonos devices
 
 **Requires:**
 
@@ -10,6 +10,6 @@ A service to modify everything related to AudioIn
 
 ## Class: AudioIn
 
-Create a new instance of AlarmClock
+Create a new instance of AudioIn
 
 * * *

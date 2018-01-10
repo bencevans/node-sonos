@@ -1,6 +1,6 @@
-# GroupRenderingControl
+# sonos
 
-A service to modify everything related to GroupRenderingControl
+Sonos library to control (almost) everything from your sonos devices
 
 **Requires:**
 

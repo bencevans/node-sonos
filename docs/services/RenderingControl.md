@@ -1,6 +1,6 @@
-# RenderingControl
+# sonos
 
-A service to modify everything related to RenderingControl
+Sonos library to control (almost) everything from your sonos devices
 
 **Requires:**
 

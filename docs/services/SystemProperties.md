@@ -1,6 +1,6 @@
-# SystemProperties
+# sonos
 
-A service to modify everything related to SystemProperties
+Sonos library to control (almost) everything from your sonos devices
 
 **Requires:**
 

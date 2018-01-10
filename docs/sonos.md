@@ -1,4 +1,4 @@
-# node-sonos
+# sonos
 
 Sonos library to control (almost) everything from your sonos devices
 
@@ -20,7 +20,7 @@ Sonos library to control (almost) everything from your sonos devices
 
 Create an instance of Sonos
 
-### node-sonos.Sonos.request(endpoint, action, body, responseTag, callback)
+### sonos.Sonos.request(endpoint, action, body, responseTag, callback)
 
 UPnP HTTP Request
 
@@ -37,7 +37,7 @@ UPnP HTTP Request
 **callback**: `function`, (err, data)
 
 
-### node-sonos.Sonos.getMusicLibrary(searchType, options, callback)
+### sonos.Sonos.getMusicLibrary(searchType, options, callback)
 
 Get Music Library Information
 
@@ -50,7 +50,7 @@ Get Music Library Information
 **callback**: `function`, (err, result) result - {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
 
 
-### node-sonos.Sonos.searchMusicLibrary(searchType, searchTerm, options, callback)
+### sonos.Sonos.searchMusicLibrary(searchType, searchTerm, options, callback)
 
 Get Music Library Information
 
@@ -65,7 +65,7 @@ Get Music Library Information
 **callback**: `function`, (err, result) result - {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
 
 
-### node-sonos.Sonos.getFavorites(callback)
+### sonos.Sonos.getFavorites(callback)
 
 Get Sonos Favorites
 
@@ -74,7 +74,7 @@ Get Sonos Favorites
 **callback**: `function`, (err, result) result - {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
 
 
-### node-sonos.Sonos.currentTrack(callback)
+### sonos.Sonos.currentTrack(callback)
 
 Get Current Track
 
@@ -83,7 +83,7 @@ Get Current Track
 **callback**: `function`, (err, track)
 
 
-### node-sonos.Sonos.parseDIDL(didl)
+### sonos.Sonos.parseDIDL(didl)
 
 Parse DIDL into track structure
 
@@ -93,7 +93,7 @@ Parse DIDL into track structure
 
 **Returns**: `object`
 
-### node-sonos.Sonos.getVolume(callback)
+### sonos.Sonos.getVolume(callback)
 
 Get Current Volume
 
@@ -102,7 +102,7 @@ Get Current Volume
 **callback**: `function`, (err, volume)
 
 
-### node-sonos.Sonos.getMuted(callback)
+### sonos.Sonos.getMuted(callback)
 
 Get Current Muted
 
@@ -111,7 +111,7 @@ Get Current Muted
 **callback**: `function`, (err, muted)
 
 
-### node-sonos.Sonos.play(uri, callback)
+### sonos.Sonos.play(uri, callback)
 
 Resumes Queue or Plays Provided URI
 
@@ -122,7 +122,7 @@ Resumes Queue or Plays Provided URI
 **callback**: `function`, (err, playing)
 
 
-### node-sonos.Sonos.playWithoutQueue(uri, callback)
+### sonos.Sonos.playWithoutQueue(uri, callback)
 
 Plays a uri directly (the queue stays the same)
 
@@ -133,7 +133,7 @@ Plays a uri directly (the queue stays the same)
 **callback**: `function`, (err, playing)
 
 
-### node-sonos.Sonos.stop(callback)
+### sonos.Sonos.stop(callback)
 
 Stop What's Playing
 
@@ -142,7 +142,7 @@ Stop What's Playing
 **callback**: `function`, (err, stopped)
 
 
-### node-sonos.Sonos.becomeCoordinatorOfStandaloneGroup(callback)
+### sonos.Sonos.becomeCoordinatorOfStandaloneGroup(callback)
 
 Become Coordinator of Standalone Group
 
@@ -151,7 +151,7 @@ Become Coordinator of Standalone Group
 **callback**: `function`, (err, stopped)
 
 
-### node-sonos.Sonos.leaveGroup(callback)
+### sonos.Sonos.leaveGroup(callback)
 
 Leave the group (shortcut to becomeCoordinatorOfStandaloneGroup)
 
@@ -160,7 +160,7 @@ Leave the group (shortcut to becomeCoordinatorOfStandaloneGroup)
 **callback**: `function`, (err, stopped)
 
 
-### node-sonos.Sonos.joinGroup(otherDeviceName, callback)
+### sonos.Sonos.joinGroup(otherDeviceName, callback)
 
 Join an other device by name
 
@@ -171,7 +171,7 @@ Join an other device by name
 **callback**: `function`, (err, success)
 
 
-### node-sonos.Sonos.pause(callback)
+### sonos.Sonos.pause(callback)
 
 Pause Current Queue
 
@@ -180,7 +180,7 @@ Pause Current Queue
 **callback**: `function`, (err, paused)
 
 
-### node-sonos.Sonos.seek(callback)
+### sonos.Sonos.seek(callback)
 
 Seek the current track
 
@@ -189,7 +189,7 @@ Seek the current track
 **callback**: `function`, (err, seeked)
 
 
-### node-sonos.Sonos.selectTrack(trackNr, callback)
+### sonos.Sonos.selectTrack(trackNr, callback)
 
 Select specific track in queue
 
@@ -200,7 +200,7 @@ Select specific track in queue
 **callback**: `function`, (err, data)
 
 
-### node-sonos.Sonos.next(callback)
+### sonos.Sonos.next(callback)
 
 Play next in queue
 
@@ -209,7 +209,7 @@ Play next in queue
 **callback**: `function`, (err, movedToNext)
 
 
-### node-sonos.Sonos.previous(callback)
+### sonos.Sonos.previous(callback)
 
 Play previous in queue
 
@@ -218,7 +218,7 @@ Play previous in queue
 **callback**: `function`, (err, movedToPrevious)
 
 
-### node-sonos.Sonos.selectQueue(callback)
+### sonos.Sonos.selectQueue(callback)
 
 Select Queue. Mostly required after turning on the speakers otherwise play, setPlaymode and other commands will fail.
 
@@ -227,7 +227,7 @@ Select Queue. Mostly required after turning on the speakers otherwise play, setP
 **callback**: `function`, (err, data)  Optional
 
 
-### node-sonos.Sonos.playTuneinRadio(stationId, callback)
+### sonos.Sonos.playTuneinRadio(stationId, callback)
 
 Plays tunein based on radio station id
 
@@ -238,7 +238,7 @@ Plays tunein based on radio station id
 **callback**: `function`, (err, playing)
 
 
-### node-sonos.Sonos.playSpotifyRadio(artistId, callback)
+### sonos.Sonos.playSpotifyRadio(artistId, callback)
 
 Plays Spotify radio based on artist uri
 
@@ -249,7 +249,7 @@ Plays Spotify radio based on artist uri
 **callback**: `function`, (err, playing)
 
 
-### node-sonos.Sonos.queueNext(uri, callback)
+### sonos.Sonos.queueNext(uri, callback)
 
 Queue a Song Next
 
@@ -260,7 +260,7 @@ Queue a Song Next
 **callback**: `function`, (err, queued)
 
 
-### node-sonos.Sonos.queue(uri, positionInQueue, callback)
+### sonos.Sonos.queue(uri, positionInQueue, callback)
 
 Add a song to the queue.
 
@@ -274,7 +274,7 @@ Add a song to the queue.
 **callback**: `function`, (err, queued)
 
 
-### node-sonos.Sonos.flush(callback)
+### sonos.Sonos.flush(callback)
 
 Flush queue
 
@@ -283,7 +283,7 @@ Flush queue
 **callback**: `function`, (err, flushed)
 
 
-### node-sonos.Sonos.getLEDState(callback)
+### sonos.Sonos.getLEDState(callback)
 
 Get the LED State
 
@@ -292,7 +292,7 @@ Get the LED State
 **callback**: `function`, (err, state) state is a string, "On" or "Off"
 
 
-### node-sonos.Sonos.setLEDState(desiredState, callback)
+### sonos.Sonos.setLEDState(desiredState, callback)
 
 Set the LED State
 
@@ -303,7 +303,7 @@ Set the LED State
 **callback**: `function`, (err)
 
 
-### node-sonos.Sonos.getZoneInfo(callback)
+### sonos.Sonos.getZoneInfo(callback)
 
 Get Zone Info
 
@@ -312,7 +312,7 @@ Get Zone Info
 **callback**: `function`, (err, info)
 
 
-### node-sonos.Sonos.getZoneAttrs(callback)
+### sonos.Sonos.getZoneAttrs(callback)
 
 Get Zone Attributes
 
@@ -321,7 +321,7 @@ Get Zone Attributes
 **callback**: `function`, (err, data)
 
 
-### node-sonos.Sonos.deviceDescription(callback)
+### sonos.Sonos.deviceDescription(callback)
 
 Get Information provided by /xml/device_description.xml
 
@@ -330,7 +330,7 @@ Get Information provided by /xml/device_description.xml
 **callback**: `function`, (err, info)
 
 
-### node-sonos.Sonos.setName(name, callback)
+### sonos.Sonos.setName(name, callback)
 
 Set Name
 
@@ -341,7 +341,7 @@ Set Name
 **callback**: `function`, (err, data)
 
 
-### node-sonos.Sonos.getPlayMode(playmode, callback)
+### sonos.Sonos.getPlayMode(playmode, callback)
 
 Get Play Mode
 
@@ -352,7 +352,7 @@ Get Play Mode
 **callback**: `function`, (err, data)
 
 
-### node-sonos.Sonos.setPlayMode(playmode, callback)
+### sonos.Sonos.setPlayMode(playmode, callback)
 
 Set Play Mode
 
@@ -363,7 +363,7 @@ Set Play Mode
 **callback**: `function`, (err, data)
 
 
-### node-sonos.Sonos.setVolume(volume, callback)
+### sonos.Sonos.setVolume(volume, callback)
 
 Set Volume
 
@@ -374,7 +374,7 @@ Set Volume
 **callback**: `function`, (err, data)
 
 
-### node-sonos.Sonos.configureSleepTimer(sleepTimerDuration, callback)
+### sonos.Sonos.configureSleepTimer(sleepTimerDuration, callback)
 
 Configure Sleep Timer
 
@@ -385,7 +385,7 @@ Configure Sleep Timer
 **callback**: `function`, (err, data)
 
 
-### node-sonos.Sonos.setMuted(muted, callback)
+### sonos.Sonos.setMuted(muted, callback)
 
 Set Muted
 
@@ -396,7 +396,7 @@ Set Muted
 **callback**: `function`, (err, data)
 
 
-### node-sonos.Sonos.getTopology(callback)
+### sonos.Sonos.getTopology(callback)
 
 Get Zones in contact with current Zone with Group Data
 
@@ -405,7 +405,7 @@ Get Zones in contact with current Zone with Group Data
 **callback**: `function`, (err, topology)
 
 
-### node-sonos.Sonos.getCurrentState(callback)
+### sonos.Sonos.getCurrentState(callback)
 
 Get Current Playback State
 
@@ -414,7 +414,7 @@ Get Current Playback State
 **callback**: `function`, (err, state)
 
 
-### node-sonos.Sonos.getFavoritesRadioStations(options, callback)
+### sonos.Sonos.getFavoritesRadioStations(options, callback)
 
 Get Favorites Radio Stations
 
@@ -425,7 +425,7 @@ Get Favorites Radio Stations
 **callback**: `function`, (err, result) result - {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
 
 
-### node-sonos.Sonos.getFavoritesRadioShows(options, callback)
+### sonos.Sonos.getFavoritesRadioShows(options, callback)
 
 Get Favorites Radio Shows
 
@@ -436,7 +436,7 @@ Get Favorites Radio Shows
 **callback**: `function`, (err, result) result - {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
 
 
-### node-sonos.Sonos.getFavoritesRadio(favoriteRadioType, options, callback)
+### sonos.Sonos.getFavoritesRadio(favoriteRadioType, options, callback)
 
 Get Favorites Radio for a given radio type
 
@@ -449,7 +449,7 @@ Get Favorites Radio for a given radio type
 **callback**: `function`, (err, result) result - {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
 
 
-### node-sonos.Sonos.startListening(options, callback)
+### sonos.Sonos.startListening(options, callback)
 
 Create a socket and start listening for Events from Sonos
 
@@ -465,7 +465,7 @@ Create a socket and start listening for Events from Sonos
 Create a new instance of Search
 
 **Sonos**:  , Export
-### node-sonos.Search.destroy(callback)
+### sonos.Search.destroy(callback)
 
 Destroys Search class, stop searching, clean up
 
@@ -474,7 +474,7 @@ Destroys Search class, stop searching, clean up
 **callback**: `function`, ()
 
 
-### node-sonos.Search.search(options, listener)
+### sonos.Search.search(options, listener)
 
 Create a Search Instance (emits 'DeviceAvailable' with a found Sonos Component)
 
