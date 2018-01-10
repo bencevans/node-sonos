@@ -40,6 +40,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "bencevans-jsdox": "^0.4.11",
     "debug": "^3.1.0",
     "ip": "^1.1.5",
     "request": "^2.83.0",
@@ -52,7 +53,6 @@
     "url": "http://github.com/bencevans/node-sonos/issues"
   },
   "devDependencies": {
-    "jsdox": "^0.4.10",
     "mocha": "^4.1.0",
     "semantic-release": "^11.0.2",
     "standard": "*"
