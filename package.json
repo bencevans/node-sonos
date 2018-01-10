@@ -8,7 +8,8 @@
     "test": "npm run lint && mocha test/sonos.test.js",
     "test-onsite": "mocha test/",
     "env-run": "npm run $CMD",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "docs": "jsdox -t ./docs/generator/templates --output docs lib/ && jsdox -t ./docs/generator/templates --output docs/services lib/services && jsdox -t ./docs/generator/templates --output docs/events lib/events"
   },
   "repository": {
     "type": "git",
@@ -51,8 +52,9 @@
     "url": "http://github.com/bencevans/node-sonos/issues"
   },
   "devDependencies": {
+    "jsdox": "^0.4.10",
     "mocha": "^4.1.0",
-    "standard": "*",
-    "semantic-release": "^11.0.2"
+    "semantic-release": "^11.0.2",
+    "standard": "*"
   }
 }
