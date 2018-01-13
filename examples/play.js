@@ -8,3 +8,4 @@ sonos.play().then(result => {
 sonos.getVolume().then(volume => {
   console.log('The volume is %d', volume)
 })
+
