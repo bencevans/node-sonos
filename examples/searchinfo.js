@@ -2,7 +2,7 @@ var sonos = require('../index')
 
 console.log('\nSearching for Sonos devices on network...')
 
-sonos.search(function (device, model) {
+sonos.DeviceDiscovery(function (device, model) {
   var devInfo = '\n'
   devInfo += 'Device \t' + JSON.stringify(device) + ' (' + model + ')\n'
   device.getZoneAttrs(function (err, attrs) {

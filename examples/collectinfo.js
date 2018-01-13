@@ -58,7 +58,7 @@ function getZoneCoordinator (zone, deviceList) {
 
 // Search and collect device information
 
-sonos.search({timeout: TIMEOUT}, function (device, model) {
+sonos.DeviceDiscovery({timeout: TIMEOUT}, function (device, model) {
   var data = {ip: device.host, port: device.port, model: model}
 
   device.getZoneAttrs(function (err, attrs) {
