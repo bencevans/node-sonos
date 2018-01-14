@@ -54,7 +54,7 @@
   "devDependencies": {
     "@bencevans/jsdox": "^0.4.11",
     "mocha": "^4.1.0",
-    "semantic-release": "^11.0.2",
+    "semantic-release": "^12.2.2",
     "standard": "*"
   }
 }
