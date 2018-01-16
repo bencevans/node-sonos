@@ -38,6 +38,10 @@
       "url": "https://svrooij.nl/"
     }
   ],
+  "files": [
+    "index.js",
+    "lib"
+  ],
   "license": "MIT",
   "dependencies": {
     "debug": "^3.1.0",
