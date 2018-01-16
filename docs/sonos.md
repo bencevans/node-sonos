@@ -6,9 +6,7 @@ Sonos library to control (almost) everything from your sonos devices
 
 + module:'./Service'
 + module:'events'
-+ module:'dgram'
-+ module:'request'
-+ module:'xml2js'
++ module:'request-promise-native'
 + module:'debug'
 + module:'underscore'
 + module:'safe-buffer'
@@ -20,7 +18,7 @@ Sonos library to control (almost) everything from your sonos devices
 
 Create an instance of Sonos
 
-### sonos.Sonos.request(endpoint, action, body, responseTag, callback)
+### sonos.Sonos.request(endpoint, action, body, responseTag)
 
 UPnP HTTP Request
 
@@ -34,10 +32,9 @@ UPnP HTTP Request
 
 **responseTag**: `String`, Expected Response Container XML Tag
 
-**callback**: `function`, (err, data)
+**Returns**: `Promise`
 
-
-### sonos.Sonos.getMusicLibrary(searchType, options, callback)
+### sonos.Sonos.getMusicLibrary(searchType, options)
 
 Get Music Library Information
 
@@ -47,10 +44,9 @@ Get Music Library Information
 
 **options**: `Object`, Optional - default {start: 0, total: 100}
 
-**callback**: `function`, (err, result) result - {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
+**Returns**: `Object`, {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
 
-
-### sonos.Sonos.searchMusicLibrary(searchType, searchTerm, options, callback)
+### sonos.Sonos.searchMusicLibrary(searchType, searchTerm, options)
 
 Get Music Library Information
 
@@ -62,105 +58,71 @@ Get Music Library Information
 
 **options**: `Object`, Optional - default {start: 0, total: 100}
 
-**callback**: `function`, (err, result) result - {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
+**Returns**: `Object`, {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
 
-
-### sonos.Sonos.getFavorites(callback)
+### sonos.Sonos.getFavorites()
 
 Get Sonos Favorites
 
-**Parameters**:
+**Returns**: `Object`, {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
 
-**callback**: `function`, (err, result) result - {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
-
-
-### sonos.Sonos.currentTrack(callback)
+### sonos.Sonos.currentTrack()
 
 Get Current Track
 
-**Parameters**:
+**Returns**: `Object`, All the info of the current track
 
-**callback**: `function`, (err, track)
-
-
-### sonos.Sonos.parseDIDL(didl)
-
-Parse DIDL into track structure
-
-**Parameters**:
-
-**didl**: `String`, Parse DIDL into track structure
-
-**Returns**: `object`
-
-### sonos.Sonos.getVolume(callback)
+### sonos.Sonos.getVolume()
 
 Get Current Volume
 
-**Parameters**:
+**Returns**: `Number`, The current volume
 
-**callback**: `function`, (err, volume)
-
-
-### sonos.Sonos.getMuted(callback)
+### sonos.Sonos.getMuted()
 
 Get Current Muted
 
-**Parameters**:
+**Returns**: `Boolean`
 
-**callback**: `function`, (err, muted)
-
-
-### sonos.Sonos.play(uri, callback)
+### sonos.Sonos.play(options)
 
 Resumes Queue or Plays Provided URI
 
 **Parameters**:
 
-**uri**: `String | Object`, Optional - URI to a Audio Stream or Object with play options
+**options**: `String | Object`, Optional - URI to a Audio Stream or Object with play options
 
-**callback**: `function`, (err, playing)
+**Returns**: `Boolean`, Started playing?
 
-
-### sonos.Sonos.playWithoutQueue(uri, callback)
+### sonos.Sonos.setAVTransportURI(options)
 
 Plays a uri directly (the queue stays the same)
 
 **Parameters**:
 
-**uri**: `String | Object`, Optional - URI to a Audio Stream or Object with play options
+**options**: `String | Object`, URI to a Audio Stream or Object with play options see `Helpers.GenerateMetadata`
 
-**callback**: `function`, (err, playing)
+**Returns**: `Boolean`
 
-
-### sonos.Sonos.stop(callback)
+### sonos.Sonos.stop()
 
 Stop What's Playing
 
-**Parameters**:
+**Returns**: `Promise`
 
-**callback**: `function`, (err, stopped)
-
-
-### sonos.Sonos.becomeCoordinatorOfStandaloneGroup(callback)
+### sonos.Sonos.becomeCoordinatorOfStandaloneGroup()
 
 Become Coordinator of Standalone Group
 
-**Parameters**:
+**Returns**: `Promise`
 
-**callback**: `function`, (err, stopped)
-
-
-### sonos.Sonos.leaveGroup(callback)
+### sonos.Sonos.leaveGroup()
 
 Leave the group (shortcut to becomeCoordinatorOfStandaloneGroup)
 
-**Parameters**:
+**Returns**: `Promise`
 
-**callback**: `function`, (err, stopped)
-
-
-### sonos.Sonos.joinGroup(otherDeviceName, callback)
+### sonos.Sonos.joinGroup(otherDeviceName)
 
 Join an other device by name
 
@@ -168,28 +130,25 @@ Join an other device by name
 
 **otherDeviceName**: `String`, The name of de device you want to join, doesn't matter if that isn't the coordinator
 
-**callback**: `function`, (err, success)
+**Returns**: `Boolean`
 
-
-### sonos.Sonos.pause(callback)
+### sonos.Sonos.pause()
 
 Pause Current Queue
 
-**Parameters**:
+**Returns**: `Boolean`
 
-**callback**: `function`, (err, paused)
+### sonos.Sonos.seek(seconds)
 
-
-### sonos.Sonos.seek(callback)
-
-Seek the current track
+Seek in the current track
 
 **Parameters**:
 
-**callback**: `function`, (err, seeked)
+**seconds**: `Number`, jump to x seconds.
 
+**Returns**: `Boolean`
 
-### sonos.Sonos.selectTrack(trackNr, callback)
+### sonos.Sonos.selectTrack(trackNr)
 
 Select specific track in queue
 
@@ -197,37 +156,26 @@ Select specific track in queue
 
 **trackNr**: `Number`, Number of track in queue (optional, indexed from 1)
 
-**callback**: `function`, (err, data)
 
-
-### sonos.Sonos.next(callback)
+### sonos.Sonos.next()
 
 Play next in queue
 
-**Parameters**:
+**Returns**: `Boolean`
 
-**callback**: `function`, (err, movedToNext)
-
-
-### sonos.Sonos.previous(callback)
+### sonos.Sonos.previous()
 
 Play previous in queue
 
-**Parameters**:
+**Returns**: `Boolean`
 
-**callback**: `function`, (err, movedToPrevious)
-
-
-### sonos.Sonos.selectQueue(callback)
+### sonos.Sonos.selectQueue()
 
 Select Queue. Mostly required after turning on the speakers otherwise play, setPlaymode and other commands will fail.
 
-**Parameters**:
+**Returns**: `Boolean`, success
 
-**callback**: `function`, (err, data)  Optional
-
-
-### sonos.Sonos.playTuneinRadio(stationId, callback)
+### sonos.Sonos.playTuneinRadio(stationId)
 
 Plays tunein based on radio station id
 
@@ -235,10 +183,9 @@ Plays tunein based on radio station id
 
 **stationId**: `String`, tunein radio station id
 
-**callback**: `function`, (err, playing)
+**Returns**: `Boolean`
 
-
-### sonos.Sonos.playSpotifyRadio(artistId, callback)
+### sonos.Sonos.playSpotifyRadio(artistId)
 
 Plays Spotify radio based on artist uri
 
@@ -246,53 +193,44 @@ Plays Spotify radio based on artist uri
 
 **artistId**: `String`, Spotify artist id
 
-**callback**: `function`, (err, playing)
+**Returns**: `Boolean`
 
+### sonos.Sonos.queueNext(options)
 
-### sonos.Sonos.queueNext(uri, callback)
-
-Queue a Song Next
+Queue a Song Next, was setAVTransportUri already in the library?
 
 **Parameters**:
 
-**uri**: `String | Object`, URI to Audio Stream or Object containing options (uri, metadata)
+**options**: `String | Object`, URI to Audio Stream or Object containing options (uri, metadata)
 
-**callback**: `function`, (err, queued)
+**Returns**: `Boolean`
 
-
-### sonos.Sonos.queue(uri, positionInQueue, callback)
+### sonos.Sonos.queue(options, positionInQueue)
 
 Add a song to the queue.
 
 **Parameters**:
 
-**uri**: `String`, URI to Audio Stream
+**options**: `String | Object`, Uri with audio stream of object with `uri` and `metadata`
 
 **positionInQueue**: `Number`, Position in queue at which to add song (optional, indexed from 1,
                                    defaults to end of queue, 0 to explicitly set end of queue)
 
-**callback**: `function`, (err, queued)
+**Returns**: `Object`, Some info about the last queued file.
 
-
-### sonos.Sonos.flush(callback)
+### sonos.Sonos.flush()
 
 Flush queue
 
-**Parameters**:
+**Returns**: `Object`
 
-**callback**: `function`, (err, flushed)
-
-
-### sonos.Sonos.getLEDState(callback)
+### sonos.Sonos.getLEDState()
 
 Get the LED State
 
-**Parameters**:
+**Returns**: `String`, state is a string, "On" or "Off"
 
-**callback**: `function`, (err, state) state is a string, "On" or "Off"
-
-
-### sonos.Sonos.setLEDState(desiredState, callback)
+### sonos.Sonos.setLEDState(desiredState)
 
 Set the LED State
 
@@ -300,37 +238,26 @@ Set the LED State
 
 **desiredState**: `String`, "On"/"Off"
 
-**callback**: `function`, (err)
 
-
-### sonos.Sonos.getZoneInfo(callback)
+### sonos.Sonos.getZoneInfo()
 
 Get Zone Info
 
-**Parameters**:
+**Returns**: `Object`
 
-**callback**: `function`, (err, info)
-
-
-### sonos.Sonos.getZoneAttrs(callback)
+### sonos.Sonos.getZoneAttrs()
 
 Get Zone Attributes
 
-**Parameters**:
+**Returns**: `Object`
 
-**callback**: `function`, (err, data)
-
-
-### sonos.Sonos.deviceDescription(callback)
+### sonos.Sonos.deviceDescription()
 
 Get Information provided by /xml/device_description.xml
 
-**Parameters**:
+**Returns**: `Object`
 
-**callback**: `function`, (err, info)
-
-
-### sonos.Sonos.setName(name, callback)
+### sonos.Sonos.setName(name)
 
 Set Name
 
@@ -338,21 +265,15 @@ Set Name
 
 **name**: `String`, Set Name
 
-**callback**: `function`, (err, data)
+**Returns**: `Object`
 
-
-### sonos.Sonos.getPlayMode(playmode, callback)
+### sonos.Sonos.getPlayMode()
 
 Get Play Mode
 
-**Parameters**:
+**Returns**: `String`
 
-**playmode**: `String`, Get Play Mode
-
-**callback**: `function`, (err, data)
-
-
-### sonos.Sonos.setPlayMode(playmode, callback)
+### sonos.Sonos.setPlayMode(playmode)
 
 Set Play Mode
 
@@ -360,10 +281,9 @@ Set Play Mode
 
 **playmode**: `String`, Set Play Mode
 
-**callback**: `function`, (err, data)
+**Returns**: `Object`
 
-
-### sonos.Sonos.setVolume(volume, callback)
+### sonos.Sonos.setVolume(volume)
 
 Set Volume
 
@@ -371,10 +291,9 @@ Set Volume
 
 **volume**: `String`, 0..100
 
-**callback**: `function`, (err, data)
+**Returns**: `Object`
 
-
-### sonos.Sonos.configureSleepTimer(sleepTimerDuration, callback)
+### sonos.Sonos.configureSleepTimer(sleepTimerDuration)
 
 Configure Sleep Timer
 
@@ -382,10 +301,9 @@ Configure Sleep Timer
 
 **sleepTimerDuration**: `String`, Configure Sleep Timer
 
-**callback**: `function`, (err, data)
+**Returns**: `Object`
 
-
-### sonos.Sonos.setMuted(muted, callback)
+### sonos.Sonos.setMuted(muted)
 
 Set Muted
 
@@ -393,28 +311,21 @@ Set Muted
 
 **muted**: `Boolean`, Set Muted
 
-**callback**: `function`, (err, data)
+**Returns**: `Object`
 
-
-### sonos.Sonos.getTopology(callback)
+### sonos.Sonos.getTopology()
 
 Get Zones in contact with current Zone with Group Data
 
-**Parameters**:
+**Returns**: `Object`
 
-**callback**: `function`, (err, topology)
-
-
-### sonos.Sonos.getCurrentState(callback)
+### sonos.Sonos.getCurrentState()
 
 Get Current Playback State
 
-**Parameters**:
+**Returns**: `String`, the current playback state
 
-**callback**: `function`, (err, state)
-
-
-### sonos.Sonos.getFavoritesRadioStations(options, callback)
+### sonos.Sonos.getFavoritesRadioStations(options)
 
 Get Favorites Radio Stations
 
@@ -422,10 +333,9 @@ Get Favorites Radio Stations
 
 **options**: `Object`, Optional - default {start: 0, total: 100}
 
-**callback**: `function`, (err, result) result - {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
+**Returns**: `Object`, {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
 
-
-### sonos.Sonos.getFavoritesRadioShows(options, callback)
+### sonos.Sonos.getFavoritesRadioShows(options)
 
 Get Favorites Radio Shows
 
@@ -433,10 +343,9 @@ Get Favorites Radio Shows
 
 **options**: `Object`, Optional - default {start: 0, total: 100}
 
-**callback**: `function`, (err, result) result - {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
+**Returns**: `Object`, {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
 
-
-### sonos.Sonos.getFavoritesRadio(favoriteRadioType, options, callback)
+### sonos.Sonos.getFavoritesRadio(favoriteRadioType, options)
 
 Get Favorites Radio for a given radio type
 
@@ -446,46 +355,12 @@ Get Favorites Radio for a given radio type
 
 **options**: `Object`, Optional - default {start: 0, total: 100}
 
-**callback**: `function`, (err, result) result - {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
+**Returns**: `Object`, {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
 
+### sonos.Sonos.getQueue()
 
-### sonos.Sonos.startListening(options, callback)
+Get the current queue
 
-Create a socket and start listening for Events from Sonos
-
-**Parameters**:
-
-**options**: `Object`, As defined in https://github.com/bencevans/node-sonos/blob/master/lib/events/listener.js
-
-**callback**: `function`, (err) result - string
-
-
-## Class: Search
-
-Create a new instance of Search
-
-**Sonos**:  , Export
-### sonos.Search.destroy(callback)
-
-Destroys Search class, stop searching, clean up
-
-**Parameters**:
-
-**callback**: `function`, ()
-
-
-### sonos.Search.search(options, listener)
-
-Create a Search Instance (emits 'DeviceAvailable' with a found Sonos Component)
-
-**Parameters**:
-
-**options**: `Object`, Optional Options to control search behavior.
-                         Set 'timeout' to how long to search for devices
-                         (in milliseconds).
-
-**listener**: `function`, Optional 'DeviceAvailable' listener (sonos)
-
-**Returns**: `Search`
+**Returns**: `Object`, {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
 
 * * *
