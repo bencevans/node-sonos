@@ -49,7 +49,6 @@
     "request": "^2.83.0",
     "request-promise-native": "^1.0.5",
     "underscore": "1.8.3",
-    "upnp-client": "0.0.1",
     "xml2js": "^0.4.19"
   },
   "bugs": {
