@@ -13,7 +13,6 @@ Sonos library to control (almost) everything from your sonos devices
 ## Class: SonosListener
 
 An event listener for sonos events. (Just a small http server)
-Creates a new instanse (called automatically)
 
 ## Class: SonosListener
 
@@ -21,7 +20,7 @@ Creates a new instanse (called automatically)
 
 ## Class: SonosListener
 
-
+Creates a new SonosListener (called automatically)
 
 ### sonos.SonosListener.startListener()
 

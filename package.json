@@ -48,7 +48,6 @@
     "ip": "^1.1.5",
     "request": "^2.83.0",
     "request-promise-native": "^1.0.5",
-    "underscore": "1.8.3",
     "xml2js": "^0.4.19"
   },
   "bugs": {

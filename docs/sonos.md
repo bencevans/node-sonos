@@ -8,8 +8,6 @@ Sonos library to control (almost) everything from your sonos devices
 + module:'events'
 + module:'request-promise-native'
 + module:'debug'
-+ module:'underscore'
-+ module:'safe-buffer'
 + module:'./events/listener'
 
 * * *
@@ -362,5 +360,10 @@ Get Favorites Radio for a given radio type
 Get the current queue
 
 **Returns**: `Object`, {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
+
+### sonos.Sonos.getSpotifyConnectInfo()
+
+Get SpotifyConnect info, will error when no premium account is present
+
 
 * * *
