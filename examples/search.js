@@ -1,7 +1,7 @@
-var Sonos = require('../')
+const Sonos = require('../')
 
 console.log('Searching for Sonos devices...')
-var search = Sonos.DeviceDiscovery({timeout: 30000})
+const search = Sonos.DeviceDiscovery({timeout: 30000})
 
 search.on('DeviceAvailable', function (device, model) {
   console.log(device, model)
