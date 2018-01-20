@@ -6,13 +6,13 @@ const Sonos = SONOS.Sonos
 const nock = require('nock')
 const Helpers = require('../lib/helpers')
 
-let generateResponse = function (responseTag, serviceName, responseBody) {
-  let soapBody = '<u:' + responseTag + ' xmlns:u="urn:schemas-upnp-org:service:' + serviceName + ':1">' + (responseBody || null) + '</u:' + responseTag + '>'
+const generateResponse = function (responseTag, serviceName, responseBody) {
+  const soapBody = '<u:' + responseTag + ' xmlns:u="urn:schemas-upnp-org:service:' + serviceName + ':1">' + (responseBody || null) + '</u:' + responseTag + '>'
   return Helpers.CreateSoapEnvelop(soapBody)
 }
 
-let mockRequest = function (endpoint, action, requestBody, responseTag, serviceName, responseBody) {
-  var fakeSonos = nock('http://localhost:1400', { reqheaders: { 'soapaction': action } })
+const mockRequest = function (endpoint, action, requestBody, responseTag, serviceName, responseBody) {
+  nock('http://localhost:1400', { reqheaders: { 'soapaction': action } })
     .post(endpoint, function (body) {
       const fullBody = Helpers.CreateSoapEnvelop(requestBody)
       return body === fullBody
@@ -23,7 +23,7 @@ let mockRequest = function (endpoint, action, requestBody, responseTag, serviceN
 describe('Sonos', function () {
   describe('play()', function () {
     it('should generate play command', function () {
-      var mock = mockRequest('/MediaRenderer/AVTransport/Control',
+      mockRequest('/MediaRenderer/AVTransport/Control',
         '"urn:schemas-upnp-org:service:AVTransport:1#Play"',
         '<u:Play xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><Speed>1</Speed></u:Play>',
         'PlayResponse',
