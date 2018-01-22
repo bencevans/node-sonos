@@ -113,7 +113,8 @@ node-sonos in use across the interwebs. Missing yours? [Add it](https://github.c
 * **[sonos-cli](https://github.com/bencevans/sonos-cli)** - Command Line Interface for Sonos
 * **[sonos2mqtt](https://github.com/svrooij/sonos2mqtt)** - Bridge between Sonos and an MQTT server
 * **[homebridge-zp](https://github.com/ebaauw/homebridge-zp)** - Homebridge plugin for Sonos ZonePlayer
-* **[ZenMusic](https://github.com/htilly/zenmusic)** - Control Sonos thru #Slack! 
+* **[ZenMusic](https://github.com/htilly/zenmusic)** - Control Sonos thru #Slack!
+* **[gladys-sonos](https://github.com/GladysProject/gladys-sonos)** - Control Sonos with [Gladys](https://github.com/GladysProject/Gladys) a Raspberry Pi Home Assistant
 
 ### Writeups
 
