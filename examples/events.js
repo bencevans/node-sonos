@@ -38,6 +38,10 @@ sonos.on('PlayState', state => {
   console.log('The state changed to %s.', state)
 })
 
+sonos.on('AVTransport', transport => {
+  console.log('AVTransport event %j', transport)
+})
+
 // Subscribe to the CTRL + C event and cancel the current subscribtions
 process.on('SIGINT', () => {
   console.log('Hold-on cancelling all subscriptions')
