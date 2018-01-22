@@ -52,6 +52,47 @@ From the repo, living on the edge
 
     $ npm install git://github.com/bencevans/node-sonos.git
 
+## Quick Start
+
+### Discovering Devices
+
+```js
+const { search } = require('sonos')
+
+// event on all found...
+search((device) => {
+  console.log('found device at ' + device.host)
+
+  // mute every device...
+  device.setMuted(true)
+    .then(`${device.host} now muted`)
+})
+
+// find one device
+search().once('DeviceAvailable', (device) => {
+  console.log('found device at ' + device.host)
+
+  // get topology
+  device.getTopology()
+    .then(console.log)
+})
+```
+
+
+### Controlling Known Devices
+
+```js
+const { Sonos } = require('sonos')
+
+const device = new Sonos('192.168.1.56');
+
+device.play()
+  .then(() => console.log('now playing'))
+
+device.getVolume()
+  .then((volume) => console.log(`current volume = ${volume}`))
+```
+
 ## API
 
 For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blob/master/API.md) file, else…
@@ -61,43 +102,43 @@ For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blo
   * Event: 'DeviceAvailable'
   * destroy()
 * Class: Sonos(host, [port])
-  * currentTrack(callback)
-  * deviceDescription(callback)
-  * flush(callback)
-  * getCurrentState(callback)
-  * getLEDState(callback)
-  * getMusicLibrary(search, options, callback)
-  * getMuted(callback)
-  * getTopology(callback)
-  * getVolume(callback)
-  * getZoneAttrs(callback)
-  * getZoneInfo(callback)
-  * getQueue(callback)
-  * next(callback)
+  * currentTrack()
+  * deviceDescription()
+  * flush()
+  * getCurrentState()
+  * getLEDState()
+  * getMusicLibrary(search, options)
+  * getMuted()
+  * getTopology()
+  * getVolume()
+  * getZoneAttrs()
+  * getZoneInfo()
+  * getQueue()
+  * next()
   * parseDIDL(didl)
-  * pause(callback)
-  * play(uri, callback)
-  * previous(callback)
-  * queue(uri, positionInQueue, callback)
-  * queueNext(uri, callback)
-  * request(endpoint, action, body, responseTag, callback)
-  * seek(seconds, callback)
-  * setLEDState(desiredState, callback)
-  * setMuted(muted, callback)
-  * setName(name, callback)
-  * getPlayMode(callback)
-  * setPlayMode(mode, callback)
-  * setVolume(volume, callback)
-  * stop(callback)
+  * pause()
+  * play(uri)
+  * previous()
+  * queue(uri, positionInQueue)
+  * queueNext(uri)
+  * request(endpoint, action, body, responseTag)
+  * seek(seconds)
+  * setLEDState(desiredState)
+  * setMuted(muted)
+  * setName(name)
+  * getPlayMode()
+  * setPlayMode(mode)
+  * setVolume(volume)
+  * stop()
   * setSpotifyRegion(region)
   * alarmClockService()
-    * ListAlarms(callback)
-    * PatchAlarm(id,options,callback)
-    * SetAlarm(id,enabled,callback)
-  * joinGroup(otherDeviceName, callback)
-  * leaveGroup(callback)
-  * startListening(options, callback)
-  * stopListening(callback)
+    * ListAlarms()
+    * PatchAlarm(id,options)
+    * SetAlarm(id,enabled)
+  * joinGroup(otherDeviceName)
+  * leaveGroup()
+  * startListening(options)
+  * stopListening()
   * Event: 'TrackChanged'
   * Event: 'VolumeChanged'
   * Event: 'StateChanged'
