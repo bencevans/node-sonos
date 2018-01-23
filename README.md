@@ -57,10 +57,10 @@ From the repo, living on the edge
 ### Discovering Devices
 
 ```js
-const { search } = require('sonos')
+const { DeviceDiscovery } = require('sonos')
 
 // event on all found...
-search((device) => {
+DeviceDiscovery((device) => {
   console.log('found device at ' + device.host)
 
   // mute every device...
@@ -69,7 +69,7 @@ search((device) => {
 })
 
 // find one device
-search().once('DeviceAvailable', (device) => {
+DeviceDiscovery().once('DeviceAvailable', (device) => {
   console.log('found device at ' + device.host)
 
   // get topology
@@ -95,10 +95,8 @@ device.getVolume()
 
 ## API
 
-For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blob/master/API.md) file, else…
-
-* search([options], [deviceAvailableListener])
-* Class: Search([options])
+* DeviceDiscovery([options], [deviceAvailableListener])
+* Class: DeviceDiscovery([options])
   * Event: 'DeviceAvailable'
   * destroy()
 * Class: Sonos(host, [port])
@@ -139,10 +137,21 @@ For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blo
   * leaveGroup()
   * startListening(options)
   * stopListening()
-  * Event: 'TrackChanged'
-  * Event: 'VolumeChanged'
-  * Event: 'StateChanged'
+  * Event: 'CurrentTrack'
+  * Event: 'NextTrack'
+  * Event: 'PlayState'
+  * Event: 'AVTransport'
+  * Event: 'Volume'
   * Event: 'Muted'
+  * Event: 'RenderingControl'
+
+## Documentation
+
+We tried to add jsdoc info to all functions, and generate documentation from it. [/docs](./docs/)
+
+## Examples
+
+Additional examples can be found in the [/examples](./examples) directory within the repository.
 
 ## In The Wild
 
@@ -154,14 +163,12 @@ node-sonos in use across the interwebs. Missing yours? [Add it](https://github.c
 * **[sonos-cli](https://github.com/bencevans/sonos-cli)** - Command Line Interface for Sonos
 * **[sonos2mqtt](https://github.com/svrooij/sonos2mqtt)** - Bridge between Sonos and an MQTT server
 * **[homebridge-zp](https://github.com/ebaauw/homebridge-zp)** - Homebridge plugin for Sonos ZonePlayer
+* **[ZenMusic](https://github.com/htilly/zenmusic)** - Control Sonos thru #Slack!
+* **[gladys-sonos](https://github.com/GladysProject/gladys-sonos)** - Control Sonos with [Gladys](https://github.com/GladysProject/Gladys) a Raspberry Pi Home Assistant
 
 ### Writeups
 
 * **[How we gave our studio WWE-style entrances using iBeacons and Sonos](https://hackernoon.com/how-we-gave-our-studio-wwe-style-entrances-using-ibeacons-and-sonos-92dd2f54983)** - A technical run-down of using futuristic technology for sheer entertainment value
-
-## Examples
-
-Additional examples can be found in the [/examples](https://github.com/bencevans/node-sonos/tree/master/examples) directory within the repository.
 
 ## Maintainers
 
@@ -171,6 +178,21 @@ Additional examples can be found in the [/examples](https://github.com/bencevans
 * Stephan van Rooij (@svrooij)
 
 And a big thanks to all you other [contributors](https://github.com/bencevans/node-sonos/graphs/contributors)! Pull-requests are beautiful things.
+
+## Issues
+
+If you got discovered an issue with this library, please check the [issue-tracker](https://github.com/bencevans/node-sonos/issues). If you want to contribute something check out these ['help-wanted' issues](https://github.com/bencevans/node-sonos/labels/help-wanted).
+
+### NPM publish
+
+We try to react to all pull-requests, but if you think we don't respond in time, please don't create a 'sonos-by-xyz' or a 'node-sonos-by-xyz' package on NPM. This might lead to people installing the wrong version.
+
+If you want to publish your own version, please do it as a [user-scoped](https://docs.npmjs.com/getting-started/scoped-packages) eg. `@svrooij/sonos` package.
+
+1. Change the top of the readme to state your specific changes.
+2. Change the `name` of the project to `@npm_username/sonos`
+2. Publish it to npm `npm publish --access=public`
+
 
 ## Licence
 
