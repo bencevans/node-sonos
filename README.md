@@ -181,7 +181,11 @@ And a big thanks to all you other [contributors](https://github.com/bencevans/no
 
 ## Issues
 
-If you got discovered an issue with this library, please check the [issue-tracker](https://github.com/bencevans/node-sonos/issues). If you want to contribute something check out these ['help-wanted' issues](https://github.com/bencevans/node-sonos/labels/help-wanted).
+If you got discovered an issue with this library, please check the [issue-tracker](https://github.com/bencevans/node-sonos/issues). And [create](https://github.com/bencevans/node-sonos/issues/new) an issue if your problem isn't discovered by someone else. If you want to contribute something check out these ['help-wanted' issues](https://github.com/bencevans/node-sonos/labels/help-wanted).
+
+## Questions
+
+Do you have a question about this library, we are glad to help you [Ask Question](https://github.com/bencevans/node-sonos/issues/new?title=Question%3A%20%3CYour%20text%3E&body=%23%20Question%0A&labels=question&assignee=svrooij). You can see all questions [here](https://github.com/bencevans/node-sonos/issues?utf8=%E2%9C%93&q=label%3Aquestion+)
 
 ### NPM publish
 
