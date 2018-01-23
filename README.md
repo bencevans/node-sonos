@@ -191,8 +191,7 @@ If you want to publish your own version, please do it as a [user-scoped](https:/
 
 1. Change the top of the readme to state your specific changes.
 2. Change the `name` of the project to `@npm_username/sonos`
-2. Publish it to npm `npm publish --access=public`
-
+3. Publish it to npm `npm publish --access=public`
 
 ## Licence
 
