@@ -139,7 +139,7 @@ device.getVolume()
   * stopListening()
   * Event: 'CurrentTrack'
   * Event: 'NextTrack'
-  * Event: 'PlayState'
+  * Event: 'PlayState' and 'PlaybackStopped'
   * Event: 'AVTransport'
   * Event: 'Volume'
   * Event: 'Muted'
