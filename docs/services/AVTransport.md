@@ -65,17 +65,35 @@ Reorder tracks in queue
 + **options.InsertBefore**: `number`, Where should these tracks be inserted?
 
 
-### sonos.AVTransport.SnoozeAlarm(options)
+### sonos.AVTransport.SetPlayMode(playmode)
+
+Set the new playmode
+
+**Parameters**:
+
+**playmode**: `string`, One of the following `NORMAL` `REPEAT_ALL` `SHUFFLE` `SHUFFLE_NOREPEAT`
+
+
+### sonos.AVTransport.ConfigureSleepTimer(duration)
+
+Configure a sleeptimer.
+
+**Parameters**:
+
+**duration**: `string`, the duration as 'ISO8601Time', needs sample!
+
+### sonos.AVTransport.SnoozeAlarm(duration)
 
 Snooze the current running alarm for a number of minutes.
 
 **Parameters**:
 
-**options**: `object`, An object with the required properties
+**duration**: `string`, The duration, as 'ISO8601Time', needs sample!
 
-+ **options.InstanceID**: `number`, The instance you want to control, is always `0`
 
-+ **options.Duration**: `string`, The duration, as 'ISO8601Time', needs sample!
+### sonos.AVTransport.CurrentTrack()
+
+Get information about the current track, parsed version of `GetPositionInfo()`
 
 
 * * *

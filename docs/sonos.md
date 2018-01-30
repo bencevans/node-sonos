@@ -16,22 +16,7 @@ Sonos library to control (almost) everything from your sonos devices
 
 Create an instance of Sonos
 
-### sonos.Sonos.request(endpoint, action, body, responseTag)
-
-UPnP HTTP Request
-
-**Parameters**:
-
-**endpoint**: `String`, HTTP Path
-
-**action**: `String`, UPnP Call/Function/Action
-
-**body**: `String`, The XML body to be send, will be put in an soap envelope
-
-**responseTag**: `String`, Expected Response Container XML Tag
-
-**Returns**: `Promise`
-
+**Sonos**:  , Export
 ### sonos.Sonos.getMusicLibrary(searchType, options)
 
 Get Music Library Information
@@ -154,6 +139,7 @@ Select specific track in queue
 
 **trackNr**: `Number`, Number of track in queue (optional, indexed from 1)
 
+
 ### sonos.Sonos.next()
 
 Play next in queue
@@ -217,13 +203,14 @@ Get the LED State
 
 **Returns**: `String`, state is a string, "On" or "Off"
 
-### sonos.Sonos.setLEDState(desiredState)
+### sonos.Sonos.setLEDState(newState)
 
 Set the LED State
 
 **Parameters**:
 
-**desiredState**: `String`, "On"/"Off"
+**newState**: `String`, "On"/"Off"
+
 
 ### sonos.Sonos.getZoneInfo()
 
@@ -269,13 +256,15 @@ Set Play Mode
 
 **Returns**: `Object`
 
-### sonos.Sonos.setVolume(volume)
+### sonos.Sonos.setVolume(volume, channel)
 
 Set Volume
 
 **Parameters**:
 
-**volume**: `String`, 0..100
+**volume**: `number`, 0..100
+
+**channel**: `string`, What channel to change, `Master` is default.
 
 **Returns**: `Object`
 
@@ -289,13 +278,15 @@ Configure Sleep Timer
 
 **Returns**: `Object`
 
-### sonos.Sonos.setMuted(muted)
+### sonos.Sonos.setMuted(muted, channel)
 
 Set Muted
 
 **Parameters**:
 
 **muted**: `Boolean`, Set Muted
+
+**channel**: `string`, What channel to change, `Master` is default.
 
 **Returns**: `Object`
 
@@ -381,8 +372,10 @@ Reorder tracks in queue.
 
 **updateId**: `number`, Not sure what this means, just leave it at `0`
 
+
 ### sonos.Sonos.getSpotifyConnectInfo()
 
 Get SpotifyConnect info, will error when no premium account is present
+
 
 * * *
