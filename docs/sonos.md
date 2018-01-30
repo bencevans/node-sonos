@@ -192,16 +192,6 @@ Plays Spotify radio based on artist uri
 
 **Returns**: `Boolean`
 
-### sonos.Sonos.queueNext(options)
-
-Queue a Song Next, was setAVTransportUri already in the library?
-
-**Parameters**:
-
-**options**: `String | Object`, URI to Audio Stream or Object containing options (uri, metadata)
-
-**Returns**: `Boolean`
-
 ### sonos.Sonos.queue(options, positionInQueue)
 
 Add a song to the queue.
@@ -390,7 +380,6 @@ Reorder tracks in queue.
 **insertBefore**: `number`, Index of place where the tracks should be moved to
 
 **updateId**: `number`, Not sure what this means, just leave it at `0`
-
 
 ### sonos.Sonos.getSpotifyConnectInfo()
 

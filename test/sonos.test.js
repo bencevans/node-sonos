@@ -270,7 +270,7 @@ describe('Sonos', function () {
     })
   })
 
-  describe('queueNext()', function () {
+  describe('setAVTransportURI()', function () {
     it('should generate queue command', function () {
       mockRequest('/MediaRenderer/AVTransport/Control',
         '"urn:schemas-upnp-org:service:AVTransport:1#SetAVTransportURI"',
@@ -286,7 +286,7 @@ describe('Sonos', function () {
       )
       var sonos = new Sonos('localhost', 1400)
 
-      sonos.queueNext('http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3')
+      sonos.setAVTransportURI('http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3')
     })
 
     it('should accept object in place of uri', function () {
@@ -304,7 +304,7 @@ describe('Sonos', function () {
       )
       var sonos = new Sonos('localhost', 1400)
 
-      sonos.queueNext({
+      sonos.setAVTransportURI({
         uri: 'http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3',
         metadata: '<test>"hello"</test>'
       })
