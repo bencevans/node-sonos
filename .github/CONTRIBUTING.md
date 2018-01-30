@@ -18,7 +18,7 @@ We use github to host code, to track issues and feature requests, as well as acc
 
 Pull requests are the best way to propose changes to the codebase (we use [Github Flow](https://guides.github.com/introduction/flow/index.html)). We actively welcome your pull requests:
 
-1. Fork the repo and create your branch from `sonos-async`.
+1. Fork the repo and create your branch from `master`.
 2. Run `npm install` to make sure you got the current version of the packages installed.
 3. If you've added code that should be tested, add tests.
 4. Add jsdoc to all new prototyped functions and update the documentation `npm run docs`
@@ -46,7 +46,7 @@ We like bug reports that state some example code, what your output is and what o
 - Version of this package.
 - Steps to reproduce
   - Be specific!
-  - Give sample code if you can. [My stackoverflow question](http://stackoverflow.com/q/12488905/180626) includes sample code that *anyone* with a base R setup can run to reproduce what I was seeing
+  - Give sample code if you can. [A stackoverflow question](http://stackoverflow.com/q/12488905/180626) includes sample code that *anyone* with a base R setup can run to reproduce what I was seeing
 - What you expected would happen
 - What actually happens
 - Notes (possibly including why you think this might be happening, or stuff you tried that didn't work)

@@ -197,6 +197,10 @@ If you want to publish your own version, please do it as a [user-scoped](https:/
 2. Change the `name` of the project to `@npm_username/sonos`
 3. Publish it to npm `npm publish --access=public`
 
+## Sonos v0.x
+
+At 30 jan 2018 we released an **promisified** version of **node-sonos**. The old version can be found in the [v0.x branch](https://github.com/bencevans/node-sonos/tree/v0.x). It won't get any new features, but it **might** get security updates.
+
 ## Licence
 
 MIT © [Ben Evans](https://bencevans.io)
