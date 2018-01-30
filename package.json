@@ -15,6 +15,10 @@
     "type": "git",
     "url": "https://github.com/bencevans/node-sonos.git"
   },
+  "files": [
+    "index.js",
+    "lib"
+  ],
   "keywords": [
     "sonos",
     "music",
