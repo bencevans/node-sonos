@@ -154,7 +154,6 @@ Select specific track in queue
 
 **trackNr**: `Number`, Number of track in queue (optional, indexed from 1)
 
-
 ### sonos.Sonos.next()
 
 Play next in queue
@@ -235,7 +234,6 @@ Set the LED State
 **Parameters**:
 
 **desiredState**: `String`, "On"/"Off"
-
 
 ### sonos.Sonos.getZoneInfo()
 
@@ -361,9 +359,41 @@ Get the current queue
 
 **Returns**: `Object`, {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
 
+### sonos.Sonos.playNotification(options)
+
+Play uri and restore last state
+
+**Parameters**:
+
+**options**: `String | Object`, URI to a Audio Stream or Object with play options see `Helpers.GenerateMetadata`
+
++ **options.uri**: `String`, The URI of the stream
+
++ **options.metadata**: `String`, The metadata of the stream see `Helpers.GenerateMetadata`
+
++ **options.onlyWhenPlaying**: `Boolean`, Only play this notification on players currently 'playing'
+
++ **options.volume**: `Number`, The volume used for the notification.
+
+**Returns**: `Boolean`, Did the notification play? Only returns when finished reverting to old play settings.
+
+### sonos.Sonos.reorderTracksInQueue(startingIndex, numberOfTracks, insertBefore, updateId)
+
+Reorder tracks in queue.
+
+**Parameters**:
+
+**startingIndex**: `number`, Index of the first track to be moved
+
+**numberOfTracks**: `number`, How many tracks do we want to move
+
+**insertBefore**: `number`, Index of place where the tracks should be moved to
+
+**updateId**: `number`, Not sure what this means, just leave it at `0`
+
+
 ### sonos.Sonos.getSpotifyConnectInfo()
 
 Get SpotifyConnect info, will error when no premium account is present
-
 
 * * *
