@@ -22,7 +22,7 @@ Pull requests are the best way to propose changes to the codebase (we use [Githu
 2. Run `npm install` to make sure you got the current version of the packages installed.
 3. If you've added code that should be tested, add tests.
 4. Add jsdoc to all new prototyped functions and update the documentation `npm run docs`
-5. Ensure the test suite passes. `npm run test`
+5. Ensure the test suite passes. `npm run test` or `SONOS_HOST=1.2.3.4 npm run test` for real device testing.
 6. Make sure your code lints. `npm run lint` or `standard --fix` to auto fix most lint errors.
 7. Issue that pull request! All pull-requests are automatically checked by [Travis](https://travis-ci.org/bencevans/node-sonos/pull_requests).
 8. Respond to possible review comments.

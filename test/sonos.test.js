@@ -354,3 +354,50 @@ describe('DeviceDiscovery', function () {
     })
   })
 })
+
+describe('SonosDevice', function () {
+  var sonos = null
+  before(function () {
+    if (!process.env.SONOS_HOST) {
+      this.skip()
+    } else {
+      sonos = new Sonos(process.env.SONOS_HOST, 1400)
+    }
+  })
+
+  it('should get sonos favorites', function () {
+    return sonos.getFavorites().then(favs => {
+      assert(favs.items, 'should have items')
+    })
+  })
+
+  // There seem to be some kind of error here.... Needs attention.
+  it.skip('should get favorite radio stations', function () {
+    return sonos.getFavoritesRadioStations().then(favs => {
+      assert(favs.items, 'should have items')
+    }).catch(err => {
+      console.log('Error loading stations %j', err)
+    })
+  })
+
+  it('should get muted', function () {
+    return sonos.getMuted().then(muted => {
+      assert(typeof muted === 'boolean', 'muted is a boolean')
+    })
+  })
+
+  it('should get state', function () {
+    return sonos.getCurrentState().then(state => {
+      assert(typeof state === 'string', 'state is a string')
+      const values = ['stopped', 'playing', 'paused', 'transitioning', 'no_media']
+      assert(values.indexOf(state) > -1, 'state is one of the allowed values')
+    })
+  })
+
+  it('should get volume', function () {
+    return sonos.getVolume().then(volume => {
+      assert(typeof volume === 'number', 'volume is a number')
+      assert((volume >= 0 && volume <= 100), 'volume is between 0 and 100')
+    })
+  })
+})
