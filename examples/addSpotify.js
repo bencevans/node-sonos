@@ -1,21 +1,14 @@
-var SONOS = require('../')
-var Sonos = SONOS.Sonos
-var sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
+const SONOS = require('../')
+const Sonos = SONOS.Sonos
+const sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
 
-var spotifyTrackTd = '5AdoS3gS47x40nBNlNmPQ8' // Slayer ftw
+const spotifyTrackTd = 'spotify:track:5AdoS3gS47x40nBNlNmPQ8' // Slayer ftw
 
-sonos.addSpotify(spotifyTrackTd, function (err, res) {
-  console.log(err)
-  console.log(res)
-})
+// Use the EU region.
+// sonos.setSpotifyRegion(SONOS.SpotifyRegion.EU)
 
-//
-// or if you use spotify EU service
-//
-var sonosWithSpotifyEU = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
-sonosWithSpotifyEU.setRegion(SONOS.SpotifyRegion.EU)
-
-sonosWithSpotifyEU.addSpotify(spotifyTrackTd, function (err, res) {
-  console.log(err)
-  console.log(res)
+sonos.queue(spotifyTrackTd).then(result => {
+  console.log('Added spotify track to queue %j', result)
+}).catch(err => {
+  console.log('Error adding %j', err)
 })

@@ -5,6 +5,7 @@ Sonos library to control (almost) everything from your sonos devices
 **Requires:**
 
 + module:'./Service'
++ module:'../Helpers'
 
 * * *
 
@@ -12,7 +13,7 @@ Sonos library to control (almost) everything from your sonos devices
 
 Create a new instance of AlarmClock
 
-### sonos.AlarmClock.CreateAlarm(options, callback)
+### sonos.AlarmClock.CreateAlarm(options)
 
 Create an alarm, but using the sonos app it advised (because you most likely cannot set the ProgramMetaData correctly)
 
@@ -40,11 +41,9 @@ Create an alarm, but using the sonos app it advised (because you most likely can
 
 + **options.IncludeLinkedZones**: `String`, Should linked zones be included? ['0', '1']
 
-**callback**: `function`, (err, result)
+**Returns**: `Object`, parsed response object
 
-**Returns**: `void`
-
-### sonos.AlarmClock.DestroyAlarm(id, callback)
+### sonos.AlarmClock.DestroyAlarm(id)
 
 Delete an alarm
 
@@ -52,21 +51,15 @@ Delete an alarm
 
 **id**: `String`, the id of the alarm you want to delete
 
-**callback**: `function`, (err, result)
+**Returns**: `Object`, parsed response object
 
-**Returns**: `void`
-
-### sonos.AlarmClock.ListAlarms(callback)
+### sonos.AlarmClock.ListAlarms()
 
 Get all the alarms known to sonos
 
-**Parameters**:
+**Returns**: `Object`
 
-**callback**: `function`, (err, result)
-
-**Returns**: `void`
-
-### sonos.AlarmClock.SetAlarm(id, enabled, callback)
+### sonos.AlarmClock.SetAlarm(id, enabled)
 
 Enable/disable an alarm
 
@@ -76,11 +69,9 @@ Enable/disable an alarm
 
 **enabled**: `Boolean`, Should the alarm be enabled or not
 
-**callback**: `function`, (err, result)
+**Returns**: `Object`, parsed response object
 
-**Returns**: `void`
-
-### sonos.AlarmClock.PatchAlarm(id, options, callback)
+### sonos.AlarmClock.PatchAlarm(id, options)
 
 Update only some properties of an Alarm
 
@@ -110,8 +101,6 @@ Update only some properties of an Alarm
 
 + **options.IncludeLinkedZones**: `String`, Should linked zones be included? ['0', '1']
 
-**callback**: `function`, (err, result)
-
-**Returns**: `void`
+**Returns**: `Object`, parsed response object
 
 * * *

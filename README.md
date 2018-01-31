@@ -52,56 +52,106 @@ From the repo, living on the edge
 
     $ npm install git://github.com/bencevans/node-sonos.git
 
+## Quick Start
+
+### Discovering Devices
+
+```js
+const { DeviceDiscovery } = require('sonos')
+
+// event on all found...
+DeviceDiscovery((device) => {
+  console.log('found device at ' + device.host)
+
+  // mute every device...
+  device.setMuted(true)
+    .then(`${device.host} now muted`)
+})
+
+// find one device
+DeviceDiscovery().once('DeviceAvailable', (device) => {
+  console.log('found device at ' + device.host)
+
+  // get topology
+  device.getTopology()
+    .then(console.log)
+})
+```
+
+
+### Controlling Known Devices
+
+```js
+const { Sonos } = require('sonos')
+
+const device = new Sonos('192.168.1.56');
+
+device.play()
+  .then(() => console.log('now playing'))
+
+device.getVolume()
+  .then((volume) => console.log(`current volume = ${volume}`))
+```
+
 ## API
 
-For detailed info read the [/API.md](https://github.com/bencevans/node-sonos/blob/master/API.md) file, else…
-
-* search([options], [deviceAvailableListener])
-* Class: Search([options])
+* DeviceDiscovery([options], [deviceAvailableListener])
+* Class: DeviceDiscovery([options])
   * Event: 'DeviceAvailable'
   * destroy()
 * Class: Sonos(host, [port])
-  * currentTrack(callback)
-  * deviceDescription(callback)
-  * flush(callback)
-  * getCurrentState(callback)
-  * getLEDState(callback)
-  * getMusicLibrary(search, options, callback)
-  * getMuted(callback)
-  * getTopology(callback)
-  * getVolume(callback)
-  * getZoneAttrs(callback)
-  * getZoneInfo(callback)
-  * getQueue(callback)
-  * next(callback)
+  * currentTrack()
+  * deviceDescription()
+  * flush()
+  * getCurrentState()
+  * getLEDState()
+  * getMusicLibrary(search, options)
+  * getMuted()
+  * getTopology()
+  * getVolume()
+  * getZoneAttrs()
+  * getZoneInfo()
+  * getQueue()
+  * next()
   * parseDIDL(didl)
-  * pause(callback)
-  * play(uri, callback)
-  * previous(callback)
-  * queue(uri, positionInQueue, callback)
-  * queueNext(uri, callback)
-  * request(endpoint, action, body, responseTag, callback)
-  * seek(seconds, callback)
-  * setLEDState(desiredState, callback)
-  * setMuted(muted, callback)
-  * setName(name, callback)
-  * getPlayMode(callback)
-  * setPlayMode(mode, callback)
-  * setVolume(volume, callback)
-  * stop(callback)
+  * pause()
+  * play(uri)
+  * previous()
+  * queue(uri, positionInQueue)
+  * queueNext(uri)
+  * request(endpoint, action, body, responseTag)
+  * seek(seconds)
+  * setLEDState(desiredState)
+  * setMuted(muted)
+  * setName(name)
+  * getPlayMode()
+  * setPlayMode(mode)
+  * setVolume(volume)
+  * stop()
   * setSpotifyRegion(region)
   * alarmClockService()
-    * ListAlarms(callback)
-    * PatchAlarm(id,options,callback)
-    * SetAlarm(id,enabled,callback)
-  * joinGroup(otherDeviceName, callback)
-  * leaveGroup(callback)
-  * startListening(options, callback)
-  * stopListening(callback)
-  * Event: 'TrackChanged'
-  * Event: 'VolumeChanged'
-  * Event: 'StateChanged'
+    * ListAlarms()
+    * PatchAlarm(id,options)
+    * SetAlarm(id,enabled)
+  * joinGroup(otherDeviceName)
+  * leaveGroup()
+  * startListening(options)
+  * stopListening()
+  * Event: 'CurrentTrack'
+  * Event: 'NextTrack'
+  * Event: 'PlayState' and 'PlaybackStopped'
+  * Event: 'AVTransport'
+  * Event: 'Volume'
   * Event: 'Muted'
+  * Event: 'RenderingControl'
+
+## Documentation
+
+We tried to add jsdoc info to all functions, and generate documentation from it. [/docs](./docs/)
+
+## Examples
+
+Additional examples can be found in the [/examples](./examples) directory within the repository.
 
 ## In The Wild
 
@@ -120,10 +170,6 @@ node-sonos in use across the interwebs. Missing yours? [Add it](https://github.c
 
 * **[How we gave our studio WWE-style entrances using iBeacons and Sonos](https://hackernoon.com/how-we-gave-our-studio-wwe-style-entrances-using-ibeacons-and-sonos-92dd2f54983)** - A technical run-down of using futuristic technology for sheer entertainment value
 
-## Examples
-
-Additional examples can be found in the [/examples](https://github.com/bencevans/node-sonos/tree/master/examples) directory within the repository.
-
 ## Maintainers
 
 * Ben Evans (@bencevans)
@@ -132,6 +178,28 @@ Additional examples can be found in the [/examples](https://github.com/bencevans
 * Stephan van Rooij (@svrooij)
 
 And a big thanks to all you other [contributors](https://github.com/bencevans/node-sonos/graphs/contributors)! Pull-requests are beautiful things.
+
+## Issues
+
+If you got discovered an issue with this library, please check the [issue-tracker](https://github.com/bencevans/node-sonos/issues). And [create](https://github.com/bencevans/node-sonos/issues/new) an issue if your problem isn't discovered by someone else. If you want to contribute something check out these ['help-wanted' issues](https://github.com/bencevans/node-sonos/labels/help-wanted).
+
+## Questions
+
+Do you have a question about this library, we are glad to help you [Ask Question](https://github.com/bencevans/node-sonos/issues/new?title=Question%3A%20%3CYour%20text%3E&body=%23%20Question%0A&labels=question&assignee=svrooij). You can see all questions [here](https://github.com/bencevans/node-sonos/issues?utf8=%E2%9C%93&q=label%3Aquestion+)
+
+### NPM publish
+
+We try to react to all pull-requests, but if you think we don't respond in time, please don't create a 'sonos-by-xyz' or a 'node-sonos-by-xyz' package on NPM. This might lead to people installing the wrong version.
+
+If you want to publish your own version, please do it as a [user-scoped](https://docs.npmjs.com/getting-started/scoped-packages) eg. `@svrooij/sonos` package.
+
+1. Change the top of the readme to state your specific changes.
+2. Change the `name` of the project to `@npm_username/sonos`
+3. Publish it to npm `npm publish --access=public`
+
+## Sonos v0.x
+
+At 30 jan 2018 we released an **promisified** version of **node-sonos**. The old version can be found in the [v0.x branch](https://github.com/bencevans/node-sonos/tree/v0.x). It won't get any new features, but it **might** get security updates.
 
 ## Licence
 

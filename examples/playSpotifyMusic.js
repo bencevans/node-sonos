@@ -1,6 +1,6 @@
-var Sonos = require('../').Sonos
-var Regions = require('../').SpotifyRegion
-var sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
+const Sonos = require('../').Sonos
+const Regions = require('../').SpotifyRegion
+const sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
 sonos.setSpotifyRegion(Regions.EU)
 // This example demonstrates playing various spotify uri types.
 // The Spotify uris can be obtained by using the Spotify
@@ -25,11 +25,9 @@ sonos.setSpotifyRegion(Regions.EU)
 
 var spotifyUri = 'spotify:artistTopTracks:72qVrKXRp9GeFQOesj0Pmv'
 
-sonos.play(spotifyUri, (err, result) => {
-  if (err) {
-    return console.log(err)
-  }
-})
+sonos.play(spotifyUri).then(success => {
+  console.log('Yeay')
+}).catch(err => { console.log('Error occurred %j', err) })
 
 // This example plays curated artist radio on Spotify. The
 // artistId is found in the same way as described above. The
@@ -39,8 +37,6 @@ sonos.play(spotifyUri, (err, result) => {
 // var artistId = '1dfeR4HaWDbWqFHLkxsg1d'
 // var artistName = 'Queen'
 
-// sonos.playSpotifyRadio(artistId, artistName, (err, result) => {
-//   if (err) {
-//     return console.log(err)
-//   }
-// })
+// sonos.playSpotifyRadio(artistId, artistName).then(success => {
+//   console.log('Yeay')
+// }).catch(err => { console.log('Error occurred %j', err) })
