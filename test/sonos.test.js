@@ -5,7 +5,6 @@ const SONOS = require('../')
 const Sonos = SONOS.Sonos
 const nock = require('nock')
 const Helpers = require('../lib/helpers')
-
 const generateResponse = function (responseTag, serviceName, responseBody) {
   const soapBody = '<u:' + responseTag + ' xmlns:u="urn:schemas-upnp-org:service:' + serviceName + ':1">' + (responseBody || null) + '</u:' + responseTag + '>'
   return Helpers.CreateSoapEnvelop(soapBody)
@@ -356,37 +355,21 @@ describe('DeviceDiscovery', function () {
 })
 
 describe('SonosDevice', function () {
-  var sonos = null
   before(function () {
     if (!process.env.SONOS_HOST) {
       this.skip()
-    } else {
-      sonos = new Sonos(process.env.SONOS_HOST, 1400)
     }
   })
 
-  it('should get sonos favorites', function () {
-    return sonos.getFavorites().then(favs => {
-      assert(favs.items, 'should have items')
-    })
-  })
-
-  // There seem to be some kind of error here.... Needs attention.
-  it.skip('should get favorite radio stations', function () {
-    return sonos.getFavoritesRadioStations().then(favs => {
-      assert(favs.items, 'should have items')
-    }).catch(err => {
-      console.log('Error loading stations %j', err)
-    })
-  })
-
-  it('should get muted', function () {
+  it('should getMuted()', function () {
+    const sonos = new Sonos(process.env.SONOS_HOST, 1400)
     return sonos.getMuted().then(muted => {
       assert(typeof muted === 'boolean', 'muted is a boolean')
     })
   })
 
-  it('should get state', function () {
+  it('should getCurrentState()', function () {
+    const sonos = new Sonos(process.env.SONOS_HOST, 1400)
     return sonos.getCurrentState().then(state => {
       assert(typeof state === 'string', 'state is a string')
       const values = ['stopped', 'playing', 'paused', 'transitioning', 'no_media']
@@ -394,10 +377,33 @@ describe('SonosDevice', function () {
     })
   })
 
-  it('should get volume', function () {
+  it('should getVolume()', function () {
+    const sonos = new Sonos(process.env.SONOS_HOST, 1400)
     return sonos.getVolume().then(volume => {
       assert(typeof volume === 'number', 'volume is a number')
       assert((volume >= 0 && volume <= 100), 'volume is between 0 and 100')
+    })
+  })
+
+  it('should getFavorites()', function () {
+    const sonos = new Sonos(process.env.SONOS_HOST, 1400)
+    return sonos.getFavorites().then(function (favs) {
+      assert(favs.items, 'should have items')
+    })
+  })
+
+  it('should getQueue()', function () {
+    const sonos = new Sonos(process.env.SONOS_HOST, 1400)
+    return sonos.getQueue().then(function (queue) {
+      assert(queue.items, 'should have items')
+    })
+  })
+
+  // There seem to be some kind of error here.... Needs attention.
+  it('should getFavoritesRadioStations()', function () {
+    const sonos = new Sonos(process.env.SONOS_HOST, 1400)
+    return sonos.getFavoritesRadioStations().then(function (radio) {
+      assert(radio.items, 'should have items')
     })
   })
 })
