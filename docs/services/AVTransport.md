@@ -26,6 +26,7 @@ Set the Transport URI
 
 + **options.CurrentURIMetaData**: `string`, The metadata of the uri you wish to set.
 
+**Returns**: `Object`, Parsed response data.
 
 ### sonos.AVTransport.AddURIToQueue(options)
 
@@ -45,6 +46,7 @@ Add an URI to the queue
 
 + **options.EnqueueAsNext**: `number`, To Queue this item as the next item set to `1`
 
+**Returns**: `Object`, Parsed response data.
 
 ### sonos.AVTransport.ReorderTracksInQueue(options)
 
@@ -64,6 +66,7 @@ Reorder tracks in queue
 
 + **options.InsertBefore**: `number`, Where should these tracks be inserted?
 
+**Returns**: `Object`, Parsed response data.
 
 ### sonos.AVTransport.SetPlayMode(playmode)
 
@@ -73,6 +76,7 @@ Set the new playmode
 
 **playmode**: `string`, One of the following `NORMAL` `REPEAT_ALL` `SHUFFLE` `SHUFFLE_NOREPEAT`
 
+**Returns**: `Object`, Parsed response data.
 
 ### sonos.AVTransport.ConfigureSleepTimer(duration)
 
@@ -82,6 +86,8 @@ Configure a sleeptimer.
 
 **duration**: `string`, the duration as 'ISO8601Time', needs sample!
 
+**Returns**: `Object`, Parsed response data.
+
 ### sonos.AVTransport.SnoozeAlarm(duration)
 
 Snooze the current running alarm for a number of minutes.
@@ -90,10 +96,12 @@ Snooze the current running alarm for a number of minutes.
 
 **duration**: `string`, The duration, as 'ISO8601Time', needs sample!
 
+**Returns**: `Object`, Parsed response data.
 
 ### sonos.AVTransport.CurrentTrack()
 
 Get information about the current track, parsed version of `GetPositionInfo()`
 
+**Returns**: `Object`, The current playing track
 
 * * *
