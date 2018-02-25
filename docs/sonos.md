@@ -29,7 +29,7 @@ Get Music Library Information
 
 **Returns**: `Object`, {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
 
-### sonos.Sonos.searchMusicLibrary(searchType, searchTerm, options)
+### sonos.Sonos.searchMusicLibrary(searchType, searchTerm, requestOptions, separator)
 
 Get Music Library Information
 
@@ -39,7 +39,9 @@ Get Music Library Information
 
 **searchTerm**: `String`, Optional - search term to search for
 
-**options**: `Object`, Optional - default {start: 0, total: 100}
+**requestOptions**: `Object`, Optional - default {start: 0, total: 100}
+
+**separator**: `String`, Optional - default is colon. `:` or `/`
 
 **Returns**: `Object`, {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
 
@@ -91,19 +93,19 @@ Plays a uri directly (the queue stays the same)
 
 Stop What's Playing
 
-**Returns**: `Promise`
+**Returns**: `boolean`
 
 ### sonos.Sonos.becomeCoordinatorOfStandaloneGroup()
 
 Become Coordinator of Standalone Group
 
-**Returns**: `Promise`
+**Returns**: `boolean`
 
 ### sonos.Sonos.leaveGroup()
 
 Leave the group (shortcut to becomeCoordinatorOfStandaloneGroup)
 
-**Returns**: `Promise`
+**Returns**: `boolean`
 
 ### sonos.Sonos.joinGroup(otherDeviceName)
 
@@ -139,6 +141,7 @@ Select specific track in queue
 
 **trackNr**: `Number`, Number of track in queue (optional, indexed from 1)
 
+**Returns**: `Boolean`
 
 ### sonos.Sonos.next()
 
@@ -211,6 +214,7 @@ Set the LED State
 
 **newState**: `String`, "On"/"Off"
 
+**Returns**: `Boolean`
 
 ### sonos.Sonos.getZoneInfo()
 
@@ -302,6 +306,12 @@ Get Current Playback State
 
 **Returns**: `String`, the current playback state
 
+### sonos.Sonos.togglePlayback()
+
+Toggle the current playback, like the button. Currently only works for state `playing` or `paused`
+
+**Returns**: `Boolean`
+
 ### sonos.Sonos.getFavoritesRadioStations(options)
 
 Get Favorites Radio Stations
@@ -372,10 +382,12 @@ Reorder tracks in queue.
 
 **updateId**: `number`, Not sure what this means, just leave it at `0`
 
+**Returns**: `Boolean`
 
 ### sonos.Sonos.getSpotifyConnectInfo()
 
 Get SpotifyConnect info, will error when no premium account is present
 
+**Returns**: `Object`
 
 * * *
