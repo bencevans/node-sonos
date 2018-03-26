@@ -59,7 +59,7 @@
     "nock": "9.2.3",
     "pre-commit": "1.2.2",
     "semantic-release": "15.1.4",
-    "standard": "10.0.3"
+    "standard": "11.0.1"
   },
   "pre-commit": [
     "lint"
