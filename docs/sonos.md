@@ -244,6 +244,12 @@ Set Name
 
 **Returns**: `Object`
 
+### sonos.Sonos.getName()
+
+Get the CurrentZoneName
+
+**Returns**: `String`
+
 ### sonos.Sonos.getPlayMode()
 
 Get Play Mode
