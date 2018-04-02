@@ -107,13 +107,15 @@ Leave the group (shortcut to becomeCoordinatorOfStandaloneGroup)
 
 **Returns**: `boolean`
 
-### sonos.Sonos.joinGroup(otherDeviceName)
+### sonos.Sonos.joinGroup(otherDeviceName, coordinatorOnly)
 
 Join an other device by name
 
 **Parameters**:
 
 **otherDeviceName**: `String`, The name of de device you want to join, doesn't matter if that isn't the coordinator
+
+**coordinatorOnly**: `Boolean`, Only look of the coordinator (usefull for joined devices, eg. stereo pairs)
 
 **Returns**: `Boolean`
 
@@ -243,6 +245,12 @@ Set Name
 **name**: `String`, Set Name
 
 **Returns**: `Object`
+
+### sonos.Sonos.getName()
+
+Get the CurrentZoneName
+
+**Returns**: `String`
 
 ### sonos.Sonos.getPlayMode()
 

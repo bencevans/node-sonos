@@ -46,7 +46,7 @@
   "dependencies": {
     "debug": "^3.1.0",
     "ip": "^1.1.5",
-    "request": "^2.83.0",
+    "request": "^2.85.0",
     "request-promise-native": "^1.0.5",
     "xml2js": "^0.4.19"
   },
@@ -59,7 +59,7 @@
     "nock": "9.2.3",
     "pre-commit": "1.2.2",
     "semantic-release": "15.1.4",
-    "standard": "10.0.3"
+    "standard": "11.0.1"
   },
   "pre-commit": [
     "lint"
