@@ -55,7 +55,7 @@
   },
   "devDependencies": {
     "@bencevans/jsdox": "0.4.11",
-    "mocha": "5.1.0",
+    "mocha": "5.1.1",
     "nock": "9.2.5",
     "pre-commit": "1.2.2",
     "semantic-release": "15.1.7",
