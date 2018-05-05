@@ -58,7 +58,7 @@
     "mocha": "5.1.1",
     "nock": "9.2.5",
     "pre-commit": "1.2.2",
-    "semantic-release": "15.3.0",
+    "semantic-release": "15.3.1",
     "standard": "11.0.1"
   },
   "pre-commit": [
