@@ -11,10 +11,7 @@
     "semantic-release": "semantic-release",
     "docs": "jsdox -t ./docs/generator/templates --output docs lib/ && jsdox -t ./docs/generator/templates --output docs/services lib/services && jsdox -t ./docs/generator/templates --output docs/events lib/events"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/bencevans/node-sonos.git"
-  },
+  "repository": "bencevans/node-sonos",
   "keywords": [
     "sonos",
     "music",
