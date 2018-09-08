@@ -95,6 +95,11 @@ Stop What's Playing
 
 **Returns**: `boolean`
 
+### sonos.Sonos.getAllGroups()
+
+Get all the groups, replaces some functionality of 'getTopology()'
+
+
 ### sonos.Sonos.becomeCoordinatorOfStandaloneGroup()
 
 Become Coordinator of Standalone Group
