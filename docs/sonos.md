@@ -304,6 +304,8 @@ Set Muted
 
 Get Zones in contact with current Zone with Group Data
 
+Deprecated: Doesn't work if you upgraded your system to Sonos v9.1
+
 **Returns**: `Object`
 
 ### sonos.Sonos.getCurrentState()

@@ -72,12 +72,11 @@ DeviceDiscovery((device) => {
 DeviceDiscovery().once('DeviceAvailable', (device) => {
   console.log('found device at ' + device.host)
 
-  // get topology
-  device.getTopology()
+  // get all groups
+  device.getAllGroups()
     .then(console.log)
 })
 ```
-
 
 ### Controlling Known Devices
 
@@ -107,7 +106,7 @@ device.getVolume()
   * getLEDState()
   * getMusicLibrary(search, options)
   * getMuted()
-  * getTopology()
+  * ~~getTopology()~~ Doesn't work if you upgraded to Sonos v9.1 
   * getVolume()
   * getZoneAttrs()
   * getZoneInfo()
@@ -136,6 +135,7 @@ device.getVolume()
     * SetAlarm(id,enabled)
   * joinGroup(otherDeviceName)
   * leaveGroup()
+  * getAllGroups()
   * startListening(options)
   * stopListening()
   * Event: 'CurrentTrack'
@@ -198,7 +198,7 @@ If you want to publish your own version, please do it as a [user-scoped](https:/
 2. Change the `name` of the project to `@npm_username/sonos`
 3. Publish it to npm `npm publish --access=public`
 
-## Sonos v0.x
+## Node Sonos v0.x (non async)
 
 At 30 jan 2018 we released an **promisified** version of **node-sonos**. The old version can be found in the [v0.x branch](https://github.com/bencevans/node-sonos/tree/v0.x). It won't get any new features, but it **might** get security updates.
 
