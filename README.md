@@ -106,7 +106,7 @@ device.getVolume()
   * getLEDState()
   * getMusicLibrary(search, options)
   * getMuted()
-  * ~~getTopology()~~ Doesn't work if you upgraded to Sonos v9.1 
+  * ~~getTopology()~~ Doesn't work if you upgraded to Sonos v9.1. Check-out getAllGroups() for some replacement.
   * getVolume()
   * getZoneAttrs()
   * getZoneInfo()
