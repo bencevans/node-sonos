@@ -95,6 +95,11 @@ Stop What's Playing
 
 **Returns**: `boolean`
 
+### sonos.Sonos.getAllGroups()
+
+Get all the groups, replaces some functionality of 'getTopology()'
+
+
 ### sonos.Sonos.becomeCoordinatorOfStandaloneGroup()
 
 Become Coordinator of Standalone Group
@@ -107,15 +112,13 @@ Leave the group (shortcut to becomeCoordinatorOfStandaloneGroup)
 
 **Returns**: `boolean`
 
-### sonos.Sonos.joinGroup(otherDeviceName, coordinatorOnly)
+### sonos.Sonos.joinGroup(otherDeviceName)
 
 Join an other device by name
 
 **Parameters**:
 
 **otherDeviceName**: `String`, The name of de device you want to join, doesn't matter if that isn't the coordinator
-
-**coordinatorOnly**: `Boolean`, Only look of the coordinator (usefull for joined devices, eg. stereo pairs)
 
 **Returns**: `Boolean`
 
@@ -305,6 +308,8 @@ Set Muted
 ### sonos.Sonos.getTopology()
 
 Get Zones in contact with current Zone with Group Data
+
+Deprecated: Doesn't work if you upgraded your system to Sonos v9.1
 
 **Returns**: `Object`
 
