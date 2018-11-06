@@ -233,7 +233,7 @@ describe('Sonos', function () {
     it('should generate play command', function () {
       mockRequest('/MediaRenderer/AVTransport/Control',
         '"urn:schemas-upnp-org:service:AVTransport:1#SetAVTransportURI"',
-        '<u:SetAVTransportURI xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><CurrentURI>x-sonosapi-stream:s34682?sid=254&amp;flags=8224&amp;sn=0</CurrentURI><CurrentURIMetaData>&lt;DIDL-Lite xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:upnp=&quot;urn:schemas-upnp-org:metadata-1-0/upnp/&quot; xmlns:r=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot; xmlns=&quot;urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/&quot;&gt;&lt;item id=&quot;F00092020s34682&quot; parentID=&quot;L&quot; restricted=&quot;true&quot;&gt;&lt;dc:title&gt;88.5 | Jazz24 (Jazz)&lt;/dc:title&gt;&lt;upnp:class&gt;object.item.audioItem.audioBroadcast&lt;/upnp:class&gt;&lt;desc id=&quot;cdudn&quot; nameSpace=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot;&gt;SA_RINCON65031_&lt;/desc&gt;&lt;/item&gt;&lt;/DIDL-Lite&gt;</CurrentURIMetaData></u:SetAVTransportURI>',
+        '<u:SetAVTransportURI xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><CurrentURI>x-sonosapi-stream:34682?sid=254&amp;flags=8224&amp;sn=0</CurrentURI><CurrentURIMetaData>&lt;DIDL-Lite xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:upnp=&quot;urn:schemas-upnp-org:metadata-1-0/upnp/&quot; xmlns:r=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot; xmlns=&quot;urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/&quot;&gt;&lt;item id=&quot;F0009202034682&quot; parentID=&quot;L&quot; restricted=&quot;true&quot;&gt;&lt;dc:title&gt;88.5 | Jazz24 (Jazz)&lt;/dc:title&gt;&lt;upnp:class&gt;object.item.audioItem.audioBroadcast&lt;/upnp:class&gt;&lt;desc id=&quot;cdudn&quot; nameSpace=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot;&gt;SA_RINCON65031_&lt;/desc&gt;&lt;/item&gt;&lt;/DIDL-Lite&gt;</CurrentURIMetaData></u:SetAVTransportURI>',
         'SetAVTransportURIResponse',
         'AVTransport'
       )
@@ -355,21 +355,22 @@ describe('DeviceDiscovery', function () {
 })
 
 describe('SonosDevice', function () {
+  let sonos
   before(function () {
     if (!process.env.SONOS_HOST) {
       this.skip()
+    } else {
+      sonos = new Sonos(process.env.SONOS_HOST, 1400)
     }
   })
 
   it('should getMuted()', function () {
-    const sonos = new Sonos(process.env.SONOS_HOST, 1400)
     return sonos.getMuted().then(muted => {
       assert(typeof muted === 'boolean', 'muted is a boolean')
     })
   })
 
   it('should getCurrentState()', function () {
-    const sonos = new Sonos(process.env.SONOS_HOST, 1400)
     return sonos.getCurrentState().then(state => {
       assert(typeof state === 'string', 'state is a string')
       const values = ['stopped', 'playing', 'paused', 'transitioning', 'no_media']
@@ -378,7 +379,6 @@ describe('SonosDevice', function () {
   })
 
   it('should getVolume()', function () {
-    const sonos = new Sonos(process.env.SONOS_HOST, 1400)
     return sonos.getVolume().then(volume => {
       assert(typeof volume === 'number', 'volume is a number')
       assert((volume >= 0 && volume <= 100), 'volume is between 0 and 100')
@@ -386,14 +386,12 @@ describe('SonosDevice', function () {
   })
 
   it('should getFavorites()', function () {
-    const sonos = new Sonos(process.env.SONOS_HOST, 1400)
     return sonos.getFavorites().then(function (favs) {
       assert(favs.items, 'should have items')
     })
   })
 
   it('should getQueue()', function () {
-    const sonos = new Sonos(process.env.SONOS_HOST, 1400)
     return sonos.getQueue().then(function (queue) {
       assert(queue.items, 'should have items')
     })
@@ -401,7 +399,6 @@ describe('SonosDevice', function () {
 
   // There seem to be some kind of error here.... Needs attention.
   it('should getFavoritesRadioStations()', function () {
-    const sonos = new Sonos(process.env.SONOS_HOST, 1400)
     return sonos.getFavoritesRadioStations().then(function (radio) {
       assert(radio.items, 'should have items')
     })
