@@ -5,12 +5,13 @@ const alarmService = sonos.alarmClockService()
 
 alarmService.ListAlarms().then(alarmResult => {
   console.log('You got all the alarms now %j', alarmResult)
-  // Make sure your friends come late for work, no, not a good idea (but you could!)
-  // var disable = function (alarm) {
-  //   return alarmService.SetAlarm(alarm.ID, false)
-  // }
-  // var disableAll = alarmResult.CurrentAlarmList.map(disable)
-  // return Promise.all(disableAll)
+//   console.log(JSON.stringify(alarmResult, ' ', 2))
+//   Make sure your friends come late for work, no, not a good idea (but you could!)
+//   var disable = function (alarm) {
+//     return alarmService.SetAlarm(alarm.ID, false)
+//   }
+//   var disableAll = alarmResult.Alarms.map(disable)
+//   return Promise.all(disableAll)
 }).catch(err => {
   console.log('Error occurred %j', err)
 })
