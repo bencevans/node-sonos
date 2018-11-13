@@ -403,4 +403,10 @@ describe('SonosDevice', function () {
       assert(radio.items, 'should have items')
     })
   })
+
+  it('should getAllGroups()', function () {
+    return sonos.getAllGroups().then(function (groups) {
+      assert(Array.isArray(groups), 'should return an array')
+    })
+  })
 })
