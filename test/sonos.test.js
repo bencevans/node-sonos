@@ -313,7 +313,7 @@ describe('Sonos', function () {
 
 describe('DeviceDiscovery', function () {
   it('should emit a timeout event when timeout is hit', function (done) {
-    setTimeout(function () {
+    const failTimeout = setTimeout(function () {
       assert(false, 'Event never fired')
       done()
     }, 100)
@@ -321,6 +321,7 @@ describe('DeviceDiscovery', function () {
     var search = SONOS.DeviceDiscovery({ timeout: 10 }, function (device, model) {})
 
     search.on('timeout', function () {
+      clearTimeout(failTimeout)
       assert(true)
       done()
     })
