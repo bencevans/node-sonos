@@ -386,6 +386,14 @@ describe('SonosDevice', function () {
     })
   })
 
+  it('should getPlayMode()', function () {
+    return sonos.getPlayMode().then(playmode => {
+      assert(typeof playmode === 'string', 'playmode is a string')
+      const values = ['NORMAL', 'REPEAT_ONE', 'REPEAT_ALL', 'SHUFFLE', 'SHUFFLE_NOREPEAT', 'SHUFFLE_REPEAT_ONE']
+      assert(values.indexOf(playmode) > -1, 'playmode is one of the allowed values')
+    })
+  })
+
   it('should getFavorites()', function () {
     return sonos.getFavorites().then(function (favs) {
       assert(favs.items, 'should have items')
