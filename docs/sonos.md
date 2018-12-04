@@ -199,6 +199,17 @@ Add a song to the queue.
 
 **Returns**: `Object`, Some info about the last queued file.
 
+### sonos.Sonos.removeTracksFromQueue(startIndex, numberOfTracks)
+
+Remove a range of tracks from the queue.
+
+**Parameters**:
+
+**startIndex**: `number`, Where to start removing the tracks, 1 for first item!
+
+**numberOfTracks**: `number`, How many tracks to remove.
+
+
 ### sonos.Sonos.flush()
 
 Flush queue
