@@ -400,6 +400,12 @@ describe('SonosDevice', function () {
     })
   })
 
+  it('should getPlaylist()', function () {
+    return sonos.getPlaylist('1').then(function (playlist) {
+      assert(playlist.items, 'should have items')
+    })
+  })
+
   it('should getQueue()', function () {
     return sonos.getQueue().then(function (queue) {
       assert(queue.items, 'should have items')
