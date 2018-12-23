@@ -4,3 +4,7 @@ const sonos = new Sonos(process.env.SONOS_HOST || '192.168.2.11')
 sonos.getMusicLibrary('sonos_playlists', { start: 0, total: 25 }).then(playlists => {
   console.log('Got current playlists %j', playlists)
 }).catch(err => { console.log('Error occurred %j', err) })
+
+sonos.getPlaylist('1', { start: 0, total: 25 }).then(results => {
+  console.log('Got current playlist items %j', results)
+}).catch(err => { console.log('Error occurred %j', err) })
