@@ -44,7 +44,7 @@
 
 ## Install
 
-Published versions (reccomended)
+Published versions (recommended)
 
     $ npm install sonos
 
