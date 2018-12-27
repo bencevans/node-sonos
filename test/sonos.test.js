@@ -11,7 +11,7 @@ const generateResponse = function (responseTag, serviceName, responseBody) {
 }
 
 const mockRequest = function (endpoint, action, requestBody, responseTag, serviceName, responseBody) {
-  nock('http://localhost:1400', { reqheaders: { 'soapaction': action } })
+  return nock('http://localhost:1400', { reqheaders: { 'soapaction': action } })
     .post(endpoint, function (body) {
       const fullBody = Helpers.CreateSoapEnvelop(requestBody)
       return body === fullBody
@@ -307,6 +307,146 @@ describe('Sonos', function () {
         uri: 'http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3',
         metadata: '<test>"hello"</test>'
       })
+    })
+  })
+
+  describe('createPlaylist()', function () {
+    it('should create new playlist', async function () {
+      const scope = mockRequest('/MediaRenderer/AVTransport/Control',
+        '"urn:schemas-upnp-org:service:AVTransport:1#CreateSavedQueue"',
+        '<u:CreateSavedQueue xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><Title>Test</Title><EnqueuedURI></EnqueuedURI><EnqueuedURIMetaData></EnqueuedURIMetaData></u:CreateSavedQueue>',
+        'CreateSavedQueue',
+        'AVTransport'
+      )
+
+      var sonos = new Sonos('localhost', 1400)
+
+      await sonos.createPlaylist('Test')
+      scope.done()
+    })
+  })
+
+  describe('deletePlaylist()', function () {
+    it('should remove existing playlist', async function () {
+      const scope = mockRequest('/MediaServer/ContentDirectory/Control',
+        '"urn:schemas-upnp-org:service:ContentDirectory:1#DestroyObject"',
+        '<u:DestroyObject xmlns:u="urn:schemas-upnp-org:service:ContentDirectory:1"><ObjectID>SQ:5</ObjectID></u:DestroyObject>',
+        'DestroyObject',
+        'ContentDirectory'
+      )
+
+      var sonos = new Sonos('localhost', 1400)
+
+      await sonos.deletePlaylist(5)
+      scope.done()
+    })
+  })
+
+  describe('addToPlaylist()', function () {
+    it('should add track to playlist', async function () {
+      mockRequest('/MediaServer/ContentDirectory/Control',
+        '"urn:schemas-upnp-org:service:ContentDirectory:1#Browse"',
+        '<u:Browse xmlns:u="urn:schemas-upnp-org:service:ContentDirectory:1"><BrowseFlag>BrowseDirectChildren</BrowseFlag><Filter>*</Filter><StartingIndex>0</StartingIndex><RequestedCount>100</RequestedCount><SortCriteria></SortCriteria><ObjectID>SQ:1</ObjectID></u:Browse>',
+        'BrowseResponse',
+        'ContentDirectory',
+        '<Result>&#x3C;DIDL-Lite xmlns:dc=&#x22;http://purl.org/dc/elements/1.1/&#x22; xmlns:upnp=&#x22;urn:schemas-upnp-org:metadata-1-0/upnp/&#x22; xmlns:r=&#x22;urn:schemas-rinconnetworks-com:metadata-1-0/&#x22; xmlns=&#x22;urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/&#x22;&#x3E;&#x3C;item id=&#x22;x-file-cifs://localhost/Music/Song.mp4&#x22; parentID=&#x22;SQ:1&#x22; restricted=&#x22;true&#x22;&#x3E;&#x3C;res protocolInfo=&#x22;x-file-cifs:*:audio/mp4:*&#x22;&#x3E;x-file-cifs://localhost/Music/Song.mp3&#x3C;/res&#x3E;&#x3C;upnp:albumArtURI&#x3E;&#x3C;/upnp:albumArtURI&#x3E;&#x3C;dc:title&#x3E;Song&#x3C;/dc:title&#x3E;&#x3C;upnp:class&#x3E;object.item.audioItem.musicTrack&#x3C;/upnp:class&#x3E;&#x3C;dc:creator&#x3E;MyInterpret&#x3C;/dc:creator&#x3E;&#x3C;upnp:album&#x3E;MyAlbum&#x3C;/upnp:album&#x3E;&#x3C;upnp:originalTrackNumber&#x3E;1&#x3C;/upnp:originalTrackNumber&#x3E;&#x3C;/item&#x3E;&#x3C;/DIDL-Lite&#x3E;</Result><NumberReturned>0</NumberReturned><TotalMatches>0</TotalMatches><UpdateID>0</UpdateID>'
+      )
+      const scope = mockRequest('/MediaRenderer/AVTransport/Control',
+        '"urn:schemas-upnp-org:service:AVTransport:1#AddURIToSavedQueue"',
+        '<u:AddURIToSavedQueue xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><ObjectID>SQ:1</ObjectID><UpdateID>0</UpdateID><EnqueuedURI>x-file-cifs://localhost/Music/Song.mp3</EnqueuedURI><EnqueuedURIMetaData>&lt;DIDL-Lite xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:upnp=&quot;urn:schemas-upnp-org:metadata-1-0/upnp/&quot; xmlns:r=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot; xmlns=&quot;urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/&quot;&gt;&lt;item id=&quot;S://localhost/Music/Song.mp3&quot; parentID=&quot;A:TRACKS&quot; restricted=&quot;true&quot;&gt;&lt;dc:title&gt;Song&lt;/dc:title&gt;&lt;upnp:class&gt;object.item.audioItem.musicTrack&lt;/upnp:class&gt;&lt;upnp:albumArtURI&gt;&lt;/upnp:albumArtURI&gt;&lt;desc id=&quot;cdudn&quot; nameSpace=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot;&gt;RINCON_AssociatedZPUDN&lt;/desc&gt;&lt;/item&gt;&lt;/DIDL-Lite&gt;</EnqueuedURIMetaData><AddAtIndex>4294967295</AddAtIndex></u:AddURIToSavedQueue>',
+        'AddURIToSavedQueue',
+        'AVTransport'
+      )
+
+      var sonos = new Sonos('localhost', 1400)
+
+      await sonos.addToPlaylist(1, 'x-file-cifs://localhost/Music/Song.mp3')
+      scope.done()
+    })
+
+    it('should add album to playlist', async function () {
+      mockRequest('/MediaServer/ContentDirectory/Control',
+        '"urn:schemas-upnp-org:service:ContentDirectory:1#Browse"',
+        '<u:Browse xmlns:u="urn:schemas-upnp-org:service:ContentDirectory:1"><BrowseFlag>BrowseDirectChildren</BrowseFlag><Filter>*</Filter><StartingIndex>0</StartingIndex><RequestedCount>100</RequestedCount><SortCriteria></SortCriteria><ObjectID>SQ:1</ObjectID></u:Browse>',
+        'BrowseResponse',
+        'ContentDirectory',
+        '<Result>&#x3C;DIDL-Lite xmlns:dc=&#x22;http://purl.org/dc/elements/1.1/&#x22; xmlns:upnp=&#x22;urn:schemas-upnp-org:metadata-1-0/upnp/&#x22; xmlns:r=&#x22;urn:schemas-rinconnetworks-com:metadata-1-0/&#x22; xmlns=&#x22;urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/&#x22;&#x3E;&#x3C;item id=&#x22;x-file-cifs://localhost/Music/Song.mp4&#x22; parentID=&#x22;SQ:1&#x22; restricted=&#x22;true&#x22;&#x3E;&#x3C;res protocolInfo=&#x22;x-file-cifs:*:audio/mp4:*&#x22;&#x3E;x-file-cifs://localhost/Music/Song.mp3&#x3C;/res&#x3E;&#x3C;upnp:albumArtURI&#x3E;&#x3C;/upnp:albumArtURI&#x3E;&#x3C;dc:title&#x3E;Song&#x3C;/dc:title&#x3E;&#x3C;upnp:class&#x3E;object.item.audioItem.musicTrack&#x3C;/upnp:class&#x3E;&#x3C;dc:creator&#x3E;MyInterpret&#x3C;/dc:creator&#x3E;&#x3C;upnp:album&#x3E;MyAlbum&#x3C;/upnp:album&#x3E;&#x3C;upnp:originalTrackNumber&#x3E;1&#x3C;/upnp:originalTrackNumber&#x3E;&#x3C;/item&#x3E;&#x3C;/DIDL-Lite&#x3E;</Result><NumberReturned>0</NumberReturned><TotalMatches>0</TotalMatches><UpdateID>0</UpdateID>'
+      )
+      const scope = mockRequest('/MediaRenderer/AVTransport/Control',
+        '"urn:schemas-upnp-org:service:AVTransport:1#AddURIToSavedQueue"',
+        '<u:AddURIToSavedQueue xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><ObjectID>SQ:1</ObjectID><UpdateID>0</UpdateID><EnqueuedURI>x-rincon-playlist://localhost/Music/Album#A:ALBUMS/MyAlbum</EnqueuedURI><EnqueuedURIMetaData>&lt;DIDL-Lite xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:upnp=&quot;urn:schemas-upnp-org:metadata-1-0/upnp/&quot; xmlns:r=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot; xmlns=&quot;urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/&quot;&gt;&lt;item id=&quot;A:ALBUMS/MyAlbum&quot; parentID=&quot;A:ALBUMS&quot; restricted=&quot;true&quot;&gt;&lt;dc:title&gt;MyAlbum&lt;/dc:title&gt;&lt;upnp:class&gt;object.item.audioItem.musicAlbum&lt;/upnp:class&gt;&lt;upnp:albumArtURI&gt;&lt;/upnp:albumArtURI&gt;&lt;desc id=&quot;cdudn&quot; nameSpace=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot;&gt;RINCON_AssociatedZPUDN&lt;/desc&gt;&lt;/item&gt;&lt;/DIDL-Lite&gt;</EnqueuedURIMetaData><AddAtIndex>4294967295</AddAtIndex></u:AddURIToSavedQueue>',
+        'AddURIToSavedQueue',
+        'AVTransport'
+      )
+
+      var sonos = new Sonos('localhost', 1400)
+
+      await sonos.addToPlaylist(1, 'x-rincon-playlist://localhost/Music/Album#A:ALBUMS/MyAlbum')
+      scope.done()
+    })
+
+    it('should add albumartist to playlist', async function () {
+      mockRequest('/MediaServer/ContentDirectory/Control',
+        '"urn:schemas-upnp-org:service:ContentDirectory:1#Browse"',
+        '<u:Browse xmlns:u="urn:schemas-upnp-org:service:ContentDirectory:1"><BrowseFlag>BrowseDirectChildren</BrowseFlag><Filter>*</Filter><StartingIndex>0</StartingIndex><RequestedCount>100</RequestedCount><SortCriteria></SortCriteria><ObjectID>SQ:1</ObjectID></u:Browse>',
+        'BrowseResponse',
+        'ContentDirectory',
+        '<Result>&#x3C;DIDL-Lite xmlns:dc=&#x22;http://purl.org/dc/elements/1.1/&#x22; xmlns:upnp=&#x22;urn:schemas-upnp-org:metadata-1-0/upnp/&#x22; xmlns:r=&#x22;urn:schemas-rinconnetworks-com:metadata-1-0/&#x22; xmlns=&#x22;urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/&#x22;&#x3E;&#x3C;item id=&#x22;x-file-cifs://localhost/Music/Song.mp4&#x22; parentID=&#x22;SQ:1&#x22; restricted=&#x22;true&#x22;&#x3E;&#x3C;res protocolInfo=&#x22;x-file-cifs:*:audio/mp4:*&#x22;&#x3E;x-file-cifs://localhost/Music/Song.mp3&#x3C;/res&#x3E;&#x3C;upnp:albumArtURI&#x3E;&#x3C;/upnp:albumArtURI&#x3E;&#x3C;dc:title&#x3E;Song&#x3C;/dc:title&#x3E;&#x3C;upnp:class&#x3E;object.item.audioItem.musicTrack&#x3C;/upnp:class&#x3E;&#x3C;dc:creator&#x3E;MyInterpret&#x3C;/dc:creator&#x3E;&#x3C;upnp:album&#x3E;MyAlbum&#x3C;/upnp:album&#x3E;&#x3C;upnp:originalTrackNumber&#x3E;1&#x3C;/upnp:originalTrackNumber&#x3E;&#x3C;/item&#x3E;&#x3C;/DIDL-Lite&#x3E;</Result><NumberReturned>0</NumberReturned><TotalMatches>0</TotalMatches><UpdateID>0</UpdateID>'
+      )
+      const scope = mockRequest('/MediaRenderer/AVTransport/Control',
+        '"urn:schemas-upnp-org:service:AVTransport:1#AddURIToSavedQueue"',
+        '<u:AddURIToSavedQueue xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><ObjectID>SQ:1</ObjectID><UpdateID>0</UpdateID><EnqueuedURI>x-rincon-playlist://localhost/Music/AlbumArtist#A:ALBUMARTIST/My Album Artist</EnqueuedURI><EnqueuedURIMetaData>&lt;DIDL-Lite xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:upnp=&quot;urn:schemas-upnp-org:metadata-1-0/upnp/&quot; xmlns:r=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot; xmlns=&quot;urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/&quot;&gt;&lt;item id=&quot;A:ALBUMARTIST/My%20Album%20Artist&quot; parentID=&quot;A:ALBUMARTIST&quot; restricted=&quot;true&quot;&gt;&lt;dc:title&gt;My Album Artist&lt;/dc:title&gt;&lt;upnp:class&gt;object.item.audioItem.musicArtist&lt;/upnp:class&gt;&lt;upnp:albumArtURI&gt;&lt;/upnp:albumArtURI&gt;&lt;desc id=&quot;cdudn&quot; nameSpace=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot;&gt;RINCON_AssociatedZPUDN&lt;/desc&gt;&lt;/item&gt;&lt;/DIDL-Lite&gt;</EnqueuedURIMetaData><AddAtIndex>4294967295</AddAtIndex></u:AddURIToSavedQueue>',
+        'AddURIToSavedQueue',
+        'AVTransport'
+      )
+
+      var sonos = new Sonos('localhost', 1400)
+
+      await sonos.addToPlaylist(1, 'x-rincon-playlist://localhost/Music/AlbumArtist#A:ALBUMARTIST/My Album Artist')
+      scope.done()
+    })
+
+    it('should add genre to playlist', async function () {
+      mockRequest('/MediaServer/ContentDirectory/Control',
+        '"urn:schemas-upnp-org:service:ContentDirectory:1#Browse"',
+        '<u:Browse xmlns:u="urn:schemas-upnp-org:service:ContentDirectory:1"><BrowseFlag>BrowseDirectChildren</BrowseFlag><Filter>*</Filter><StartingIndex>0</StartingIndex><RequestedCount>100</RequestedCount><SortCriteria></SortCriteria><ObjectID>SQ:1</ObjectID></u:Browse>',
+        'BrowseResponse',
+        'ContentDirectory',
+        '<Result>&#x3C;DIDL-Lite xmlns:dc=&#x22;http://purl.org/dc/elements/1.1/&#x22; xmlns:upnp=&#x22;urn:schemas-upnp-org:metadata-1-0/upnp/&#x22; xmlns:r=&#x22;urn:schemas-rinconnetworks-com:metadata-1-0/&#x22; xmlns=&#x22;urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/&#x22;&#x3E;&#x3C;item id=&#x22;x-file-cifs://localhost/Music/Song.mp4&#x22; parentID=&#x22;SQ:1&#x22; restricted=&#x22;true&#x22;&#x3E;&#x3C;res protocolInfo=&#x22;x-file-cifs:*:audio/mp4:*&#x22;&#x3E;x-file-cifs://localhost/Music/Song.mp3&#x3C;/res&#x3E;&#x3C;upnp:albumArtURI&#x3E;&#x3C;/upnp:albumArtURI&#x3E;&#x3C;dc:title&#x3E;Song&#x3C;/dc:title&#x3E;&#x3C;upnp:class&#x3E;object.item.audioItem.musicTrack&#x3C;/upnp:class&#x3E;&#x3C;dc:creator&#x3E;MyInterpret&#x3C;/dc:creator&#x3E;&#x3C;upnp:album&#x3E;MyAlbum&#x3C;/upnp:album&#x3E;&#x3C;upnp:originalTrackNumber&#x3E;1&#x3C;/upnp:originalTrackNumber&#x3E;&#x3C;/item&#x3E;&#x3C;/DIDL-Lite&#x3E;</Result><NumberReturned>0</NumberReturned><TotalMatches>0</TotalMatches><UpdateID>0</UpdateID>'
+      )
+      const scope = mockRequest('/MediaRenderer/AVTransport/Control',
+        '"urn:schemas-upnp-org:service:AVTransport:1#AddURIToSavedQueue"',
+        '<u:AddURIToSavedQueue xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><ObjectID>SQ:1</ObjectID><UpdateID>0</UpdateID><EnqueuedURI>x-rincon-playlist://localhost/Music/Genre#A:GENRE/MyGenre</EnqueuedURI><EnqueuedURIMetaData>&lt;DIDL-Lite xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:upnp=&quot;urn:schemas-upnp-org:metadata-1-0/upnp/&quot; xmlns:r=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot; xmlns=&quot;urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/&quot;&gt;&lt;item id=&quot;A:GENRE/MyGenre&quot; parentID=&quot;A:GENRE&quot; restricted=&quot;true&quot;&gt;&lt;dc:title&gt;MyGenre&lt;/dc:title&gt;&lt;upnp:class&gt;object.container.genre.musicGenre&lt;/upnp:class&gt;&lt;upnp:albumArtURI&gt;&lt;/upnp:albumArtURI&gt;&lt;desc id=&quot;cdudn&quot; nameSpace=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot;&gt;RINCON_AssociatedZPUDN&lt;/desc&gt;&lt;/item&gt;&lt;/DIDL-Lite&gt;</EnqueuedURIMetaData><AddAtIndex>4294967295</AddAtIndex></u:AddURIToSavedQueue>',
+        'AddURIToSavedQueue',
+        'AVTransport'
+      )
+      var sonos = new Sonos('localhost', 1400)
+
+      await sonos.addToPlaylist(1, 'x-rincon-playlist://localhost/Music/Genre#A:GENRE/MyGenre')
+      scope.done()
+    })
+  })
+
+  describe('removeFromPlaylist()', function () {
+    it('should remove track from playlist', async function () {
+      mockRequest('/MediaServer/ContentDirectory/Control',
+        '"urn:schemas-upnp-org:service:ContentDirectory:1#Browse"',
+        '<u:Browse xmlns:u="urn:schemas-upnp-org:service:ContentDirectory:1"><BrowseFlag>BrowseDirectChildren</BrowseFlag><Filter>*</Filter><StartingIndex>0</StartingIndex><RequestedCount>100</RequestedCount><SortCriteria></SortCriteria><ObjectID>SQ:1</ObjectID></u:Browse>',
+        'BrowseResponse',
+        'ContentDirectory',
+        '<Result>&#x3C;DIDL-Lite xmlns:dc=&#x22;http://purl.org/dc/elements/1.1/&#x22; xmlns:upnp=&#x22;urn:schemas-upnp-org:metadata-1-0/upnp/&#x22; xmlns:r=&#x22;urn:schemas-rinconnetworks-com:metadata-1-0/&#x22; xmlns=&#x22;urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/&#x22;&#x3E;&#x3C;item id=&#x22;x-file-cifs://localhost/Music/Song.mp4&#x22; parentID=&#x22;SQ:1&#x22; restricted=&#x22;true&#x22;&#x3E;&#x3C;res protocolInfo=&#x22;x-file-cifs:*:audio/mp4:*&#x22;&#x3E;x-file-cifs://localhost/Music/Song.mp3&#x3C;/res&#x3E;&#x3C;upnp:albumArtURI&#x3E;&#x3C;/upnp:albumArtURI&#x3E;&#x3C;dc:title&#x3E;Song&#x3C;/dc:title&#x3E;&#x3C;upnp:class&#x3E;object.item.audioItem.musicTrack&#x3C;/upnp:class&#x3E;&#x3C;dc:creator&#x3E;MyInterpret&#x3C;/dc:creator&#x3E;&#x3C;upnp:album&#x3E;MyAlbum&#x3C;/upnp:album&#x3E;&#x3C;upnp:originalTrackNumber&#x3E;1&#x3C;/upnp:originalTrackNumber&#x3E;&#x3C;/item&#x3E;&#x3C;/DIDL-Lite&#x3E;</Result><NumberReturned>0</NumberReturned><TotalMatches>0</TotalMatches><UpdateID>0</UpdateID>'
+      )
+      const scope = mockRequest('/MediaRenderer/AVTransport/Control',
+        '"urn:schemas-upnp-org:service:AVTransport:1#ReorderTracksInSavedQueue"',
+        '<u:ReorderTracksInSavedQueue xmlns:u="urn:schemas-upnp-org:service:AVTransport:1"><InstanceID>0</InstanceID><ObjectID>SQ:1</ObjectID><UpdateID>0</UpdateID><TrackList>2</TrackList><NewPositionList></NewPositionList></u:ReorderTracksInSavedQueue>',
+        'ReorderTracksInSavedQueue',
+        'AVTransport'
+      )
+
+      var sonos = new Sonos('localhost', 1400)
+
+      await sonos.removeFromPlaylist(1, 2)
+      scope.done()
     })
   })
 })
