@@ -42,6 +42,10 @@ sonos.on('AVTransport', transport => {
   console.log('AVTransport event %j', transport)
 })
 
+sonos.on('QueueChanged', data => {
+  console.log('QueueChanged event %j', data)
+})
+
 // Subscribe to the CTRL + C event and cancel the current subscribtions
 process.on('SIGINT', () => {
   console.log('Hold-on cancelling all subscriptions')
