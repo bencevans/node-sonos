@@ -540,6 +540,18 @@ describe('SonosDevice', function () {
     })
   })
 
+  it('should getMusicLibrary("sonos_playlists")', function () {
+    return sonos.getMusicLibrary('sonos_playlists').then(function (playlists) {
+      assert(playlists.items, 'should have items')
+      if (playlists.items.length > 0) {
+        assert('id' in playlists.items[0], 'item should have id in object')
+        assert('parentID' in playlists.items[0], 'item should have parentID in object')
+        assert('uri' in playlists.items[0], 'item should have uri in object')
+        assert('title' in playlists.items[0], 'item should have title in object')
+      }
+    })
+  })
+
   it('should getPlaylist()', function () {
     return sonos.getPlaylist('1').then(function (playlist) {
       assert(playlist.items, 'should have items')
