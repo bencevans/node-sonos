@@ -350,6 +350,17 @@ Set Volume
 
 **Returns**: `Object`
 
+### sonos.Sonos.adjustVolume(volumeAdjustment, channel)
+
+Adjust volume
+
+**Parameters**:
+
+**volumeAdjustment**: `number`, The relative volume adjustment
+
+**channel**: `string`, The channel you want to set, `Master` is default.
+
+
 ### sonos.Sonos.configureSleepTimer(sleepTimerDuration)
 
 Configure Sleep Timer

@@ -32,6 +32,17 @@ Set the volume for a speaker.
 **channel**: `string`, The channel you want to set `Master` is default
 
 
+### sonos.RenderingControl.SetRelativeVolume(volumeAdjustment, channel)
+
+Adjust volume with relative value
+
+**Parameters**:
+
+**volumeAdjustment**: `number`, The volume adjustment
+
+**channel**: `string`, The channel you want to set `Master` is default
+
+
 ### sonos.RenderingControl.GetMute(channel)
 
 Check if the speaker is muted
