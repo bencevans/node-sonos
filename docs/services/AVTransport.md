@@ -102,6 +102,21 @@ Remove a range of tracks from the queue
 
 **Returns**: `Object`, Parsed response data.
 
+### sonos.AVTransport.Seek(options)
+
+Skip to other track or time
+
+**Parameters**:
+
+**options**: `object`, Object with required options
+
++ **options.InstanceID**: `number`, The instance you want to control is always `0`
+
++ **options.Unit**: `number`, One of these `TRACK_NR`, `REL_TIME`, `TIME_DELTA`
+
++ **options.Target**: `number`, Skip to what track number, relative time as hh:mm:ss, or ?
+
+
 ### sonos.AVTransport.SetPlayMode(playmode)
 
 Set the new playmode
