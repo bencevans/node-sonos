@@ -45,6 +45,62 @@ Get Music Library Information
 
 **Returns**: `Object`, {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
 
+### sonos.Sonos.getPlaylist(playlistId, requestOptions)
+
+Get Sonos Playlist
+
+**Parameters**:
+
+**playlistId**: `String`, Sonos id of the playlist
+
+**requestOptions**: `Object`, Optional - default {start: 0, total: 100}
+
+**Returns**: `Object`, {returned: {String}, total: {String}, items:[{title:{String}, uri: {String}}]}
+
+### sonos.Sonos.createPlaylist(title)
+
+Create a new sonos playlist
+
+**Parameters**:
+
+**title**: `String`, Name of the playlist
+
+**Returns**: `Object`, { NumTracksAdded: 0, NewQueueLength: 0, NewUpdateID: 0, AssignedObjectID: 'SQ:3' }
+
+### sonos.Sonos.deletePlaylist(objectId)
+
+Delete sonos playlist
+
+**Parameters**:
+
+**objectId**: `Number`, Sonos id of the playlist
+
+**Returns**: `Boolean`, Playlist deleted
+
+### sonos.Sonos.addToPlaylist(playlistId, uri)
+
+Add uri to sonos playlist
+
+**Parameters**:
+
+**playlistId**: `Number`, Sonos id of the playlist
+
+**uri**: `String`, Uri to add to the playlist
+
+**Returns**: `Object`, { NumTracksAdded: 1, NewQueueLength: 2, NewUpdateID: 2 }
+
+### sonos.Sonos.removeFromPlaylist(playlistId, index)
+
+Remove track from playlist
+
+**Parameters**:
+
+**playlistId**: `Number`, Sonos id of the playlist
+
+**index**: `String`, Index of song to remove
+
+**Returns**: `Object`, { QueueLengthChange: -1, NewQueueLength: 2, NewUpdateID: 2 }
+
 ### sonos.Sonos.getFavorites()
 
 Get Sonos Favorites

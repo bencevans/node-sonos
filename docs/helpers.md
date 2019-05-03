@@ -33,6 +33,28 @@ Encodes characters not allowed within html/xml tags, for use with nester xml.
 
 **Returns**: `String`
 
+### sonos.Helpers.GetUpnpClass(parentID)
+
+Converts parentID to upnp cass
+
+**Parameters**:
+
+**parentID**: `String`, The id of the parent
+
+**Returns**: `String`, object.item.audioItem.musicTrack
+
+### sonos.Helpers.GenerateLocalMetadata(uri, artUri)
+
+Creates object with uri and metadata from playback uri
+
+**Parameters**:
+
+**uri**: `String`, The playback uri
+
+**artUri**: `String`, Uri for art image
+
+**Returns**: `Object`, { uri: uri, metadata: metadata }
+
 ### sonos.Helpers.GenerateMetadata(uri, title, region)
 
 Creates object with uri and metadata from playback uri
