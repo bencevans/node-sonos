@@ -576,4 +576,38 @@ describe('SonosDevice', function () {
       assert(Array.isArray(groups), 'should return an array')
     })
   })
+
+  describe('AlarmClockService()', function () {
+    it('should list alarms', function () {
+      return sonos.alarmClockService()
+        .ListAlarms().then(function (result) {
+          assert(Array.isArray(result.Alarms), '.Alarms should be an array')
+          assert(typeof (result.CurrentAlarmListVersion) === 'string', '.CurrentAlarmListVersion should be a string')
+        })
+    })
+
+    it('should throw an error on update with not string', function () {
+      return sonos.alarmClockService().SetAlarm(1, false).catch(err => {
+        assert(err, 'Got error')
+      })
+    })
+
+    it('should toggle the first alarm', function () {
+      return sonos.alarmClockService()
+        .ListAlarms().then(function (result) {
+          if (result.Alarms.length === 0) {
+            assert(true)
+          } else {
+            const alarm = result.Alarms[0]
+            const toggleTo = alarm.Enabled === '0'
+            return sonos.alarmClockService().SetAlarm(alarm.ID, toggleTo).then(function (result) {
+              // Revert back the change, or you'll get a bad morning after testing this library....
+              return sonos.alarmClockService().SetAlarm(alarm.ID, !toggleTo).then(function (result) {
+                assert(true)
+              })
+            })
+          }
+        })
+    })
+  })
 })
