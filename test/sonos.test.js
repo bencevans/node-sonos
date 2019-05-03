@@ -6,16 +6,13 @@ const Sonos = SONOS.Sonos
 const nock = require('nock')
 const Helpers = require('../lib/helpers')
 const generateResponse = function (responseTag, serviceName, responseBody) {
-  const soapBody = '<u:' + responseTag + ' xmlns:u="urn:schemas-upnp-org:service:' + serviceName + ':1">' + (responseBody || null) + '</u:' + responseTag + '>'
+  const soapBody = `<u:${responseTag} xmlns:u="urn:schemas-upnp-org:service:${serviceName}:1">${(responseBody || null)}</u:${responseTag}>`
   return Helpers.CreateSoapEnvelop(soapBody)
 }
 
 const mockRequest = function (endpoint, action, requestBody, responseTag, serviceName, responseBody) {
   return nock('http://localhost:1400', { reqheaders: { 'soapaction': action } })
-    .post(endpoint, function (body) {
-      const fullBody = Helpers.CreateSoapEnvelop(requestBody)
-      return body === fullBody
-    })
+    .post(endpoint, Helpers.CreateSoapEnvelop(requestBody))
     .reply(200, generateResponse(responseTag, serviceName, responseBody))
 }
 

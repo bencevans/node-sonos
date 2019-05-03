@@ -6,7 +6,7 @@ Sonos library to control (almost) everything from your sonos devices
 
 + module:'./Service'
 + module:'events'
-+ module:'request-promise-native'
++ module:'axios'
 + module:'debug'
 + module:'./events/listener'
 
