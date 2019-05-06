@@ -191,7 +191,7 @@ Do you have a question about this library, we are glad to help you [Ask Question
 
 ### Unsupported sonos features
 
-Their is a great other library to control Sonos with python, and they also have a great list of all possible soap actions [here](https://github.com/SoCo/SoCo/wiki/Sonos-UPnP-Services-and-Functions). So if you have anything that you cannot do with node-sonos but that you can with the official app. You could have a look in the above list, or use [wireshark](https://github.com/SoCo/SoCo/wiki/Use-Wireshark-for-protocol-research) why to investigate the protocol.
+There is a great other library to control Sonos with Python, they also have a great list of all possible soap actions [here](https://github.com/SoCo/SoCo/wiki/Sonos-UPnP-Services-and-Functions). So if you have anything that you cannot do with node-sonos but that you can with the official app. You could have a look in the above list, or use [wireshark](https://github.com/SoCo/SoCo/wiki/Use-Wireshark-for-protocol-research) to investigate the protocol.
 
 ### NPM publish
 
