@@ -6,20 +6,17 @@ const Sonos = SONOS.Sonos
 const nock = require('nock')
 const Helpers = require('../lib/helpers')
 const generateResponse = function (responseTag, serviceName, responseBody) {
-  const soapBody = '<u:' + responseTag + ' xmlns:u="urn:schemas-upnp-org:service:' + serviceName + ':1">' + (responseBody || null) + '</u:' + responseTag + '>'
+  const soapBody = `<u:${responseTag} xmlns:u="urn:schemas-upnp-org:service:${serviceName}:1">${(responseBody || null)}</u:${responseTag}>`
   return Helpers.CreateSoapEnvelop(soapBody)
 }
 
 const mockRequest = function (endpoint, action, requestBody, responseTag, serviceName, responseBody) {
   return nock('http://localhost:1400', { reqheaders: { 'soapaction': action } })
-    .post(endpoint, function (body) {
-      const fullBody = Helpers.CreateSoapEnvelop(requestBody)
-      return body === fullBody
-    })
+    .post(endpoint, Helpers.CreateSoapEnvelop(requestBody))
     .reply(200, generateResponse(responseTag, serviceName, responseBody))
 }
 
-describe('Sonos', function () {
+describe('Sonos - Mock', function () {
   describe('play()', function () {
     it('should generate play command', function () {
       mockRequest('/MediaRenderer/AVTransport/Control',
@@ -495,7 +492,7 @@ describe('DeviceDiscovery', function () {
   })
 })
 
-describe('SonosDevice', function () {
+describe('Sonos - Device', function () {
   let sonos
   before(function () {
     if (!process.env.SONOS_HOST) {
@@ -574,6 +571,64 @@ describe('SonosDevice', function () {
   it('should getAllGroups()', function () {
     return sonos.getAllGroups().then(function (groups) {
       assert(Array.isArray(groups), 'should return an array')
+    })
+  })
+
+  it('playNotification()', function () {
+    return sonos.playNotification({
+      uri: 'https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-the-sound-pack-tree/tspt_pull_bell_02_065.mp3?_=1',
+      volume: 10
+    }).then(result => {
+      assert(result, 'Played notification')
+    })
+  })
+
+  it('playNotification() -> No notification when not playing', async function () {
+    let state = await sonos.getCurrentState()
+    if ((state === 'playing' || state === 'transitioning')) {
+      this.skip('Is playing cannot test')
+    }
+
+    return sonos.playNotification({
+      uri: 'https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-the-sound-pack-tree/tspt_pull_bell_02_065.mp3?_=1',
+      volume: 10,
+      onlyWhenPlaying: true
+    }).then(result => {
+      assert(result === false, 'Shouldn\'t start when not playing')
+    })
+  })
+
+  describe('AlarmClockService()', function () {
+    it('should list alarms', function () {
+      return sonos.alarmClockService()
+        .ListAlarms().then(function (result) {
+          assert(Array.isArray(result.Alarms), '.Alarms should be an array')
+          assert(typeof (result.CurrentAlarmListVersion) === 'string', '.CurrentAlarmListVersion should be a string')
+        })
+    })
+
+    it('should throw an error on update with not string', function () {
+      return sonos.alarmClockService().SetAlarm(1, false).catch(err => {
+        assert(err, 'Got error')
+      })
+    })
+
+    it('should toggle the first alarm', function () {
+      return sonos.alarmClockService()
+        .ListAlarms().then(function (result) {
+          if (result.Alarms.length === 0) {
+            assert(true)
+          } else {
+            const alarm = result.Alarms[0]
+            const toggleTo = alarm.Enabled === '0'
+            return sonos.alarmClockService().SetAlarm(alarm.ID, toggleTo).then(function (result) {
+              // Revert back the change, or you'll get a bad morning after testing this library....
+              return sonos.alarmClockService().SetAlarm(alarm.ID, !toggleTo).then(function (result) {
+                assert(true)
+              })
+            })
+          }
+        })
     })
   })
 })

@@ -33,6 +33,51 @@ Encodes characters not allowed within html/xml tags, for use with nester xml.
 
 **Returns**: `String`
 
+### sonos.Helpers.GetUpnpClass(parentID)
+
+Converts parentID to upnp cass
+
+**Parameters**:
+
+**parentID**: `String`, The id of the parent
+
+**Returns**: `String`, object.item.audioItem.musicTrack
+
+### sonos.Helpers.GenerateCustomMetadata(streamUri, itemId, duration, title, artist, album, coverUrl, parentId)
+
+Generate custom metadata, to be used with the play and/or setAVTransportURI
+
+**Parameters**:
+
+**streamUri**: `String`, The playback uri
+
+**itemId**: `String`, Generate custom metadata, to be used with the play and/or setAVTransportURI
+
+**duration**: `String`, The duration of the song, as 'hh:mm:ss'
+
+**title**: `String`, The title of the song
+
+**artist**: `String`, The artist of the sons
+
+**album**: `String`, the album of the song
+
+**coverUrl**: `String`, the coverUrl of the song
+
+**parentId**: `String`, the parentId of the song
+
+
+### sonos.Helpers.GenerateLocalMetadata(uri, artUri)
+
+Creates object with uri and metadata from playback uri
+
+**Parameters**:
+
+**uri**: `String`, The playback uri
+
+**artUri**: `String`, Uri for art image
+
+**Returns**: `Object`, { uri: uri, metadata: metadata }
+
 ### sonos.Helpers.GenerateMetadata(uri, title, region)
 
 Creates object with uri and metadata from playback uri
