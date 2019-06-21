@@ -492,6 +492,27 @@ describe('DeviceDiscovery', function () {
   })
 })
 
+describe('Async DeviceDiscovery', function () {
+  it('should reject after timeout without devices found', function (done) {
+    const failTimeout = setTimeout(function () {
+      assert(false, 'Event never fired')
+      done()
+    }, 100)
+
+    var deviceDiscovery = new SONOS.AsyncDeviceDiscovery()
+    deviceDiscovery.discover({ timeout: 10 }).then((device, model) => {
+      // Also fine if we found a device....
+      clearTimeout(failTimeout)
+      assert(true)
+      done()
+    }).catch(err => { // eslint-disable-line handle-callback-err
+      clearTimeout(failTimeout)
+      assert(true)
+      done()
+    })
+  })
+})
+
 describe('Sonos - Device', function () {
   let sonos
   before(function () {

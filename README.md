@@ -78,6 +78,16 @@ DeviceDiscovery().once('DeviceAvailable', (device) => {
 })
 ```
 
+### Discovering devices async
+
+```node
+const DeviceDiscovery = require('sonos').AsyncDeviceDiscovery
+let discovery = new DeviceDiscovery()
+discovery.discover().then((device, model) => {
+    // Do stuff, see examples/devicediscovery.js
+})
+```
+
 ### Controlling Known Devices
 
 ```js
@@ -98,6 +108,9 @@ device.getVolume()
 * Class: DeviceDiscovery([options])
   * Event: 'DeviceAvailable'
   * destroy()
+* Class: 'AsyncDeviceDiscovery'
+  * discover([options])
+  * discoverMultiple([options])
 * Class: Sonos(host, [port])
   * currentTrack()
   * deviceDescription()
