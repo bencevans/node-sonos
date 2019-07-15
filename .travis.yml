@@ -8,6 +8,8 @@ node_js:
   - '10'
   - '9'
   - '8'
+before_install:
+  - npm i -g npm@latest
 after_success:
   - npm run semantic-release
 branches:
