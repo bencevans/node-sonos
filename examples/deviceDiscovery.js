@@ -2,7 +2,7 @@ const Sonos = require('../')
 
 console.log('Searching for Sonos devices for 5 seconds...')
 
-let discovery = new Sonos.AsyncDeviceDiscovery()
+const discovery = new Sonos.AsyncDeviceDiscovery()
 
 discovery.discover().then((device, model) => {
   console.log('Found one sonos device %s getting all groups', device.host)

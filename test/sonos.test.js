@@ -11,7 +11,7 @@ const generateResponse = function (responseTag, serviceName, responseBody) {
 }
 
 const mockRequest = function (endpoint, action, requestBody, responseTag, serviceName, responseBody) {
-  return nock('http://localhost:1400', { reqheaders: { 'soapaction': action } })
+  return nock('http://localhost:1400', { reqheaders: { soapaction: action } })
     .post(endpoint, Helpers.CreateSoapEnvelop(requestBody))
     .reply(200, generateResponse(responseTag, serviceName, responseBody))
 }
@@ -605,7 +605,7 @@ describe('Sonos - Device', function () {
   })
 
   it('playNotification() -> No notification when not playing', async function () {
-    let state = await sonos.getCurrentState()
+    const state = await sonos.getCurrentState()
     if ((state === 'playing' || state === 'transitioning')) {
       this.skip('Is playing cannot test')
     }
