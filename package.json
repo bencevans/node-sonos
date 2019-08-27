@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "standard",
-    "test": "npm run lint && mocha test/sonos.test.js --exit --timeout 10000",
+    "test": "npm run lint && mocha test/sonos.test.js --exit --timeout 20000",
     "env-run": "npm run $CMD",
     "semantic-release": "semantic-release",
     "docs": "jsdox -t ./docs/generator/templates --output docs lib/ && jsdox -t ./docs/generator/templates --output docs/services lib/services && jsdox -t ./docs/generator/templates --output docs/events lib/events"
@@ -44,7 +44,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.19.0",
-    "debug": "^4.0.0",
+    "debug": "^4.1.1",
     "ip": "^1.1.5",
     "xml2js": "^0.4.19"
   },
@@ -56,7 +56,7 @@
     "mocha": "6.2.0",
     "nock": "10.0.6",
     "pre-commit": "1.2.2",
-    "semantic-release": "15.13.19",
+    "semantic-release": "15.13.24",
     "standard": "13.1.0"
   },
   "pre-commit": [
