@@ -65,7 +65,7 @@ DeviceDiscovery((device) => {
 
   // mute every device...
   device.setMuted(true)
-    .then(`${device.host} now muted`)
+    .then(d => console.log(`${d.host} now muted`))
 })
 
 // find one device
@@ -73,8 +73,12 @@ DeviceDiscovery().once('DeviceAvailable', (device) => {
   console.log('found device at ' + device.host)
 
   // get all groups
-  device.getAllGroups()
-    .then(console.log)
+  sonos = new Sonos(device.host)
+  sonos.getAllGroups().then(groups => {
+    groups.forEach(group => {
+      console.log(group.Name);
+    })
+  })
 })
 ```
 
