@@ -23,11 +23,18 @@ sonos.setSpotifyRegion(Regions.EU)
 // This assumes you have the Spotify music service connected to
 // your Sonos system.
 
-var spotifyUri = 'spotify:artistTopTracks:72qVrKXRp9GeFQOesj0Pmv'
+// var spotifyUri = 'spotify:artistTopTracks:72qVrKXRp9GeFQOesj0Pmv'
+var spotifyUri = 'spotify:track:6sYJuVcEu4gFHmeTLdHzRz'
 
-sonos.play(spotifyUri).then(success => {
-  console.log('Yeay')
-}).catch(err => { console.log('Error occurred %j', err) })
+sonos.play(spotifyUri)
+  .then(success => {
+    console.log('Yeay')
+    return sonos.currentTrack()
+  })
+  .then(track => {
+    console.log(JSON.stringify(track, null, 2))
+  })
+  .catch(err => { console.log('Error occurred %j', err) })
 
 // This example plays curated artist radio on Spotify. The
 // artistId is found in the same way as described above. The
