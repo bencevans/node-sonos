@@ -224,7 +224,7 @@ If you want to publish your own version, please do it as a [user-scoped](https:/
 
 If you want to make this library better, you can follow these steps.
 
-1. Create a [fork](https://github.com/bencevans/node-sonos)
+1. Create a [fork](https://github.com/bencevans/node-sonos/fork)
 2. Make changes
 3. (optional) Create tests for the feature or the bug, see [sonos.test.js](./test/sonos.test.js).
 4. Run `SONOS_HOST=192.168.x.x npm run test` to test your code (against an actual sonos device, change the ip)
