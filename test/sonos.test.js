@@ -619,6 +619,13 @@ describe('Sonos - Device', function () {
     })
   })
 
+  it('should return Spotify Conenct Info', function () {
+    return sonos.getSpotifyConnectInfo()
+      .then(data => {
+        assert(true)
+      })
+  })
+
   describe('AlarmClockService()', function () {
     it('should list alarms', function () {
       return sonos.alarmClockService()
