@@ -220,9 +220,28 @@ If you want to publish your own version, please do it as a [user-scoped](https:/
 2. Change the `name` of the project to `@npm_username/sonos`
 3. Publish it to npm `npm publish --access=public`
 
-## Node Sonos v0.x (non async)
+## Development
 
-At 30 jan 2018 we released an **promisified** version of **node-sonos**. The old version can be found in the [v0.x branch](https://github.com/bencevans/node-sonos/tree/v0.x). It won't get any new features, but it **might** get security updates.
+If you want to make this library better, you can follow these steps.
+
+1. Create a [fork](https://github.com/bencevans/node-sonos/fork)
+2. Make changes
+3. (optional) Create tests for the feature or the bug, see [sonos.test.js](./test/sonos.test.js).
+4. Run `SONOS_HOST=192.168.x.x npm run test` to test your code (against an actual sonos device, change the ip)
+5. Check-in your code in a single commit.
+   Make sure your commit starts with `fix:` for a bugfix or `feat:` for a new feature followed by a short description. You can also follow with an empty line followed by a more details description.
+6. Send a pull-request
+7. Hold-on, we will be checking them.
+
+If you already had a fork, make sure it is updatet with the latest master so things don't get complicated when we want to merge the PR.
+
+```bash
+git remote add upstream https://github.com/bencevans/node-sonos.git
+git fetch upstream
+git checkout master
+git rebase upstream/master
+git push origin
+```
 
 ## Licence
 
