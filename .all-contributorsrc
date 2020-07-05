@@ -6,9 +6,10 @@
   "files": [
     "README.md"
   ],
-  "imageSize": 100,
+  "imageSize": 120,
   "commit": false,
   "commitConvention": "angular",
+  "contributorsPerLine": 6,
   "contributors": [
     {
       "login": "bencevans",
@@ -483,6 +484,5 @@
         "bug"
       ]
     }
-  ],
-  "contributorsPerLine": 7
+  ]
 }
