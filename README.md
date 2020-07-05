@@ -14,7 +14,7 @@
 
 <p align="center">
   <a href="https://travis-ci.org/bencevans/node-sonos">
-    <img src="http://img.shields.io/travis/bencevans/node-sonos/master.svg?style=flat-square"
+    <img src="https://img.shields.io/travis/bencevans/node-sonos/master.svg?style=flat-square"
          alt="Travis Build">
   </a>
   <a href="https://www.npmjs.com/package/sonos">
@@ -29,9 +29,6 @@
     <img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square"
          alt="Standard Codestyle">
   </a>
-  <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-51-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
 
 **node-sonos** gives you the power to control all your Sonos devices from your own apps in JavaScript. Automatically discover your devices on the network and control the playback and queue with instant events announcing change.
@@ -200,6 +197,10 @@ node-sonos in use across the interwebs. Missing yours? [Add it](https://github.c
 * Stephan van Rooij (@svrooij)
 
 ## Contributors ✨
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-51-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
