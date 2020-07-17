@@ -184,6 +184,7 @@ node-sonos in use across the interwebs. Missing yours? [Add it](https://github.c
 * **[ZenMusic](https://github.com/htilly/zenmusic)** - Control Sonos thru #Slack!
 * **[gladys-sonos](https://github.com/GladysProject/gladys-sonos)** - Control Sonos with [Gladys](https://github.com/GladysProject/Gladys) a Raspberry Pi Home Assistant
 * **[sonos-web](https://github.com/Villarrealized/sonos-web)** - Sonos controller for your web browser
+* **[BudgieStream](https://github.com/filahf/budgie-stream)** - Stream system output to Sonos
 
 ### Writeups
 
