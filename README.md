@@ -29,6 +29,9 @@
     <img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square"
          alt="Standard Codestyle">
   </a>
+  <a href="https://discord.gg/m62rFAV4NU">
+  <img src="https://img.shields.io/discord/782374564054564875" alt="Discord badge" />
+  </a>
 </p>
 
 **node-sonos** gives you the power to control all your Sonos devices from your own apps in JavaScript. Automatically discover your devices on the network and control the playback and queue with instant events announcing change.
@@ -300,7 +303,9 @@ If you want to contribute something check out these ['help-wanted' issues](https
 
 ## Questions
 
-Do you have a question about this library, we are glad to help you [Ask Question](https://github.com/bencevans/node-sonos/issues/new?title=Question%3A%20%3CYour%20text%3E&body=%23%20Question%0A&labels=question&assignee=svrooij). You can see all questions [here](https://github.com/bencevans/node-sonos/issues?utf8=%E2%9C%93&q=label%3Aquestion+)
+[![Join us on Discord][badge_discord]][link_discord]
+
+The best place to ask your questions is in Discord, we are there to help you. [Join us on Discord][link_discord].
 
 ### Unsupported sonos features
 
@@ -344,3 +349,6 @@ git push origin
 ## Licence
 
 MIT © [Ben Evans](https://bencevans.io)
+
+[badge_discord]: https://img.shields.io/discord/782374564054564875
+[link_discord]: https://discord.gg/m62rFAV4NU
