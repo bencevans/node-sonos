@@ -30,7 +30,7 @@
          alt="Standard Codestyle">
   </a>
   <a href="https://discord.gg/m62rFAV4NU">
-  <img src=" https://img.shields.io/discord/782374564054564875" alt="Discord badge" />
+  <img src="https://img.shields.io/discord/782374564054564875" alt="Discord badge" />
   </a>
 </p>
 
@@ -305,7 +305,7 @@ If you want to contribute something check out these ['help-wanted' issues](https
 
 [![Join us on Discord][badge_discord]][link_discord]
 
-The best place to ask you questions is in Discord, we are there to help you. [Join us on Discord][link_discord].
+The best place to ask your questions is in Discord, we are there to help you. [Join us on Discord][link_discord].
 
 ### Unsupported sonos features
 
