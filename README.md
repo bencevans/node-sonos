@@ -60,7 +60,7 @@ From the repo, living on the edge
 ### Discovering Devices
 
 ```js
-const { DeviceDiscovery } = require('sonos')
+const { Sonos, DeviceDiscovery } = require('sonos')
 
 // event on all found...
 DeviceDiscovery((device) => {
