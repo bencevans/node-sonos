@@ -55,7 +55,7 @@
     "mocha": "^8.3.2",
     "nock": "^13.0.11",
     "pre-commit": "1.2.2",
-    "standard": "13.1.0"
+    "standard": "^16.0.3"
   },
   "pre-commit": [
     "lint"
