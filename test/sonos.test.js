@@ -25,7 +25,7 @@ describe('Sonos - Mock', function () {
         'PlayResponse',
         'AVTransport'
       )
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       return sonos.play()
     })
@@ -64,7 +64,7 @@ describe('Sonos - Mock', function () {
         'PlayResponse',
         'AVTransport'
       )
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       return sonos.play('http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3')
     })
@@ -103,7 +103,7 @@ describe('Sonos - Mock', function () {
         'PlayResponse',
         'AVTransport'
       )
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       sonos.play({
         uri: 'http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3',
@@ -120,7 +120,7 @@ describe('Sonos - Mock', function () {
         'AddURIToQueueResponse',
         'AVTransport'
       )
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       return sonos.queue('http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3')
     })
@@ -132,7 +132,7 @@ describe('Sonos - Mock', function () {
         'AddURIToQueueResponse',
         'AVTransport'
       )
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       return sonos.queue('x-sonos-spotify:spotify%3atrack%3a01Bz4Mijhe7m7qRvq2Ujpn?sid=12&flags=8224&sn=2')
     })
@@ -144,7 +144,7 @@ describe('Sonos - Mock', function () {
         'AddURIToQueueResponse',
         'AVTransport'
       )
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       return sonos.queue({
         uri: 'http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3',
@@ -159,7 +159,7 @@ describe('Sonos - Mock', function () {
         'AddURIToQueueResponse',
         'AVTransport'
       )
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       return sonos.queue('spotify:track:1AhDOtG9vPSOmsWgNW0BEY')
     })
@@ -171,7 +171,7 @@ describe('Sonos - Mock', function () {
         'AddURIToQueueResponse',
         'AVTransport'
       )
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
       sonos.setSpotifyRegion(SONOS.SpotifyRegion.EU)
 
       return sonos.queue('spotify:track:1AhDOtG9vPSOmsWgNW0BEY')
@@ -184,7 +184,7 @@ describe('Sonos - Mock', function () {
         'AddURIToQueueResponse',
         'AVTransport'
       )
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       sonos.queue('spotify:album:1TSZDcvlPtAnekTaItI3qO')
     })
@@ -196,7 +196,7 @@ describe('Sonos - Mock', function () {
         'AddURIToQueueResponse',
         'AVTransport'
       )
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       sonos.queue('spotify:artistTopTracks:1dfeR4HaWDbWqFHLkxsg1d')
     })
@@ -208,7 +208,7 @@ describe('Sonos - Mock', function () {
         'AddURIToQueueResponse',
         'AVTransport'
       )
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       sonos.queue('spotify:user:26iFraqozskd5POrzg68pr')
     })
@@ -220,7 +220,7 @@ describe('Sonos - Mock', function () {
         'AddURIToQueueResponse',
         'AVTransport'
       )
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
       sonos.setSpotifyRegion(SONOS.SpotifyRegion.EU)
 
       sonos.queue('spotify:user:26iFraqozskd5POrzg68pr')
@@ -235,7 +235,7 @@ describe('Sonos - Mock', function () {
         'AddURIToQueueResponse',
         'AVTransport'
       )
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       sonos.queue('spotify:artistRadio:1dfeR4HaWDbWqFHLkxsg1d')
     })
@@ -247,7 +247,7 @@ describe('Sonos - Mock', function () {
         'AddURIToQueueResponse',
         'AVTransport'
       )
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
       sonos.setSpotifyRegion(SONOS.SpotifyRegion.EU)
 
       sonos.queue('spotify:artistRadio:1dfeR4HaWDbWqFHLkxsg1d')
@@ -268,7 +268,7 @@ describe('Sonos - Mock', function () {
         'PlayResponse',
         'AVTransport'
       )
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       sonos.playTuneinRadio('34682', '88.5 | Jazz24 (Jazz)')
     })
@@ -288,7 +288,7 @@ describe('Sonos - Mock', function () {
         'PlayResponse',
         'AVTransport'
       )
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       sonos.playSpotifyRadio('1dfeR4HaWDbWqFHLkxsg1d', 'Queen')
     })
@@ -308,7 +308,7 @@ describe('Sonos - Mock', function () {
         'PlayResponse',
         'AVTransport'
       )
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       sonos.setAVTransportURI('http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3')
     })
@@ -326,7 +326,7 @@ describe('Sonos - Mock', function () {
         'PlayResponse',
         'AVTransport'
       )
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       sonos.setAVTransportURI({
         uri: 'http://livingears.com/music/SceneNotHeard/091909/Do You Mind Kyla.mp3',
@@ -344,7 +344,7 @@ describe('Sonos - Mock', function () {
         'AVTransport'
       )
 
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       await sonos.createPlaylist('Test')
       scope.done()
@@ -360,7 +360,7 @@ describe('Sonos - Mock', function () {
         'ContentDirectory'
       )
 
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       await sonos.deletePlaylist(5)
       scope.done()
@@ -383,7 +383,7 @@ describe('Sonos - Mock', function () {
         'AVTransport'
       )
 
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       await sonos.addToPlaylist(1, 'x-file-cifs://localhost/Music/Song.mp3')
       scope.done()
@@ -404,7 +404,7 @@ describe('Sonos - Mock', function () {
         'AVTransport'
       )
 
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       await sonos.addToPlaylist(1, 'x-rincon-playlist://localhost/Music/Album#A:ALBUMS/MyAlbum')
       scope.done()
@@ -425,7 +425,7 @@ describe('Sonos - Mock', function () {
         'AVTransport'
       )
 
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       await sonos.addToPlaylist(1, 'x-rincon-playlist://localhost/Music/AlbumArtist#A:ALBUMARTIST/My Album Artist')
       scope.done()
@@ -445,7 +445,7 @@ describe('Sonos - Mock', function () {
         'AddURIToSavedQueue',
         'AVTransport'
       )
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       await sonos.addToPlaylist(1, 'x-rincon-playlist://localhost/Music/Genre#A:GENRE/MyGenre')
       scope.done()
@@ -468,7 +468,7 @@ describe('Sonos - Mock', function () {
         'AVTransport'
       )
 
-      var sonos = new Sonos('localhost', 1400)
+      const sonos = new Sonos('localhost', 1400)
 
       await sonos.removeFromPlaylist(1, 2)
       scope.done()
@@ -483,7 +483,7 @@ describe('DeviceDiscovery', function () {
       done()
     }, 100)
 
-    var search = SONOS.DeviceDiscovery({ timeout: 10 }, function (device, model) {})
+    const search = SONOS.DeviceDiscovery({ timeout: 10 }, function (device, model) {})
 
     search.on('timeout', function () {
       clearTimeout(failTimeout)
@@ -498,7 +498,7 @@ describe('DeviceDiscovery', function () {
       done()
     }, 10)
 
-    var search = SONOS.DeviceDiscovery(function (device, model) {})
+    const search = SONOS.DeviceDiscovery(function (device, model) {})
 
     search.on('timeout', function () {
       assert(false, 'Timeout event should never fire')
@@ -507,7 +507,7 @@ describe('DeviceDiscovery', function () {
   })
 
   it('should not emit a timeout event after search is stopped', function (done) {
-    var search = SONOS.DeviceDiscovery({ timeout: 10 }, function (device, model) {})
+    const search = SONOS.DeviceDiscovery({ timeout: 10 }, function (device, model) {})
 
     search.on('timeout', function () {
       assert(false, 'Timeout event should never fire')
@@ -527,13 +527,14 @@ describe('Async DeviceDiscovery', function () {
       done()
     }, 100)
 
-    var deviceDiscovery = new SONOS.AsyncDeviceDiscovery()
+    const deviceDiscovery = new SONOS.AsyncDeviceDiscovery()
+
     deviceDiscovery.discover({ timeout: 10 }).then((device, model) => {
       // Also fine if we found a device....
       clearTimeout(failTimeout)
       assert(true)
       done()
-    }).catch(err => { // eslint-disable-line handle-callback-err
+    }).catch(err => { // eslint-disable-line node/handle-callback-err
       clearTimeout(failTimeout)
       assert(true)
       done()

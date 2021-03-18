@@ -1,9 +1,9 @@
-var sonos = require('../index')
+const sonos = require('../index')
 
 console.log('\nSearching for Sonos devices on network...')
 
 sonos.DeviceDiscovery(function (device, model) {
-  var devInfo = '\n'
+  let devInfo = '\n'
   devInfo += 'Device \t' + JSON.stringify(device) + ' (' + model + ')\n'
   device.getZoneAttrs(function (err, attrs) {
     if (err) devInfo += '`- failed to retrieve zone attributes\n'
