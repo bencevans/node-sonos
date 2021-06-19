@@ -7,7 +7,6 @@
     "lint": "standard",
     "test": "npm run lint && mocha test/sonos.test.js --exit --timeout 20000",
     "env-run": "npm run $CMD",
-    "semantic-release": "semantic-release",
     "docs": "jsdox -t ./docs/generator/templates --output docs lib/ && jsdox -t ./docs/generator/templates --output docs/services lib/services && jsdox -t ./docs/generator/templates --output docs/events lib/events"
   },
   "repository": {
@@ -43,21 +42,20 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.0",
-    "debug": "^4.1.1",
+    "axios": "^0.21.1",
+    "debug": "^4.3.1",
     "ip": "^1.1.5",
-    "xml2js": "^0.4.19"
+    "xml2js": "^0.4.23"
   },
   "bugs": {
     "url": "http://github.com/bencevans/node-sonos/issues"
   },
   "devDependencies": {
     "@bencevans/jsdox": "0.4.11",
-    "mocha": "6.2.0",
-    "nock": "10.0.6",
+    "mocha": "^8.3.2",
+    "nock": "^13.0.11",
     "pre-commit": "1.2.2",
-    "semantic-release": "17.2.3",
-    "standard": "13.1.0"
+    "standard": "^16.0.3"
   },
   "pre-commit": [
     "lint"

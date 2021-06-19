@@ -76,8 +76,7 @@ DeviceDiscovery().once('DeviceAvailable', (device) => {
   console.log('found device at ' + device.host)
 
   // get all groups
-  sonos = new Sonos(device.host)
-  sonos.getAllGroups().then(groups => {
+  device.getAllGroups().then(groups => {
     groups.forEach(group => {
       console.log(group.Name);
     })
