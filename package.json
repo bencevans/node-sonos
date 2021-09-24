@@ -42,8 +42,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.21.1",
-    "debug": "^4.3.1",
+    "axios": "^0.21.4",
+    "debug": "^4.3.2",
     "ip": "^1.1.5",
     "xml2js": "^0.4.23"
   },
