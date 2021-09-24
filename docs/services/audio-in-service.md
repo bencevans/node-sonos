@@ -45,7 +45,7 @@ Output object:
 ### SelectAudio
 
 ```js
-const result = await sonos.generatedServices.AudioInService.SelectAudio({ ObjectID:... });
+const result = await sonos.generatedServices.AudioInService().SelectAudio({ ObjectID:... });
 ```
 
 Input object:
@@ -59,7 +59,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetAudioInputAttributes
 
 ```js
-const result = await sonos.generatedServices.AudioInService.SetAudioInputAttributes({ DesiredName:..., DesiredIcon:... });
+const result = await sonos.generatedServices.AudioInService().SetAudioInputAttributes({ DesiredName:..., DesiredIcon:... });
 ```
 
 Input object:
@@ -74,7 +74,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetLineInLevel
 
 ```js
-const result = await sonos.generatedServices.AudioInService.SetLineInLevel({ DesiredLeftLineInLevel:..., DesiredRightLineInLevel:... });
+const result = await sonos.generatedServices.AudioInService().SetLineInLevel({ DesiredLeftLineInLevel:..., DesiredRightLineInLevel:... });
 ```
 
 Input object:
@@ -89,7 +89,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### StartTransmissionToGroup
 
 ```js
-const result = await sonos.generatedServices.AudioInService.StartTransmissionToGroup({ CoordinatorID:... });
+const result = await sonos.generatedServices.AudioInService().StartTransmissionToGroup({ CoordinatorID:... });
 ```
 
 Input object:
@@ -107,7 +107,7 @@ Output object:
 ### StopTransmissionToGroup
 
 ```js
-const result = await sonos.generatedServices.AudioInService.StopTransmissionToGroup({ CoordinatorID:... });
+const result = await sonos.generatedServices.AudioInService().StopTransmissionToGroup({ CoordinatorID:... });
 ```
 
 Input object:

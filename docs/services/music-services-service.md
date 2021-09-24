@@ -19,7 +19,7 @@ sonos.generatedServices.MusicServicesService().OneOfTheMethodsBelow({...})
 ### GetSessionId
 
 ```js
-const result = await sonos.generatedServices.MusicServicesService.GetSessionId({ ServiceId:..., Username:... });
+const result = await sonos.generatedServices.MusicServicesService().GetSessionId({ ServiceId:..., Username:... });
 ```
 
 Input object:

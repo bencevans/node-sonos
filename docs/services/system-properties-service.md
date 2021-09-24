@@ -19,7 +19,7 @@ sonos.generatedServices.SystemPropertiesService().OneOfTheMethodsBelow({...})
 ### AddAccountX
 
 ```js
-const result = await sonos.generatedServices.SystemPropertiesService.AddAccountX({ AccountType:..., AccountID:..., AccountPassword:... });
+const result = await sonos.generatedServices.SystemPropertiesService().AddAccountX({ AccountType:..., AccountID:..., AccountPassword:... });
 ```
 
 Input object:
@@ -39,7 +39,7 @@ Output object:
 ### AddOAuthAccountX
 
 ```js
-const result = await sonos.generatedServices.SystemPropertiesService.AddOAuthAccountX({ AccountType:..., AccountToken:..., AccountKey:..., OAuthDeviceID:..., AuthorizationCode:..., RedirectURI:..., UserIdHashCode:..., AccountTier:... });
+const result = await sonos.generatedServices.SystemPropertiesService().AddOAuthAccountX({ AccountType:..., AccountToken:..., AccountKey:..., OAuthDeviceID:..., AuthorizationCode:..., RedirectURI:..., UserIdHashCode:..., AccountTier:... });
 ```
 
 Input object:
@@ -73,7 +73,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### EditAccountMd
 
 ```js
-const result = await sonos.generatedServices.SystemPropertiesService.EditAccountMd({ AccountType:..., AccountID:..., NewAccountMd:... });
+const result = await sonos.generatedServices.SystemPropertiesService().EditAccountMd({ AccountType:..., AccountID:..., NewAccountMd:... });
 ```
 
 Input object:
@@ -89,7 +89,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### EditAccountPasswordX
 
 ```js
-const result = await sonos.generatedServices.SystemPropertiesService.EditAccountPasswordX({ AccountType:..., AccountID:..., NewAccountPassword:... });
+const result = await sonos.generatedServices.SystemPropertiesService().EditAccountPasswordX({ AccountType:..., AccountID:..., NewAccountPassword:... });
 ```
 
 Input object:
@@ -105,7 +105,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### EnableRDM
 
 ```js
-const result = await sonos.generatedServices.SystemPropertiesService.EnableRDM({ RDMValue:... });
+const result = await sonos.generatedServices.SystemPropertiesService().EnableRDM({ RDMValue:... });
 ```
 
 Input object:
@@ -133,7 +133,7 @@ Output object:
 Get a saved string.
 
 ```js
-const result = await sonos.generatedServices.SystemPropertiesService.GetString({ VariableName:... });
+const result = await sonos.generatedServices.SystemPropertiesService().GetString({ VariableName:... });
 ```
 
 Input object:
@@ -153,7 +153,7 @@ Output object:
 ### GetWebCode
 
 ```js
-const result = await sonos.generatedServices.SystemPropertiesService.GetWebCode({ AccountType:... });
+const result = await sonos.generatedServices.SystemPropertiesService().GetWebCode({ AccountType:... });
 ```
 
 Input object:
@@ -171,7 +171,7 @@ Output object:
 ### ProvisionCredentialedTrialAccountX
 
 ```js
-const result = await sonos.generatedServices.SystemPropertiesService.ProvisionCredentialedTrialAccountX({ AccountType:..., AccountID:..., AccountPassword:... });
+const result = await sonos.generatedServices.SystemPropertiesService().ProvisionCredentialedTrialAccountX({ AccountType:..., AccountID:..., AccountPassword:... });
 ```
 
 Input object:
@@ -192,7 +192,7 @@ Output object:
 ### RefreshAccountCredentialsX
 
 ```js
-const result = await sonos.generatedServices.SystemPropertiesService.RefreshAccountCredentialsX({ AccountType:..., AccountUID:..., AccountToken:..., AccountKey:... });
+const result = await sonos.generatedServices.SystemPropertiesService().RefreshAccountCredentialsX({ AccountType:..., AccountUID:..., AccountToken:..., AccountKey:... });
 ```
 
 Input object:
@@ -211,7 +211,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Remove a saved string
 
 ```js
-const result = await sonos.generatedServices.SystemPropertiesService.Remove({ VariableName:... });
+const result = await sonos.generatedServices.SystemPropertiesService().Remove({ VariableName:... });
 ```
 
 Input object:
@@ -227,7 +227,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### RemoveAccount
 
 ```js
-const result = await sonos.generatedServices.SystemPropertiesService.RemoveAccount({ AccountType:..., AccountID:... });
+const result = await sonos.generatedServices.SystemPropertiesService().RemoveAccount({ AccountType:..., AccountID:... });
 ```
 
 Input object:
@@ -242,7 +242,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### ReplaceAccountX
 
 ```js
-const result = await sonos.generatedServices.SystemPropertiesService.ReplaceAccountX({ AccountUDN:..., NewAccountID:..., NewAccountPassword:..., AccountToken:..., AccountKey:..., OAuthDeviceID:... });
+const result = await sonos.generatedServices.SystemPropertiesService().ReplaceAccountX({ AccountUDN:..., NewAccountID:..., NewAccountPassword:..., AccountToken:..., AccountKey:..., OAuthDeviceID:... });
 ```
 
 Input object:
@@ -273,7 +273,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetAccountNicknameX
 
 ```js
-const result = await sonos.generatedServices.SystemPropertiesService.SetAccountNicknameX({ AccountUDN:..., AccountNickname:... });
+const result = await sonos.generatedServices.SystemPropertiesService().SetAccountNicknameX({ AccountUDN:..., AccountNickname:... });
 ```
 
 Input object:
@@ -290,7 +290,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Save a string in the system
 
 ```js
-const result = await sonos.generatedServices.SystemPropertiesService.SetString({ VariableName:..., StringValue:... });
+const result = await sonos.generatedServices.SystemPropertiesService().SetString({ VariableName:..., StringValue:... });
 ```
 
 Input object:

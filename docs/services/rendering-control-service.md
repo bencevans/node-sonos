@@ -21,7 +21,7 @@ sonos.generatedServices.RenderingControlService().OneOfTheMethodsBelow({...})
 Get bass level between -10 and 10
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.GetBass({ InstanceID:... });
+const result = await sonos.generatedServices.RenderingControlService().GetBass({ InstanceID:... });
 ```
 
 Input object:
@@ -41,7 +41,7 @@ Output object:
 Get equalizer value
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.GetEQ({ InstanceID:..., EQType:... });
+const result = await sonos.generatedServices.RenderingControlService().GetEQ({ InstanceID:..., EQType:... });
 ```
 
 Input object:
@@ -62,7 +62,7 @@ Output object:
 ### GetHeadphoneConnected
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.GetHeadphoneConnected({ InstanceID:... });
+const result = await sonos.generatedServices.RenderingControlService().GetHeadphoneConnected({ InstanceID:... });
 ```
 
 Input object:
@@ -82,7 +82,7 @@ Output object:
 Whether or not Loudness is on
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.GetLoudness({ InstanceID:..., Channel:... });
+const result = await sonos.generatedServices.RenderingControlService().GetLoudness({ InstanceID:..., Channel:... });
 ```
 
 Input object:
@@ -101,7 +101,7 @@ Output object:
 ### GetMute
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.GetMute({ InstanceID:..., Channel:... });
+const result = await sonos.generatedServices.RenderingControlService().GetMute({ InstanceID:..., Channel:... });
 ```
 
 Input object:
@@ -120,7 +120,7 @@ Output object:
 ### GetOutputFixed
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.GetOutputFixed({ InstanceID:... });
+const result = await sonos.generatedServices.RenderingControlService().GetOutputFixed({ InstanceID:... });
 ```
 
 Input object:
@@ -138,7 +138,7 @@ Output object:
 ### GetRoomCalibrationStatus
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.GetRoomCalibrationStatus({ InstanceID:... });
+const result = await sonos.generatedServices.RenderingControlService().GetRoomCalibrationStatus({ InstanceID:... });
 ```
 
 Input object:
@@ -157,7 +157,7 @@ Output object:
 ### GetSupportsOutputFixed
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.GetSupportsOutputFixed({ InstanceID:... });
+const result = await sonos.generatedServices.RenderingControlService().GetSupportsOutputFixed({ InstanceID:... });
 ```
 
 Input object:
@@ -177,7 +177,7 @@ Output object:
 Get treble
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.GetTreble({ InstanceID:... });
+const result = await sonos.generatedServices.RenderingControlService().GetTreble({ InstanceID:... });
 ```
 
 Input object:
@@ -197,7 +197,7 @@ Output object:
 Get volume
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.GetVolume({ InstanceID:..., Channel:... });
+const result = await sonos.generatedServices.RenderingControlService().GetVolume({ InstanceID:..., Channel:... });
 ```
 
 Input object:
@@ -216,7 +216,7 @@ Output object:
 ### GetVolumeDB
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.GetVolumeDB({ InstanceID:..., Channel:... });
+const result = await sonos.generatedServices.RenderingControlService().GetVolumeDB({ InstanceID:..., Channel:... });
 ```
 
 Input object:
@@ -235,7 +235,7 @@ Output object:
 ### GetVolumeDBRange
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.GetVolumeDBRange({ InstanceID:..., Channel:... });
+const result = await sonos.generatedServices.RenderingControlService().GetVolumeDBRange({ InstanceID:..., Channel:... });
 ```
 
 Input object:
@@ -255,7 +255,7 @@ Output object:
 ### RampToVolume
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.RampToVolume({ InstanceID:..., Channel:..., RampType:..., DesiredVolume:..., ResetVolumeAfter:..., ProgramURI:... });
+const result = await sonos.generatedServices.RenderingControlService().RampToVolume({ InstanceID:..., Channel:..., RampType:..., DesiredVolume:..., ResetVolumeAfter:..., ProgramURI:... });
 ```
 
 Input object:
@@ -278,7 +278,7 @@ Output object:
 ### ResetBasicEQ
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.ResetBasicEQ({ InstanceID:... });
+const result = await sonos.generatedServices.RenderingControlService().ResetBasicEQ({ InstanceID:... });
 ```
 
 Input object:
@@ -300,7 +300,7 @@ Output object:
 ### ResetExtEQ
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.ResetExtEQ({ InstanceID:..., EQType:... });
+const result = await sonos.generatedServices.RenderingControlService().ResetExtEQ({ InstanceID:..., EQType:... });
 ```
 
 Input object:
@@ -315,7 +315,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### RestoreVolumePriorToRamp
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.RestoreVolumePriorToRamp({ InstanceID:..., Channel:... });
+const result = await sonos.generatedServices.RenderingControlService().RestoreVolumePriorToRamp({ InstanceID:..., Channel:... });
 ```
 
 Input object:
@@ -332,7 +332,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Set bass level, between -10 and 10
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.SetBass({ InstanceID:..., DesiredBass:... });
+const result = await sonos.generatedServices.RenderingControlService().SetBass({ InstanceID:..., DesiredBass:... });
 ```
 
 Input object:
@@ -347,7 +347,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetChannelMap
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.SetChannelMap({ InstanceID:..., ChannelMap:... });
+const result = await sonos.generatedServices.RenderingControlService().SetChannelMap({ InstanceID:..., ChannelMap:... });
 ```
 
 Input object:
@@ -364,7 +364,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Set equalizer value for different types
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.SetEQ({ InstanceID:..., EQType:..., DesiredValue:... });
+const result = await sonos.generatedServices.RenderingControlService().SetEQ({ InstanceID:..., EQType:..., DesiredValue:... });
 ```
 
 Input object:
@@ -384,7 +384,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Set loudness on / off
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.SetLoudness({ InstanceID:..., Channel:..., DesiredLoudness:... });
+const result = await sonos.generatedServices.RenderingControlService().SetLoudness({ InstanceID:..., Channel:..., DesiredLoudness:... });
 ```
 
 Input object:
@@ -400,7 +400,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetMute
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.SetMute({ InstanceID:..., Channel:..., DesiredMute:... });
+const result = await sonos.generatedServices.RenderingControlService().SetMute({ InstanceID:..., Channel:..., DesiredMute:... });
 ```
 
 Input object:
@@ -416,7 +416,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetOutputFixed
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.SetOutputFixed({ InstanceID:..., DesiredFixed:... });
+const result = await sonos.generatedServices.RenderingControlService().SetOutputFixed({ InstanceID:..., DesiredFixed:... });
 ```
 
 Input object:
@@ -431,7 +431,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetRelativeVolume
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.SetRelativeVolume({ InstanceID:..., Channel:..., Adjustment:... });
+const result = await sonos.generatedServices.RenderingControlService().SetRelativeVolume({ InstanceID:..., Channel:..., Adjustment:... });
 ```
 
 Input object:
@@ -451,7 +451,7 @@ Output object:
 ### SetRoomCalibrationStatus
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.SetRoomCalibrationStatus({ InstanceID:..., RoomCalibrationEnabled:... });
+const result = await sonos.generatedServices.RenderingControlService().SetRoomCalibrationStatus({ InstanceID:..., RoomCalibrationEnabled:... });
 ```
 
 Input object:
@@ -466,7 +466,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetRoomCalibrationX
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.SetRoomCalibrationX({ InstanceID:..., CalibrationID:..., Coefficients:..., CalibrationMode:... });
+const result = await sonos.generatedServices.RenderingControlService().SetRoomCalibrationX({ InstanceID:..., CalibrationID:..., Coefficients:..., CalibrationMode:... });
 ```
 
 Input object:
@@ -485,7 +485,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Set treble level
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.SetTreble({ InstanceID:..., DesiredTreble:... });
+const result = await sonos.generatedServices.RenderingControlService().SetTreble({ InstanceID:..., DesiredTreble:... });
 ```
 
 Input object:
@@ -500,7 +500,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetVolume
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.SetVolume({ InstanceID:..., Channel:..., DesiredVolume:... });
+const result = await sonos.generatedServices.RenderingControlService().SetVolume({ InstanceID:..., Channel:..., DesiredVolume:... });
 ```
 
 Input object:
@@ -516,7 +516,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetVolumeDB
 
 ```js
-const result = await sonos.generatedServices.RenderingControlService.SetVolumeDB({ InstanceID:..., Channel:..., DesiredVolume:... });
+const result = await sonos.generatedServices.RenderingControlService().SetVolumeDB({ InstanceID:..., Channel:..., DesiredVolume:... });
 ```
 
 Input object:

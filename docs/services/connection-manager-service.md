@@ -31,7 +31,7 @@ Output object:
 ### GetCurrentConnectionInfo
 
 ```js
-const result = await sonos.generatedServices.ConnectionManagerService.GetCurrentConnectionInfo({ ConnectionID:... });
+const result = await sonos.generatedServices.ConnectionManagerService().GetCurrentConnectionInfo({ ConnectionID:... });
 ```
 
 Input object:

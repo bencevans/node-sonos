@@ -19,7 +19,7 @@ sonos.generatedServices.HTControlService().OneOfTheMethodsBelow({...})
 ### CommitLearnedIRCodes
 
 ```js
-const result = await sonos.generatedServices.HTControlService.CommitLearnedIRCodes({ Name:... });
+const result = await sonos.generatedServices.HTControlService().CommitLearnedIRCodes({ Name:... });
 ```
 
 Input object:
@@ -57,7 +57,7 @@ Output object:
 ### IdentifyIRRemote
 
 ```js
-const result = await sonos.generatedServices.HTControlService.IdentifyIRRemote({ Timeout:... });
+const result = await sonos.generatedServices.HTControlService().IdentifyIRRemote({ Timeout:... });
 ```
 
 Input object:
@@ -83,7 +83,7 @@ Output object:
 ### LearnIRCode
 
 ```js
-const result = await sonos.generatedServices.HTControlService.LearnIRCode({ IRCode:..., Timeout:... });
+const result = await sonos.generatedServices.HTControlService().LearnIRCode({ IRCode:..., Timeout:... });
 ```
 
 Input object:
@@ -98,7 +98,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetIRRepeaterState
 
 ```js
-const result = await sonos.generatedServices.HTControlService.SetIRRepeaterState({ DesiredIRRepeaterState:... });
+const result = await sonos.generatedServices.HTControlService().SetIRRepeaterState({ DesiredIRRepeaterState:... });
 ```
 
 Input object:
@@ -112,7 +112,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetLEDFeedbackState
 
 ```js
-const result = await sonos.generatedServices.HTControlService.SetLEDFeedbackState({ LEDFeedbackState:... });
+const result = await sonos.generatedServices.HTControlService().SetLEDFeedbackState({ LEDFeedbackState:... });
 ```
 
 Input object:

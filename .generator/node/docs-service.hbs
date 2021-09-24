@@ -29,7 +29,7 @@ sonos.generatedServices.{{serviceName}}().OneOfTheMethodsBelow({...})
 {{#if inputs}}
 
 ```js
-const result = await sonos.generatedServices.{{../serviceName}}.{{name}}({ {{#each inputs}}{{name}}:...{{#unless @last}}, {{/unless}}{{/each}} });
+const result = await sonos.generatedServices.{{../serviceName}}().{{name}}({ {{#each inputs}}{{name}}:...{{#unless @last}}, {{/unless}}{{/each}} });
 ```
 
 Input object:

@@ -19,7 +19,7 @@ sonos.generatedServices.DevicePropertiesService().OneOfTheMethodsBelow({...})
 ### AddBondedZones
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.AddBondedZones({ ChannelMapSet:... });
+const result = await sonos.generatedServices.DevicePropertiesService().AddBondedZones({ ChannelMapSet:... });
 ```
 
 Input object:
@@ -33,7 +33,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### AddHTSatellite
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.AddHTSatellite({ HTSatChanMapSet:... });
+const result = await sonos.generatedServices.DevicePropertiesService().AddHTSatellite({ HTSatChanMapSet:... });
 ```
 
 Input object:
@@ -49,7 +49,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Create a stereo pair (left, right speakers), right one becomes hidden
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.CreateStereoPair({ ChannelMapSet:... });
+const result = await sonos.generatedServices.DevicePropertiesService().CreateStereoPair({ ChannelMapSet:... });
 ```
 
 Input object:
@@ -65,7 +65,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### EnterConfigMode
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.EnterConfigMode({ Mode:..., Options:... });
+const result = await sonos.generatedServices.DevicePropertiesService().EnterConfigMode({ Mode:..., Options:... });
 ```
 
 Input object:
@@ -84,7 +84,7 @@ Output object:
 ### ExitConfigMode
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.ExitConfigMode({ Options:... });
+const result = await sonos.generatedServices.DevicePropertiesService().ExitConfigMode({ Options:... });
 ```
 
 Input object:
@@ -98,7 +98,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### GetAutoplayLinkedZones
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.GetAutoplayLinkedZones({ Source:... });
+const result = await sonos.generatedServices.DevicePropertiesService().GetAutoplayLinkedZones({ Source:... });
 ```
 
 Input object:
@@ -116,7 +116,7 @@ Output object:
 ### GetAutoplayRoomUUID
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.GetAutoplayRoomUUID({ Source:... });
+const result = await sonos.generatedServices.DevicePropertiesService().GetAutoplayRoomUUID({ Source:... });
 ```
 
 Input object:
@@ -134,7 +134,7 @@ Output object:
 ### GetAutoplayVolume
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.GetAutoplayVolume({ Source:... });
+const result = await sonos.generatedServices.DevicePropertiesService().GetAutoplayVolume({ Source:... });
 ```
 
 Input object:
@@ -204,7 +204,7 @@ Output object:
 ### GetUseAutoplayVolume
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.GetUseAutoplayVolume({ Source:... });
+const result = await sonos.generatedServices.DevicePropertiesService().GetUseAutoplayVolume({ Source:... });
 ```
 
 Input object:
@@ -259,7 +259,7 @@ Output object:
 ### RemoveBondedZones
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.RemoveBondedZones({ ChannelMapSet:..., KeepGrouped:... });
+const result = await sonos.generatedServices.DevicePropertiesService().RemoveBondedZones({ ChannelMapSet:..., KeepGrouped:... });
 ```
 
 Input object:
@@ -274,7 +274,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### RemoveHTSatellite
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.RemoveHTSatellite({ SatRoomUUID:... });
+const result = await sonos.generatedServices.DevicePropertiesService().RemoveHTSatellite({ SatRoomUUID:... });
 ```
 
 Input object:
@@ -288,7 +288,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### RoomDetectionStartChirping
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.RoomDetectionStartChirping({ Channel:..., DurationMilliseconds:... });
+const result = await sonos.generatedServices.DevicePropertiesService().RoomDetectionStartChirping({ Channel:..., DurationMilliseconds:... });
 ```
 
 Input object:
@@ -308,7 +308,7 @@ Output object:
 ### RoomDetectionStopChirping
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.RoomDetectionStopChirping({ PlayId:... });
+const result = await sonos.generatedServices.DevicePropertiesService().RoomDetectionStopChirping({ PlayId:... });
 ```
 
 Input object:
@@ -324,7 +324,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Separate a stereo pair
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.SeparateStereoPair({ ChannelMapSet:... });
+const result = await sonos.generatedServices.DevicePropertiesService().SeparateStereoPair({ ChannelMapSet:... });
 ```
 
 Input object:
@@ -340,7 +340,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetAutoplayLinkedZones
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.SetAutoplayLinkedZones({ IncludeLinkedZones:..., Source:... });
+const result = await sonos.generatedServices.DevicePropertiesService().SetAutoplayLinkedZones({ IncludeLinkedZones:..., Source:... });
 ```
 
 Input object:
@@ -355,7 +355,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetAutoplayRoomUUID
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.SetAutoplayRoomUUID({ RoomUUID:..., Source:... });
+const result = await sonos.generatedServices.DevicePropertiesService().SetAutoplayRoomUUID({ RoomUUID:..., Source:... });
 ```
 
 Input object:
@@ -370,7 +370,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetAutoplayVolume
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.SetAutoplayVolume({ Volume:..., Source:... });
+const result = await sonos.generatedServices.DevicePropertiesService().SetAutoplayVolume({ Volume:..., Source:... });
 ```
 
 Input object:
@@ -387,7 +387,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Set the button lock state
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.SetButtonLockState({ DesiredButtonLockState:... });
+const result = await sonos.generatedServices.DevicePropertiesService().SetButtonLockState({ DesiredButtonLockState:... });
 ```
 
 Input object:
@@ -403,7 +403,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Set the LED state
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.SetLEDState({ DesiredLEDState:... });
+const result = await sonos.generatedServices.DevicePropertiesService().SetLEDState({ DesiredLEDState:... });
 ```
 
 Input object:
@@ -417,7 +417,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetUseAutoplayVolume
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.SetUseAutoplayVolume({ UseVolume:..., Source:... });
+const result = await sonos.generatedServices.DevicePropertiesService().SetUseAutoplayVolume({ UseVolume:..., Source:... });
 ```
 
 Input object:
@@ -432,7 +432,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetZoneAttributes
 
 ```js
-const result = await sonos.generatedServices.DevicePropertiesService.SetZoneAttributes({ DesiredZoneName:..., DesiredIcon:..., DesiredConfiguration:... });
+const result = await sonos.generatedServices.DevicePropertiesService().SetZoneAttributes({ DesiredZoneName:..., DesiredIcon:..., DesiredConfiguration:... });
 ```
 
 Input object:

@@ -19,7 +19,7 @@ sonos.generatedServices.AVTransportService().OneOfTheMethodsBelow({...})
 ### AddMultipleURIsToQueue
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.AddMultipleURIsToQueue({ InstanceID:..., UpdateID:..., NumberOfURIs:..., EnqueuedURIs:..., EnqueuedURIsMetaData:..., ContainerURI:..., ContainerMetaData:..., DesiredFirstTrackNumberEnqueued:..., EnqueueAsNext:... });
+const result = await sonos.generatedServices.AVTransportService().AddMultipleURIsToQueue({ InstanceID:..., UpdateID:..., NumberOfURIs:..., EnqueuedURIs:..., EnqueuedURIsMetaData:..., ContainerURI:..., ContainerMetaData:..., DesiredFirstTrackNumberEnqueued:..., EnqueueAsNext:... });
 ```
 
 Input object:
@@ -50,7 +50,7 @@ Output object:
 Adds songs to the SONOS queue
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.AddURIToQueue({ InstanceID:..., EnqueuedURI:..., EnqueuedURIMetaData:..., DesiredFirstTrackNumberEnqueued:..., EnqueueAsNext:... });
+const result = await sonos.generatedServices.AVTransportService().AddURIToQueue({ InstanceID:..., EnqueuedURI:..., EnqueuedURIMetaData:..., DesiredFirstTrackNumberEnqueued:..., EnqueueAsNext:... });
 ```
 
 Input object:
@@ -76,7 +76,7 @@ Output object:
 ### AddURIToSavedQueue
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.AddURIToSavedQueue({ InstanceID:..., ObjectID:..., UpdateID:..., EnqueuedURI:..., EnqueuedURIMetaData:..., AddAtIndex:... });
+const result = await sonos.generatedServices.AVTransportService().AddURIToSavedQueue({ InstanceID:..., ObjectID:..., UpdateID:..., EnqueuedURI:..., EnqueuedURIMetaData:..., AddAtIndex:... });
 ```
 
 Input object:
@@ -101,7 +101,7 @@ Output object:
 ### BackupQueue
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.BackupQueue({ InstanceID:... });
+const result = await sonos.generatedServices.AVTransportService().BackupQueue({ InstanceID:... });
 ```
 
 Input object:
@@ -117,7 +117,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Leave the current group and revert to a single player.
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.BecomeCoordinatorOfStandaloneGroup({ InstanceID:... });
+const result = await sonos.generatedServices.AVTransportService().BecomeCoordinatorOfStandaloneGroup({ InstanceID:... });
 ```
 
 Input object:
@@ -136,7 +136,7 @@ Output object:
 ### BecomeGroupCoordinator
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.BecomeGroupCoordinator({ InstanceID:..., CurrentCoordinator:..., CurrentGroupID:..., OtherMembers:..., TransportSettings:..., CurrentURI:..., CurrentURIMetaData:..., SleepTimerState:..., AlarmState:..., StreamRestartState:..., CurrentQueueTrackList:..., CurrentVLIState:... });
+const result = await sonos.generatedServices.AVTransportService().BecomeGroupCoordinator({ InstanceID:..., CurrentCoordinator:..., CurrentGroupID:..., OtherMembers:..., TransportSettings:..., CurrentURI:..., CurrentURIMetaData:..., SleepTimerState:..., AlarmState:..., StreamRestartState:..., CurrentQueueTrackList:..., CurrentVLIState:... });
 ```
 
 Input object:
@@ -161,7 +161,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### BecomeGroupCoordinatorAndSource
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.BecomeGroupCoordinatorAndSource({ InstanceID:..., CurrentCoordinator:..., CurrentGroupID:..., OtherMembers:..., CurrentURI:..., CurrentURIMetaData:..., SleepTimerState:..., AlarmState:..., StreamRestartState:..., CurrentAVTTrackList:..., CurrentQueueTrackList:..., CurrentSourceState:..., ResumePlayback:... });
+const result = await sonos.generatedServices.AVTransportService().BecomeGroupCoordinatorAndSource({ InstanceID:..., CurrentCoordinator:..., CurrentGroupID:..., OtherMembers:..., CurrentURI:..., CurrentURIMetaData:..., SleepTimerState:..., AlarmState:..., StreamRestartState:..., CurrentAVTTrackList:..., CurrentQueueTrackList:..., CurrentSourceState:..., ResumePlayback:... });
 ```
 
 Input object:
@@ -187,7 +187,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### ChangeCoordinator
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.ChangeCoordinator({ InstanceID:..., CurrentCoordinator:..., NewCoordinator:..., NewTransportSettings:..., CurrentAVTransportURI:... });
+const result = await sonos.generatedServices.AVTransportService().ChangeCoordinator({ InstanceID:..., CurrentCoordinator:..., NewCoordinator:..., NewTransportSettings:..., CurrentAVTransportURI:... });
 ```
 
 Input object:
@@ -205,7 +205,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### ChangeTransportSettings
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.ChangeTransportSettings({ InstanceID:..., NewTransportSettings:..., CurrentAVTransportURI:... });
+const result = await sonos.generatedServices.AVTransportService().ChangeTransportSettings({ InstanceID:..., NewTransportSettings:..., CurrentAVTransportURI:... });
 ```
 
 Input object:
@@ -223,7 +223,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Stop playing after set sleep timer or cancel
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.ConfigureSleepTimer({ InstanceID:..., NewSleepTimerDuration:... });
+const result = await sonos.generatedServices.AVTransportService().ConfigureSleepTimer({ InstanceID:..., NewSleepTimerDuration:... });
 ```
 
 Input object:
@@ -240,7 +240,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### CreateSavedQueue
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.CreateSavedQueue({ InstanceID:..., Title:..., EnqueuedURI:..., EnqueuedURIMetaData:... });
+const result = await sonos.generatedServices.AVTransportService().CreateSavedQueue({ InstanceID:..., Title:..., EnqueuedURI:..., EnqueuedURIMetaData:... });
 ```
 
 Input object:
@@ -266,7 +266,7 @@ Output object:
 Delegates the coordinator role to another player in the same group
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.DelegateGroupCoordinationTo({ InstanceID:..., NewCoordinator:..., RejoinGroup:... });
+const result = await sonos.generatedServices.AVTransportService().DelegateGroupCoordinationTo({ InstanceID:..., NewCoordinator:..., RejoinGroup:... });
 ```
 
 Input object:
@@ -284,7 +284,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### EndDirectControlSession
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.EndDirectControlSession({ InstanceID:... });
+const result = await sonos.generatedServices.AVTransportService().EndDirectControlSession({ InstanceID:... });
 ```
 
 Input object:
@@ -300,7 +300,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Get crossfade mode
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.GetCrossfadeMode({ InstanceID:... });
+const result = await sonos.generatedServices.AVTransportService().GetCrossfadeMode({ InstanceID:... });
 ```
 
 Input object:
@@ -322,7 +322,7 @@ Output object:
 Get current transport actions such as Set, Stop, Pause, Play, X_DLNA_SeekTime, Next, X_DLNA_SeekTrackNr
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.GetCurrentTransportActions({ InstanceID:... });
+const result = await sonos.generatedServices.AVTransportService().GetCurrentTransportActions({ InstanceID:... });
 ```
 
 Input object:
@@ -342,7 +342,7 @@ Output object:
 ### GetDeviceCapabilities
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.GetDeviceCapabilities({ InstanceID:... });
+const result = await sonos.generatedServices.AVTransportService().GetDeviceCapabilities({ InstanceID:... });
 ```
 
 Input object:
@@ -364,7 +364,7 @@ Output object:
 Get information about the current playing media (queue)
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.GetMediaInfo({ InstanceID:... });
+const result = await sonos.generatedServices.AVTransportService().GetMediaInfo({ InstanceID:... });
 ```
 
 Input object:
@@ -392,7 +392,7 @@ Output object:
 Get information about current position (position in queue and time in current song)
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.GetPositionInfo({ InstanceID:... });
+const result = await sonos.generatedServices.AVTransportService().GetPositionInfo({ InstanceID:... });
 ```
 
 Input object:
@@ -419,7 +419,7 @@ Output object:
 Get time left on sleeptimer.
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.GetRemainingSleepTimerDuration({ InstanceID:... });
+const result = await sonos.generatedServices.AVTransportService().GetRemainingSleepTimerDuration({ InstanceID:... });
 ```
 
 Input object:
@@ -440,7 +440,7 @@ Output object:
 ### GetRunningAlarmProperties
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.GetRunningAlarmProperties({ InstanceID:... });
+const result = await sonos.generatedServices.AVTransportService().GetRunningAlarmProperties({ InstanceID:... });
 ```
 
 Input object:
@@ -462,7 +462,7 @@ Output object:
 Get current transport status, speed and state such as PLAYING, STOPPED, PLAYING, PAUSED_PLAYBACK, TRANSITIONING, NO_MEDIA_PRESENT
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.GetTransportInfo({ InstanceID:... });
+const result = await sonos.generatedServices.AVTransportService().GetTransportInfo({ InstanceID:... });
 ```
 
 Input object:
@@ -486,7 +486,7 @@ Output object:
 Get transport settings
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.GetTransportSettings({ InstanceID:... });
+const result = await sonos.generatedServices.AVTransportService().GetTransportSettings({ InstanceID:... });
 ```
 
 Input object:
@@ -509,7 +509,7 @@ Output object:
 Go to next song
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.Next({ InstanceID:... });
+const result = await sonos.generatedServices.AVTransportService().Next({ InstanceID:... });
 ```
 
 Input object:
@@ -525,7 +525,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### NotifyDeletedURI
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.NotifyDeletedURI({ InstanceID:..., DeletedURI:... });
+const result = await sonos.generatedServices.AVTransportService().NotifyDeletedURI({ InstanceID:..., DeletedURI:... });
 ```
 
 Input object:
@@ -542,7 +542,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Pause playback
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.Pause({ InstanceID:... });
+const result = await sonos.generatedServices.AVTransportService().Pause({ InstanceID:... });
 ```
 
 Input object:
@@ -558,7 +558,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Start playing the set TransportURI
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.Play({ InstanceID:..., Speed:... });
+const result = await sonos.generatedServices.AVTransportService().Play({ InstanceID:..., Speed:... });
 ```
 
 Input object:
@@ -575,7 +575,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Go to previous song
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.Previous({ InstanceID:... });
+const result = await sonos.generatedServices.AVTransportService().Previous({ InstanceID:... });
 ```
 
 Input object:
@@ -593,7 +593,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Flushes the SONOS queue.
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.RemoveAllTracksFromQueue({ InstanceID:... });
+const result = await sonos.generatedServices.AVTransportService().RemoveAllTracksFromQueue({ InstanceID:... });
 ```
 
 Input object:
@@ -609,7 +609,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### RemoveTrackFromQueue
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.RemoveTrackFromQueue({ InstanceID:..., ObjectID:..., UpdateID:... });
+const result = await sonos.generatedServices.AVTransportService().RemoveTrackFromQueue({ InstanceID:..., ObjectID:..., UpdateID:... });
 ```
 
 Input object:
@@ -627,7 +627,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Removes the specified range of songs from the SONOS queue.
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.RemoveTrackRangeFromQueue({ InstanceID:..., UpdateID:..., StartingIndex:..., NumberOfTracks:... });
+const result = await sonos.generatedServices.AVTransportService().RemoveTrackRangeFromQueue({ InstanceID:..., UpdateID:..., StartingIndex:..., NumberOfTracks:... });
 ```
 
 Input object:
@@ -648,7 +648,7 @@ Output object:
 ### ReorderTracksInQueue
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.ReorderTracksInQueue({ InstanceID:..., StartingIndex:..., NumberOfTracks:..., InsertBefore:..., UpdateID:... });
+const result = await sonos.generatedServices.AVTransportService().ReorderTracksInQueue({ InstanceID:..., StartingIndex:..., NumberOfTracks:..., InsertBefore:..., UpdateID:... });
 ```
 
 Input object:
@@ -666,7 +666,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### ReorderTracksInSavedQueue
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.ReorderTracksInSavedQueue({ InstanceID:..., ObjectID:..., UpdateID:..., TrackList:..., NewPositionList:... });
+const result = await sonos.generatedServices.AVTransportService().ReorderTracksInSavedQueue({ InstanceID:..., ObjectID:..., UpdateID:..., TrackList:..., NewPositionList:... });
 ```
 
 Input object:
@@ -690,7 +690,7 @@ Output object:
 ### RunAlarm
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.RunAlarm({ InstanceID:..., AlarmID:..., LoggedStartTime:..., Duration:..., ProgramURI:..., ProgramMetaData:..., PlayMode:..., Volume:..., IncludeLinkedZones:... });
+const result = await sonos.generatedServices.AVTransportService().RunAlarm({ InstanceID:..., AlarmID:..., LoggedStartTime:..., Duration:..., ProgramURI:..., ProgramMetaData:..., PlayMode:..., Volume:..., IncludeLinkedZones:... });
 ```
 
 Input object:
@@ -714,7 +714,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Saves the current SONOS queue as a SONOS playlist and outputs objectID
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.SaveQueue({ InstanceID:..., Title:..., ObjectID:... });
+const result = await sonos.generatedServices.AVTransportService().SaveQueue({ InstanceID:..., Title:..., ObjectID:... });
 ```
 
 Input object:
@@ -738,7 +738,7 @@ Output object:
 Seek track in queue, time delta or absolute time in song
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.Seek({ InstanceID:..., Unit:..., Target:... });
+const result = await sonos.generatedServices.AVTransportService().Seek({ InstanceID:..., Unit:..., Target:... });
 ```
 
 Input object:
@@ -758,7 +758,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Set the transport URI to a song, a stream, the queue, another player-rincon and a lot more
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.SetAVTransportURI({ InstanceID:..., CurrentURI:..., CurrentURIMetaData:... });
+const result = await sonos.generatedServices.AVTransportService().SetAVTransportURI({ InstanceID:..., CurrentURI:..., CurrentURIMetaData:... });
 ```
 
 Input object:
@@ -778,7 +778,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Set crossfade mode
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.SetCrossfadeMode({ InstanceID:..., CrossfadeMode:... });
+const result = await sonos.generatedServices.AVTransportService().SetCrossfadeMode({ InstanceID:..., CrossfadeMode:... });
 ```
 
 Input object:
@@ -795,7 +795,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetNextAVTransportURI
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.SetNextAVTransportURI({ InstanceID:..., NextURI:..., NextURIMetaData:... });
+const result = await sonos.generatedServices.AVTransportService().SetNextAVTransportURI({ InstanceID:..., NextURI:..., NextURIMetaData:... });
 ```
 
 Input object:
@@ -813,7 +813,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Set the PlayMode
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.SetPlayMode({ InstanceID:..., NewPlayMode:... });
+const result = await sonos.generatedServices.AVTransportService().SetPlayMode({ InstanceID:..., NewPlayMode:... });
 ```
 
 Input object:
@@ -832,7 +832,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Snooze the current alarm for some time.
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.SnoozeAlarm({ InstanceID:..., Duration:... });
+const result = await sonos.generatedServices.AVTransportService().SnoozeAlarm({ InstanceID:..., Duration:... });
 ```
 
 Input object:
@@ -847,7 +847,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### StartAutoplay
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.StartAutoplay({ InstanceID:..., ProgramURI:..., ProgramMetaData:..., Volume:..., IncludeLinkedZones:..., ResetVolumeAfter:... });
+const result = await sonos.generatedServices.AVTransportService().StartAutoplay({ InstanceID:..., ProgramURI:..., ProgramMetaData:..., Volume:..., IncludeLinkedZones:..., ResetVolumeAfter:... });
 ```
 
 Input object:
@@ -868,7 +868,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Stop playback
 
 ```js
-const result = await sonos.generatedServices.AVTransportService.Stop({ InstanceID:... });
+const result = await sonos.generatedServices.AVTransportService().Stop({ InstanceID:... });
 ```
 
 Input object:

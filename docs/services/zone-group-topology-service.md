@@ -19,7 +19,7 @@ sonos.generatedServices.ZoneGroupTopologyService().OneOfTheMethodsBelow({...})
 ### BeginSoftwareUpdate
 
 ```js
-const result = await sonos.generatedServices.ZoneGroupTopologyService.BeginSoftwareUpdate({ UpdateURL:..., Flags:..., ExtraOptions:... });
+const result = await sonos.generatedServices.ZoneGroupTopologyService().BeginSoftwareUpdate({ UpdateURL:..., Flags:..., ExtraOptions:... });
 ```
 
 Input object:
@@ -35,7 +35,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### CheckForUpdate
 
 ```js
-const result = await sonos.generatedServices.ZoneGroupTopologyService.CheckForUpdate({ UpdateType:..., CachedOnly:..., Version:... });
+const result = await sonos.generatedServices.ZoneGroupTopologyService().CheckForUpdate({ UpdateType:..., CachedOnly:..., Version:... });
 ```
 
 Input object:
@@ -88,7 +88,7 @@ Output object:
 ### RegisterMobileDevice
 
 ```js
-const result = await sonos.generatedServices.ZoneGroupTopologyService.RegisterMobileDevice({ MobileDeviceName:..., MobileDeviceUDN:..., MobileIPAndPort:... });
+const result = await sonos.generatedServices.ZoneGroupTopologyService().RegisterMobileDevice({ MobileDeviceName:..., MobileDeviceUDN:..., MobileIPAndPort:... });
 ```
 
 Input object:
@@ -112,7 +112,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### ReportUnresponsiveDevice
 
 ```js
-const result = await sonos.generatedServices.ZoneGroupTopologyService.ReportUnresponsiveDevice({ DeviceUUID:..., DesiredAction:... });
+const result = await sonos.generatedServices.ZoneGroupTopologyService().ReportUnresponsiveDevice({ DeviceUUID:..., DesiredAction:... });
 ```
 
 Input object:
@@ -127,7 +127,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SubmitDiagnostics
 
 ```js
-const result = await sonos.generatedServices.ZoneGroupTopologyService.SubmitDiagnostics({ IncludeControllers:..., Type:... });
+const result = await sonos.generatedServices.ZoneGroupTopologyService().SubmitDiagnostics({ IncludeControllers:..., Type:... });
 ```
 
 Input object:

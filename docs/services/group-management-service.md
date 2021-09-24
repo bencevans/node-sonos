@@ -19,7 +19,7 @@ sonos.generatedServices.GroupManagementService().OneOfTheMethodsBelow({...})
 ### AddMember
 
 ```js
-const result = await sonos.generatedServices.GroupManagementService.AddMember({ MemberID:..., BootSeq:... });
+const result = await sonos.generatedServices.GroupManagementService().AddMember({ MemberID:..., BootSeq:... });
 ```
 
 Input object:
@@ -42,7 +42,7 @@ Output object:
 ### RemoveMember
 
 ```js
-const result = await sonos.generatedServices.GroupManagementService.RemoveMember({ MemberID:... });
+const result = await sonos.generatedServices.GroupManagementService().RemoveMember({ MemberID:... });
 ```
 
 Input object:
@@ -56,7 +56,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### ReportTrackBufferingResult
 
 ```js
-const result = await sonos.generatedServices.GroupManagementService.ReportTrackBufferingResult({ MemberID:..., ResultCode:... });
+const result = await sonos.generatedServices.GroupManagementService().ReportTrackBufferingResult({ MemberID:..., ResultCode:... });
 ```
 
 Input object:
@@ -71,7 +71,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetSourceAreaIds
 
 ```js
-const result = await sonos.generatedServices.GroupManagementService.SetSourceAreaIds({ DesiredSourceAreaIds:... });
+const result = await sonos.generatedServices.GroupManagementService().SetSourceAreaIds({ DesiredSourceAreaIds:... });
 ```
 
 Input object:

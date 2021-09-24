@@ -19,7 +19,7 @@ sonos.generatedServices.QPlayService().OneOfTheMethodsBelow({...})
 ### QPlayAuth
 
 ```js
-const result = await sonos.generatedServices.QPlayService.QPlayAuth({ Seed:... });
+const result = await sonos.generatedServices.QPlayService().QPlayAuth({ Seed:... });
 ```
 
 Input object:

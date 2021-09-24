@@ -21,7 +21,7 @@ sonos.generatedServices.AlarmClockService().OneOfTheMethodsBelow({...})
 Create a single alarm, all properties are required
 
 ```js
-const result = await sonos.generatedServices.AlarmClockService.CreateAlarm({ StartLocalTime:..., Duration:..., Recurrence:..., Enabled:..., RoomUUID:..., ProgramURI:..., ProgramMetaData:..., PlayMode:..., Volume:..., IncludeLinkedZones:... });
+const result = await sonos.generatedServices.AlarmClockService().CreateAlarm({ StartLocalTime:..., Duration:..., Recurrence:..., Enabled:..., RoomUUID:..., ProgramURI:..., ProgramMetaData:..., PlayMode:..., Volume:..., IncludeLinkedZones:... });
 ```
 
 Input object:
@@ -50,7 +50,7 @@ Output object:
 Delete an alarm
 
 ```js
-const result = await sonos.generatedServices.AlarmClockService.DestroyAlarm({ ID:... });
+const result = await sonos.generatedServices.AlarmClockService().DestroyAlarm({ ID:... });
 ```
 
 Input object:
@@ -89,7 +89,7 @@ Output object:
 ### GetHouseholdTimeAtStamp
 
 ```js
-const result = await sonos.generatedServices.AlarmClockService.GetHouseholdTimeAtStamp({ TimeStamp:... });
+const result = await sonos.generatedServices.AlarmClockService().GetHouseholdTimeAtStamp({ TimeStamp:... });
 ```
 
 Input object:
@@ -161,7 +161,7 @@ Output object:
 ### GetTimeZoneRule
 
 ```js
-const result = await sonos.generatedServices.AlarmClockService.GetTimeZoneRule({ Index:... });
+const result = await sonos.generatedServices.AlarmClockService().GetTimeZoneRule({ Index:... });
 ```
 
 Input object:
@@ -196,7 +196,7 @@ Output object:
 ### SetDailyIndexRefreshTime
 
 ```js
-const result = await sonos.generatedServices.AlarmClockService.SetDailyIndexRefreshTime({ DesiredDailyIndexRefreshTime:... });
+const result = await sonos.generatedServices.AlarmClockService().SetDailyIndexRefreshTime({ DesiredDailyIndexRefreshTime:... });
 ```
 
 Input object:
@@ -210,7 +210,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetFormat
 
 ```js
-const result = await sonos.generatedServices.AlarmClockService.SetFormat({ DesiredTimeFormat:..., DesiredDateFormat:... });
+const result = await sonos.generatedServices.AlarmClockService().SetFormat({ DesiredTimeFormat:..., DesiredDateFormat:... });
 ```
 
 Input object:
@@ -225,7 +225,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetTimeNow
 
 ```js
-const result = await sonos.generatedServices.AlarmClockService.SetTimeNow({ DesiredTime:..., TimeZoneForDesiredTime:... });
+const result = await sonos.generatedServices.AlarmClockService().SetTimeNow({ DesiredTime:..., TimeZoneForDesiredTime:... });
 ```
 
 Input object:
@@ -240,7 +240,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetTimeServer
 
 ```js
-const result = await sonos.generatedServices.AlarmClockService.SetTimeServer({ DesiredTimeServer:... });
+const result = await sonos.generatedServices.AlarmClockService().SetTimeServer({ DesiredTimeServer:... });
 ```
 
 Input object:
@@ -254,7 +254,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetTimeZone
 
 ```js
-const result = await sonos.generatedServices.AlarmClockService.SetTimeZone({ Index:..., AutoAdjustDst:... });
+const result = await sonos.generatedServices.AlarmClockService().SetTimeZone({ Index:..., AutoAdjustDst:... });
 ```
 
 Input object:
@@ -271,7 +271,7 @@ This actions returns a boolean whether or not the requests succeeded.
 Update an alarm, all parameters are required.
 
 ```js
-const result = await sonos.generatedServices.AlarmClockService.UpdateAlarm({ ID:..., StartLocalTime:..., Duration:..., Recurrence:..., Enabled:..., RoomUUID:..., ProgramURI:..., ProgramMetaData:..., PlayMode:..., Volume:..., IncludeLinkedZones:... });
+const result = await sonos.generatedServices.AlarmClockService().UpdateAlarm({ ID:..., StartLocalTime:..., Duration:..., Recurrence:..., Enabled:..., RoomUUID:..., ProgramURI:..., ProgramMetaData:..., PlayMode:..., Volume:..., IncludeLinkedZones:... });
 ```
 
 Input object:

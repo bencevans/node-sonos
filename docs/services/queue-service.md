@@ -19,7 +19,7 @@ sonos.generatedServices.QueueService().OneOfTheMethodsBelow({...})
 ### AddMultipleURIs
 
 ```js
-const result = await sonos.generatedServices.QueueService.AddMultipleURIs({ QueueID:..., UpdateID:..., ContainerURI:..., ContainerMetaData:..., DesiredFirstTrackNumberEnqueued:..., EnqueueAsNext:..., NumberOfURIs:..., EnqueuedURIsAndMetaData:... });
+const result = await sonos.generatedServices.QueueService().AddMultipleURIs({ QueueID:..., UpdateID:..., ContainerURI:..., ContainerMetaData:..., DesiredFirstTrackNumberEnqueued:..., EnqueueAsNext:..., NumberOfURIs:..., EnqueuedURIsAndMetaData:... });
 ```
 
 Input object:
@@ -47,7 +47,7 @@ Output object:
 ### AddURI
 
 ```js
-const result = await sonos.generatedServices.QueueService.AddURI({ QueueID:..., UpdateID:..., EnqueuedURI:..., EnqueuedURIMetaData:..., DesiredFirstTrackNumberEnqueued:..., EnqueueAsNext:... });
+const result = await sonos.generatedServices.QueueService().AddURI({ QueueID:..., UpdateID:..., EnqueuedURI:..., EnqueuedURIMetaData:..., DesiredFirstTrackNumberEnqueued:..., EnqueueAsNext:... });
 ```
 
 Input object:
@@ -73,7 +73,7 @@ Output object:
 ### AttachQueue
 
 ```js
-const result = await sonos.generatedServices.QueueService.AttachQueue({ QueueOwnerID:... });
+const result = await sonos.generatedServices.QueueService().AttachQueue({ QueueOwnerID:... });
 ```
 
 Input object:
@@ -100,7 +100,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### Browse
 
 ```js
-const result = await sonos.generatedServices.QueueService.Browse({ QueueID:..., StartingIndex:..., RequestedCount:... });
+const result = await sonos.generatedServices.QueueService().Browse({ QueueID:..., StartingIndex:..., RequestedCount:... });
 ```
 
 Input object:
@@ -123,7 +123,7 @@ Output object:
 ### CreateQueue
 
 ```js
-const result = await sonos.generatedServices.QueueService.CreateQueue({ QueueOwnerID:..., QueueOwnerContext:..., QueuePolicy:... });
+const result = await sonos.generatedServices.QueueService().CreateQueue({ QueueOwnerID:..., QueueOwnerContext:..., QueuePolicy:... });
 ```
 
 Input object:
@@ -143,7 +143,7 @@ Output object:
 ### RemoveAllTracks
 
 ```js
-const result = await sonos.generatedServices.QueueService.RemoveAllTracks({ QueueID:..., UpdateID:... });
+const result = await sonos.generatedServices.QueueService().RemoveAllTracks({ QueueID:..., UpdateID:... });
 ```
 
 Input object:
@@ -162,7 +162,7 @@ Output object:
 ### RemoveTrackRange
 
 ```js
-const result = await sonos.generatedServices.QueueService.RemoveTrackRange({ QueueID:..., UpdateID:..., StartingIndex:..., NumberOfTracks:... });
+const result = await sonos.generatedServices.QueueService().RemoveTrackRange({ QueueID:..., UpdateID:..., StartingIndex:..., NumberOfTracks:... });
 ```
 
 Input object:
@@ -183,7 +183,7 @@ Output object:
 ### ReorderTracks
 
 ```js
-const result = await sonos.generatedServices.QueueService.ReorderTracks({ QueueID:..., StartingIndex:..., NumberOfTracks:..., InsertBefore:..., UpdateID:... });
+const result = await sonos.generatedServices.QueueService().ReorderTracks({ QueueID:..., StartingIndex:..., NumberOfTracks:..., InsertBefore:..., UpdateID:... });
 ```
 
 Input object:
@@ -205,7 +205,7 @@ Output object:
 ### ReplaceAllTracks
 
 ```js
-const result = await sonos.generatedServices.QueueService.ReplaceAllTracks({ QueueID:..., UpdateID:..., ContainerURI:..., ContainerMetaData:..., CurrentTrackIndex:..., NewCurrentTrackIndices:..., NumberOfURIs:..., EnqueuedURIsAndMetaData:... });
+const result = await sonos.generatedServices.QueueService().ReplaceAllTracks({ QueueID:..., UpdateID:..., ContainerURI:..., ContainerMetaData:..., CurrentTrackIndex:..., NewCurrentTrackIndices:..., NumberOfURIs:..., EnqueuedURIsAndMetaData:... });
 ```
 
 Input object:
@@ -231,7 +231,7 @@ Output object:
 ### SaveAsSonosPlaylist
 
 ```js
-const result = await sonos.generatedServices.QueueService.SaveAsSonosPlaylist({ QueueID:..., Title:..., ObjectID:... });
+const result = await sonos.generatedServices.QueueService().SaveAsSonosPlaylist({ QueueID:..., Title:..., ObjectID:... });
 ```
 
 Input object:

@@ -21,7 +21,7 @@ sonos.generatedServices.ContentDirectoryService().OneOfTheMethodsBelow({...})
 Browse for content: Music library (A), share(S:), Sonos playlists(SQ:), Sonos favorites(FV:2), radio stations(R:0/0), radio shows(R:0/1). Recommendation: Send one request, check the &#x60;TotalMatches&#x60; and - if necessary - do additional requests with higher &#x60;StartingIndex&#x60;. In case of duplicates only the first is returned! Example: albums with same title, even if artists are different
 
 ```js
-const result = await sonos.generatedServices.ContentDirectoryService.Browse({ ObjectID:..., BrowseFlag:..., Filter:..., StartingIndex:..., RequestedCount:..., SortCriteria:... });
+const result = await sonos.generatedServices.ContentDirectoryService().Browse({ ObjectID:..., BrowseFlag:..., Filter:..., StartingIndex:..., RequestedCount:..., SortCriteria:... });
 ```
 
 Input object:
@@ -49,7 +49,7 @@ Output object:
 ### CreateObject
 
 ```js
-const result = await sonos.generatedServices.ContentDirectoryService.CreateObject({ ContainerID:..., Elements:... });
+const result = await sonos.generatedServices.ContentDirectoryService().CreateObject({ ContainerID:..., Elements:... });
 ```
 
 Input object:
@@ -69,7 +69,7 @@ Output object:
 ### DestroyObject
 
 ```js
-const result = await sonos.generatedServices.ContentDirectoryService.DestroyObject({ ObjectID:... });
+const result = await sonos.generatedServices.ContentDirectoryService().DestroyObject({ ObjectID:... });
 ```
 
 Input object:
@@ -83,7 +83,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### FindPrefix
 
 ```js
-const result = await sonos.generatedServices.ContentDirectoryService.FindPrefix({ ObjectID:..., Prefix:... });
+const result = await sonos.generatedServices.ContentDirectoryService().FindPrefix({ ObjectID:..., Prefix:... });
 ```
 
 Input object:
@@ -115,7 +115,7 @@ Output object:
 ### GetAllPrefixLocations
 
 ```js
-const result = await sonos.generatedServices.ContentDirectoryService.GetAllPrefixLocations({ ObjectID:... });
+const result = await sonos.generatedServices.ContentDirectoryService().GetAllPrefixLocations({ ObjectID:... });
 ```
 
 Input object:
@@ -207,7 +207,7 @@ Output object:
 ### RefreshShareIndex
 
 ```js
-const result = await sonos.generatedServices.ContentDirectoryService.RefreshShareIndex({ AlbumArtistDisplayOption:... });
+const result = await sonos.generatedServices.ContentDirectoryService().RefreshShareIndex({ AlbumArtistDisplayOption:... });
 ```
 
 Input object:
@@ -221,7 +221,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### RequestResort
 
 ```js
-const result = await sonos.generatedServices.ContentDirectoryService.RequestResort({ SortOrder:... });
+const result = await sonos.generatedServices.ContentDirectoryService().RequestResort({ SortOrder:... });
 ```
 
 Input object:
@@ -235,7 +235,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### SetBrowseable
 
 ```js
-const result = await sonos.generatedServices.ContentDirectoryService.SetBrowseable({ Browseable:... });
+const result = await sonos.generatedServices.ContentDirectoryService().SetBrowseable({ Browseable:... });
 ```
 
 Input object:
@@ -249,7 +249,7 @@ This actions returns a boolean whether or not the requests succeeded.
 ### UpdateObject
 
 ```js
-const result = await sonos.generatedServices.ContentDirectoryService.UpdateObject({ ObjectID:..., CurrentTagValue:..., NewTagValue:... });
+const result = await sonos.generatedServices.ContentDirectoryService().UpdateObject({ ObjectID:..., CurrentTagValue:..., NewTagValue:... });
 ```
 
 Input object:
