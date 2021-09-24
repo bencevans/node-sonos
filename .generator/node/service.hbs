@@ -1,0 +1,56 @@
+const Service = require('./Service')
+/**
+ * Sonos {{serviceName}}
+{{#if description}}
+ *
+ * {{description}}
+{{/if}}
+ *
+ * @author Stephan van Rooij - https://svrooij.io
+ * @remarks This file is generated, do not edit manually. https://svrooij.io/sonos-api-docs
+ * @export
+ * @class {{serviceName}}
+ * @extends {Service}
+ */
+class {{serviceName}} extends Service {
+  constructor (host, port) {
+    super()
+    this.name = '{{name}}'
+    this.host = host
+    this.port = port || 1400
+    this.controlURL = '{{controlURL}}'
+    this.eventSubURL = '{{eventSubURL}}'
+    this.SCPDURL = '{{discoveryUri}}'
+  }
+
+  // #region actions
+  {{#each actions}}
+  /**
+   * {{name}}{{#if description}} - {{{description}}}{{/if}}
+  {{#if inputs}}
+   *
+   * @param {Object} [options] - An object with the following properties
+  {{/if}}
+  {{#each inputs}}
+   * @param { {{~ relatedStateVariable.dataType ~}} } options.{{name}}{{#if description}} - {{{description}}}{{/if}}{{#if relatedStateVariable.allowedValues}} [ {{#each relatedStateVariable.allowedValues}}'{{this}}'{{#unless @last}} / {{/unless}}{{/each}} ]{{/if}}
+  {{/each}}
+  {{#if remarks}}
+   * @remarks {{{remarks}}}
+  {{/if}}
+  {{#if outputs}}
+   * @returns {Object} response object, with these properties {{#each outputs}}'{{name}}'{{#unless @last}}, {{/unless}}{{/each}}
+  {{/if}}
+   */
+  {{#if inputs}}
+  async {{name}} (options{{{sonos_if_only_instance_id inputs ' = { InstanceID: 0 }'}}}) { return this._request('{{name}}', options) }
+  {{else}}
+  async {{name}} () { return this._request('{{name}}') }
+  {{/if}}
+  {{#unless @last}}
+
+  {{/unless}}
+  {{/each}}
+  // #endregion
+}
+
+module.exports = {{serviceName}}
