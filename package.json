@@ -7,7 +7,9 @@
     "lint": "standard",
     "test": "npm run lint && mocha test/sonos.test.js --exit --timeout 20000",
     "env-run": "npm run $CMD",
-    "docs": "jsdox -t ./docs/generator/templates --output docs lib/ && jsdox -t ./docs/generator/templates --output docs/services lib/services && jsdox -t ./docs/generator/templates --output docs/events lib/events"
+    "docs": "jsdox -t ./docs/generator/templates --output docs lib/ && jsdox -t ./docs/generator/templates --output docs/services lib/services && jsdox -t ./docs/generator/templates --output docs/events lib/events",
+    "generator": "npx @svrooij/sonos-docs combine && npx @svrooij/sonos-docs generate ./.generator/node/ ./ && npx standard --fix"
+
   },
   "repository": {
     "type": "git",
@@ -42,8 +44,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.21.1",
-    "debug": "^4.3.1",
+    "axios": "^0.21.4",
+    "debug": "^4.3.2",
     "ip": "^1.1.5",
     "xml2js": "^0.4.23"
   },

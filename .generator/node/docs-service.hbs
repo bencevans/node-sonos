@@ -1,0 +1,66 @@
+---
+layout: default
+title: {{name}}
+---
+# {{name}} service
+{{#if description}}
+
+{{description}}
+{{/if}}
+{{#if availableAt}}
+
+The {{name}} service is available on these models: {{#each availableAt}}`{{this}}`{{#unless @last}} / {{/unless}}{{/each}}.
+{{/if}}
+
+```js
+const Sonos = require('sonos').Sonos
+const sonos = new Sonos('192.168.x.x')
+sonos.generatedServices.{{serviceName}}().OneOfTheMethodsBelow({...})
+```
+
+## Actions
+
+{{#each actions}}
+### {{name}}
+{{#if description}}
+
+{{description}}
+{{/if}}
+{{#if inputs}}
+
+```js
+const result = await sonos.generatedServices.{{../serviceName}}().{{name}}({ {{#each inputs}}{{name}}:...{{#unless @last}}, {{/unless}}{{/each}} });
+```
+
+Input object:
+
+| property | type | description |
+|:----------|:-----|:------------|
+{{#each inputs}}
+| **{{name}}** | `{{{relatedStateVariable.dataType}}}` | {{{description}}}{{#if relatedStateVariable.allowedValues}} Allowed values: {{#each relatedStateVariable.allowedValues}}`{{this}}`{{#unless @last}} / {{/unless}}{{/each}}{{/if}} |
+{{/each}}
+{{else}}
+
+```js
+const result = await sonos.generatedServices.{{../serviceName}}.{{name}}();
+```
+{{/if}}
+{{#if outputs}}
+
+Output object:
+
+| property | type | description |
+|:----------|:-----|:------------|
+{{#each outputs}}
+| **{{name}}** | `{{{relatedStateVariable.dataType}}}` | {{{description}}}{{#if relatedStateVariable.allowedValues}} Possible values: {{#each relatedStateVariable.allowedValues}}`{{this}}`{{#unless @last}} / {{/unless}}{{/each}}{{/if}} |
+{{/each}}
+{{else}}
+
+This actions returns a boolean whether or not the requests succeeded.
+{{/if}}
+{{#if remarks}}
+
+**Remarks** {{{remarks}}}
+{{/if}}
+
+{{/each}}

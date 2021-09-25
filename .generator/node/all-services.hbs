@@ -1,0 +1,43 @@
+{{#each services}}
+const {{serviceName}} = require('./{{#if data.filename}}{{data.filename}}{{else}}{{kebab name}}.service{{/if}}')
+{{/each}}
+
+/**
+ * Sonos AllServices
+ *
+ * A generated class to access all Sonos UPNP services.
+ *
+ * @remarks This file is generated, do not edit manually. https://svrooij.io/sonos-api-docs
+ * @exports
+ * @class AllServices
+ */
+class AllServices {
+  constructor (host, port) {
+    this.host = host
+    this.port = port
+  }
+
+  {{#each services}}
+  /**
+   * Get instance of {{name}} service
+   *
+   * @returns {{serviceName}}
+   */
+  {{serviceName}} () {
+    if (!this.{{lower serviceName}}) {
+      this.{{lower serviceName}} = new {{serviceName}}(this.host, this.port)
+    }
+    return this.{{lower serviceName}}
+  }
+  {{#unless @last}}
+
+  {{/unless}}
+  {{/each}}
+}
+
+module.exports = {
+  AllServices,
+  {{#each services}}
+  {{serviceName}}{{#unless @last}},{{/unless}}
+  {{/each}}
+}

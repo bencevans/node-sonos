@@ -1,0 +1,44 @@
+{
+  "$schema": "https://svrooij.io/sonos-api-docs/schema/template.json",
+  "name": "Node sonos",
+  "slug": "node",
+  "repository": "https://github.com/bencevans/node-sonos/",
+  "author": {
+    "name": "svrooij",
+    "link": "https://svrooij.io"
+  },
+  "files": [
+    {
+      "file": "service.hbs",
+      "outputFile": "lib/services/{snService}.service.js",
+      "usage":"service"
+    },
+    {
+      "file": "all-services.hbs",
+      "outputFile": "lib/services/all-services.js",
+      "usage":"index"
+    },
+    {
+      "file": "docs-service.hbs",
+      "outputFile": "docs/services/{snService}-service.md",
+      "usage":"service"
+    }
+  ],
+  "dataTypes": {
+    "ui4": "number",
+    "i4": "number",
+    "ui2": "number",
+    "i2": "number",
+    "MetaData": "string",
+    "ZoneGroupState": "string"
+  },
+  "serviceData": {
+    "AVTransportService": {
+      "filename": "av-transport.service"
+    },
+    "HTControlService": {
+      "filename": "ht-control.service"
+    }
+  },
+  "license": "MIT"
+}
