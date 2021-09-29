@@ -13,6 +13,11 @@ const Service = require('./Service')
  * @extends {Service}
  */
 class {{serviceName}} extends Service {
+  /**
+   *
+   * @param {string} host Sonos host
+   * @param {number} port Sonos port, default `1400`
+   */
   constructor (host, port) {
     super()
     this.name = '{{name}}'
@@ -38,7 +43,9 @@ class {{serviceName}} extends Service {
    * @remarks {{{remarks}}}
   {{/if}}
   {{#if outputs}}
-   * @returns {Object} response object, with these properties {{#each outputs}}'{{name}}'{{#unless @last}}, {{/unless}}{{/each}}
+   * @returns {Promise<Object>} response object, with these properties {{#each outputs}}`{{name}}`{{#unless @last}}, {{/unless}}{{/each}}
+  {{else}}
+   * @returns {Promise<Boolean>} request succeeded
   {{/if}}
    */
   {{#if inputs}}

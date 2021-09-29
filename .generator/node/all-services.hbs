@@ -12,16 +12,21 @@ const {{serviceName}} = require('./{{#if data.filename}}{{data.filename}}{{else}
  * @class AllServices
  */
 class AllServices {
+  /**
+   *
+   * @param {string} host Sonos host
+   * @param {number} port Sonos port, default `1400`
+   */
   constructor (host, port) {
     this.host = host
-    this.port = port
+    this.port = port || 1400
   }
 
   {{#each services}}
   /**
    * Get instance of {{name}} service
    *
-   * @returns {{serviceName}}
+   * @returns { {{~ serviceName ~}} }
    */
   {{serviceName}} () {
     if (!this.{{lower serviceName}}) {
