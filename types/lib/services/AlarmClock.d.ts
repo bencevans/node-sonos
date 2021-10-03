@@ -42,9 +42,9 @@ declare class AlarmClock extends Service {
     DestroyAlarm(id: string): Promise<any>;
     /**
      * Get all the alarms known to sonos
-     * @return {Object}
+     * @return {Promise<Object>}
      */
-    ListAlarms(): any;
+    ListAlarms(): Promise<any>;
     /**
      * Enable/disable an alarm
      * @param  {String} id the id of the alarm you want to set

@@ -27,9 +27,9 @@ declare class SonosListener extends EventEmitter {
     isListening(): boolean;
     /**
      * Subscribe to all events for this device.
-     * @param {Sonos} device Pass in the Sonos device, it will be the eventemitter
+     * @param {import("../sonos").Sonos} device Pass in the Sonos device, it will be the eventemitter
      */
-    subscribeTo(device: any): Promise<any>;
+    subscribeTo(device: import("../sonos").Sonos): Promise<any>;
     _handleMessage(req: any, resp: any, body: any): void;
     _handleGlobalNotification(endpoint: any, body: any): Promise<void>;
 }
