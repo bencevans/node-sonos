@@ -1,4 +1,3 @@
-import SonosGroup = require("../sonosGroup");
 export function ParseAndEmitEvents(endpoint: any, body: any, device: any): Promise<{
     name: string;
     eventBody: any;
@@ -27,7 +26,7 @@ export function _parseAlarmEvent(body: any, device: any): {
 export function _parseZoneGroupTopologyEvent(body: any, device: any): Promise<{
     name: string;
     eventBody: {
-        Zones: SonosGroup[];
+        Zones: any;
     };
 }>;
 export function _parseGroupRenderingControlEvent(body: any, device: any): {

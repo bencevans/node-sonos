@@ -19,14 +19,20 @@ declare class AudioInService extends Service {
     constructor(host: string, port: number);
     /**
      * GetAudioInputAttributes
-     * @returns {Promise<Object>} response object, with these properties `CurrentName`, `CurrentIcon`
+     * @returns {Promise<{ CurrentName: string, CurrentIcon: string}>} response object.
      */
-    GetAudioInputAttributes(): Promise<any>;
+    GetAudioInputAttributes(): Promise<{
+        CurrentName: string;
+        CurrentIcon: string;
+    }>;
     /**
      * GetLineInLevel
-     * @returns {Promise<Object>} response object, with these properties `CurrentLeftLineInLevel`, `CurrentRightLineInLevel`
+     * @returns {Promise<{ CurrentLeftLineInLevel: number, CurrentRightLineInLevel: number}>} response object.
      */
-    GetLineInLevel(): Promise<any>;
+    GetLineInLevel(): Promise<{
+        CurrentLeftLineInLevel: number;
+        CurrentRightLineInLevel: number;
+    }>;
     /**
      * SelectAudio
      *
@@ -66,11 +72,13 @@ declare class AudioInService extends Service {
      *
      * @param {Object} [options] - An object with the following properties
      * @param {string} options.CoordinatorID
-     * @returns {Promise<Object>} response object, with these properties `CurrentTransportSettings`
+     * @returns {Promise<{ CurrentTransportSettings: string}>} response object.
      */
     StartTransmissionToGroup(options?: {
         CoordinatorID: string;
-    }): Promise<any>;
+    }): Promise<{
+        CurrentTransportSettings: string;
+    }>;
     /**
      * StopTransmissionToGroup
      *

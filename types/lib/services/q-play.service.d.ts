@@ -22,10 +22,14 @@ declare class QPlayService extends Service {
      *
      * @param {Object} [options] - An object with the following properties
      * @param {string} options.Seed
-     * @returns {Promise<Object>} response object, with these properties `Code`, `MID`, `DID`
+     * @returns {Promise<{ Code: string, MID: string, DID: string}>} response object.
      */
     QPlayAuth(options?: {
         Seed: string;
-    }): Promise<any>;
+    }): Promise<{
+        Code: string;
+        MID: string;
+        DID: string;
+    }>;
 }
 import Service = require("./Service");

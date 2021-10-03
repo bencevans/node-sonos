@@ -23,12 +23,18 @@ declare class GroupManagementService extends Service {
      * @param {Object} [options] - An object with the following properties
      * @param {string} options.MemberID
      * @param {number} options.BootSeq
-     * @returns {Promise<Object>} response object, with these properties `CurrentTransportSettings`, `CurrentURI`, `GroupUUIDJoined`, `ResetVolumeAfter`, `VolumeAVTransportURI`
+     * @returns {Promise<{ CurrentTransportSettings: string, CurrentURI: string, GroupUUIDJoined: string, ResetVolumeAfter: boolean, VolumeAVTransportURI: string}>} response object.
      */
     AddMember(options?: {
         MemberID: string;
         BootSeq: number;
-    }): Promise<any>;
+    }): Promise<{
+        CurrentTransportSettings: string;
+        CurrentURI: string;
+        GroupUUIDJoined: string;
+        ResetVolumeAfter: boolean;
+        VolumeAVTransportURI: string;
+    }>;
     /**
      * RemoveMember
      *

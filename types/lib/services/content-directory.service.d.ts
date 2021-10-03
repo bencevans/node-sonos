@@ -28,7 +28,7 @@ declare class ContentDirectoryService extends Service {
      * @param {number} options.RequestedCount - Paging, number of items, maximum is 1,000. This parameter does NOT restrict the number of items being searched (filter) but only the number being returned.
      * @param {string} options.SortCriteria - Sort the results based on metadata fields. `+upnp:artist,+dc:title` for sorting on artist then on title.
      * @remarks (1) If the title contains an apostrophe the returned uri will contain a `&apos;`. (2) Some libraries support a BrowseAndParse, so you don't have to parse the xml.
-     * @returns {Promise<Object>} response object, with these properties `Result`, `NumberReturned`, `TotalMatches`, `UpdateID`
+     * @returns {Promise<{ Result: string, NumberReturned: number, TotalMatches: number, UpdateID: number}>} response object.
      */
     Browse(options?: {
         ObjectID: string;
@@ -37,19 +37,27 @@ declare class ContentDirectoryService extends Service {
         StartingIndex: number;
         RequestedCount: number;
         SortCriteria: string;
-    }): Promise<any>;
+    }): Promise<{
+        Result: string;
+        NumberReturned: number;
+        TotalMatches: number;
+        UpdateID: number;
+    }>;
     /**
      * CreateObject
      *
      * @param {Object} [options] - An object with the following properties
      * @param {string} options.ContainerID
      * @param {string} options.Elements
-     * @returns {Promise<Object>} response object, with these properties `ObjectID`, `Result`
+     * @returns {Promise<{ ObjectID: string, Result: string}>} response object.
      */
     CreateObject(options?: {
         ContainerID: string;
         Elements: string;
-    }): Promise<any>;
+    }): Promise<{
+        ObjectID: string;
+        Result: string;
+    }>;
     /**
      * DestroyObject
      *
@@ -66,57 +74,78 @@ declare class ContentDirectoryService extends Service {
      * @param {Object} [options] - An object with the following properties
      * @param {string} options.ObjectID
      * @param {string} options.Prefix
-     * @returns {Promise<Object>} response object, with these properties `StartingIndex`, `UpdateID`
+     * @returns {Promise<{ StartingIndex: number, UpdateID: number}>} response object.
      */
     FindPrefix(options?: {
         ObjectID: string;
         Prefix: string;
-    }): Promise<any>;
+    }): Promise<{
+        StartingIndex: number;
+        UpdateID: number;
+    }>;
     /**
      * GetAlbumArtistDisplayOption
-     * @returns {Promise<Object>} response object, with these properties `AlbumArtistDisplayOption`
+     * @returns {Promise<{ AlbumArtistDisplayOption: string}>} response object.
      */
-    GetAlbumArtistDisplayOption(): Promise<any>;
+    GetAlbumArtistDisplayOption(): Promise<{
+        AlbumArtistDisplayOption: string;
+    }>;
     /**
      * GetAllPrefixLocations
      *
      * @param {Object} [options] - An object with the following properties
      * @param {string} options.ObjectID
-     * @returns {Promise<Object>} response object, with these properties `TotalPrefixes`, `PrefixAndIndexCSV`, `UpdateID`
+     * @returns {Promise<{ TotalPrefixes: number, PrefixAndIndexCSV: string, UpdateID: number}>} response object.
      */
     GetAllPrefixLocations(options?: {
         ObjectID: string;
-    }): Promise<any>;
+    }): Promise<{
+        TotalPrefixes: number;
+        PrefixAndIndexCSV: string;
+        UpdateID: number;
+    }>;
     /**
      * GetBrowseable
-     * @returns {Promise<Object>} response object, with these properties `IsBrowseable`
+     * @returns {Promise<{ IsBrowseable: boolean}>} response object.
      */
-    GetBrowseable(): Promise<any>;
+    GetBrowseable(): Promise<{
+        IsBrowseable: boolean;
+    }>;
     /**
      * GetLastIndexChange
-     * @returns {Promise<Object>} response object, with these properties `LastIndexChange`
+     * @returns {Promise<{ LastIndexChange: string}>} response object.
      */
-    GetLastIndexChange(): Promise<any>;
+    GetLastIndexChange(): Promise<{
+        LastIndexChange: string;
+    }>;
     /**
      * GetSearchCapabilities
-     * @returns {Promise<Object>} response object, with these properties `SearchCaps`
+     * @returns {Promise<{ SearchCaps: string}>} response object.
      */
-    GetSearchCapabilities(): Promise<any>;
+    GetSearchCapabilities(): Promise<{
+        SearchCaps: string;
+    }>;
     /**
      * GetShareIndexInProgress
-     * @returns {Promise<Object>} response object, with these properties `IsIndexing`
+     * @returns {Promise<{ IsIndexing: boolean}>} response object.
      */
-    GetShareIndexInProgress(): Promise<any>;
+    GetShareIndexInProgress(): Promise<{
+        IsIndexing: boolean;
+    }>;
     /**
      * GetSortCapabilities
-     * @returns {Promise<Object>} response object, with these properties `SortCaps`
+     * @returns {Promise<{ SortCaps: string}>} response object.
      */
-    GetSortCapabilities(): Promise<any>;
+    GetSortCapabilities(): Promise<{
+        SortCaps: string;
+    }>;
     /**
      * GetSystemUpdateID
-     * @returns {Promise<Object>} response object, with these properties `Id`
+     * @returns {Promise<{ Id: number}>} response object.
      */
-    GetSystemUpdateID(): Promise<any>;
+    GetSystemUpdateID(): Promise<{
+        Id: number;
+    }>;
     /**
      * RefreshShareIndex
      *

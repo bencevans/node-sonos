@@ -43,7 +43,7 @@ class {{serviceName}} extends Service {
    * @remarks {{{remarks}}}
   {{/if}}
   {{#if outputs}}
-   * @returns {Promise<Object>} response object, with these properties {{#each outputs}}`{{name}}`{{#unless @last}}, {{/unless}}{{/each}}
+   * @returns {Promise<{ {{#each outputs}}{{name}}: {{relatedStateVariable.dataType}}{{#unless @last}}, {{/unless}}{{/each ~}} }>} response object.
   {{else}}
    * @returns {Promise<Boolean>} request succeeded
   {{/if}}

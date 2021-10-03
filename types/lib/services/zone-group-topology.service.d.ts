@@ -38,24 +38,33 @@ declare class ZoneGroupTopologyService extends Service {
      * @param {string} options.UpdateType [ 'All' / 'Software' ]
      * @param {boolean} options.CachedOnly
      * @param {string} options.Version
-     * @returns {Promise<Object>} response object, with these properties `UpdateItem`
+     * @returns {Promise<{ UpdateItem: string}>} response object.
      */
     CheckForUpdate(options?: {
         UpdateType: string;
         CachedOnly: boolean;
         Version: string;
-    }): Promise<any>;
+    }): Promise<{
+        UpdateItem: string;
+    }>;
     /**
      * GetZoneGroupAttributes - Get information about the current Zone
-     * @returns {Promise<Object>} response object, with these properties `CurrentZoneGroupName`, `CurrentZoneGroupID`, `CurrentZonePlayerUUIDsInGroup`, `CurrentMuseHouseholdId`
+     * @returns {Promise<{ CurrentZoneGroupName: string, CurrentZoneGroupID: string, CurrentZonePlayerUUIDsInGroup: string, CurrentMuseHouseholdId: string}>} response object.
      */
-    GetZoneGroupAttributes(): Promise<any>;
+    GetZoneGroupAttributes(): Promise<{
+        CurrentZoneGroupName: string;
+        CurrentZoneGroupID: string;
+        CurrentZonePlayerUUIDsInGroup: string;
+        CurrentMuseHouseholdId: string;
+    }>;
     /**
      * GetZoneGroupState - Get all the Sonos groups, (as XML)
      * @remarks Some libraries also support GetParsedZoneGroupState that parses the xml for you.
-     * @returns {Promise<Object>} response object, with these properties `ZoneGroupState`
+     * @returns {Promise<{ ZoneGroupState: string}>} response object.
      */
-    GetZoneGroupState(): Promise<any>;
+    GetZoneGroupState(): Promise<{
+        ZoneGroupState: string;
+    }>;
     /**
      * RegisterMobileDevice
      *
@@ -93,11 +102,13 @@ declare class ZoneGroupTopologyService extends Service {
      * @param {Object} [options] - An object with the following properties
      * @param {boolean} options.IncludeControllers
      * @param {string} options.Type
-     * @returns {Promise<Object>} response object, with these properties `DiagnosticID`
+     * @returns {Promise<{ DiagnosticID: number}>} response object.
      */
     SubmitDiagnostics(options?: {
         IncludeControllers: boolean;
         Type: string;
-    }): Promise<any>;
+    }): Promise<{
+        DiagnosticID: number;
+    }>;
 }
 import Service = require("./Service");

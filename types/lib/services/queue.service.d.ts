@@ -29,7 +29,7 @@ declare class QueueService extends Service {
      * @param {boolean} options.EnqueueAsNext
      * @param {number} options.NumberOfURIs
      * @param {string} options.EnqueuedURIsAndMetaData
-     * @returns {Promise<Object>} response object, with these properties `FirstTrackNumberEnqueued`, `NumTracksAdded`, `NewQueueLength`, `NewUpdateID`
+     * @returns {Promise<{ FirstTrackNumberEnqueued: number, NumTracksAdded: number, NewQueueLength: number, NewUpdateID: number}>} response object.
      */
     AddMultipleURIs(options?: {
         QueueID: number;
@@ -40,7 +40,12 @@ declare class QueueService extends Service {
         EnqueueAsNext: boolean;
         NumberOfURIs: number;
         EnqueuedURIsAndMetaData: string;
-    }): Promise<any>;
+    }): Promise<{
+        FirstTrackNumberEnqueued: number;
+        NumTracksAdded: number;
+        NewQueueLength: number;
+        NewUpdateID: number;
+    }>;
     /**
      * AddURI
      *
@@ -51,7 +56,7 @@ declare class QueueService extends Service {
      * @param {string} options.EnqueuedURIMetaData
      * @param {number} options.DesiredFirstTrackNumberEnqueued
      * @param {boolean} options.EnqueueAsNext
-     * @returns {Promise<Object>} response object, with these properties `FirstTrackNumberEnqueued`, `NumTracksAdded`, `NewQueueLength`, `NewUpdateID`
+     * @returns {Promise<{ FirstTrackNumberEnqueued: number, NumTracksAdded: number, NewQueueLength: number, NewUpdateID: number}>} response object.
      */
     AddURI(options?: {
         QueueID: number;
@@ -60,17 +65,25 @@ declare class QueueService extends Service {
         EnqueuedURIMetaData: string;
         DesiredFirstTrackNumberEnqueued: number;
         EnqueueAsNext: boolean;
-    }): Promise<any>;
+    }): Promise<{
+        FirstTrackNumberEnqueued: number;
+        NumTracksAdded: number;
+        NewQueueLength: number;
+        NewUpdateID: number;
+    }>;
     /**
      * AttachQueue
      *
      * @param {Object} [options] - An object with the following properties
      * @param {string} options.QueueOwnerID
-     * @returns {Promise<Object>} response object, with these properties `QueueID`, `QueueOwnerContext`
+     * @returns {Promise<{ QueueID: number, QueueOwnerContext: string}>} response object.
      */
     AttachQueue(options?: {
         QueueOwnerID: string;
-    }): Promise<any>;
+    }): Promise<{
+        QueueID: number;
+        QueueOwnerContext: string;
+    }>;
     /**
      * Backup
      * @returns {Promise<Boolean>} request succeeded
@@ -83,13 +96,18 @@ declare class QueueService extends Service {
      * @param {number} options.QueueID
      * @param {number} options.StartingIndex
      * @param {number} options.RequestedCount
-     * @returns {Promise<Object>} response object, with these properties `Result`, `NumberReturned`, `TotalMatches`, `UpdateID`
+     * @returns {Promise<{ Result: string, NumberReturned: number, TotalMatches: number, UpdateID: number}>} response object.
      */
     Browse(options?: {
         QueueID: number;
         StartingIndex: number;
         RequestedCount: number;
-    }): Promise<any>;
+    }): Promise<{
+        Result: string;
+        NumberReturned: number;
+        TotalMatches: number;
+        UpdateID: number;
+    }>;
     /**
      * CreateQueue
      *
@@ -97,25 +115,29 @@ declare class QueueService extends Service {
      * @param {string} options.QueueOwnerID
      * @param {string} options.QueueOwnerContext
      * @param {string} options.QueuePolicy
-     * @returns {Promise<Object>} response object, with these properties `QueueID`
+     * @returns {Promise<{ QueueID: number}>} response object.
      */
     CreateQueue(options?: {
         QueueOwnerID: string;
         QueueOwnerContext: string;
         QueuePolicy: string;
-    }): Promise<any>;
+    }): Promise<{
+        QueueID: number;
+    }>;
     /**
      * RemoveAllTracks
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.QueueID
      * @param {number} options.UpdateID
-     * @returns {Promise<Object>} response object, with these properties `NewUpdateID`
+     * @returns {Promise<{ NewUpdateID: number}>} response object.
      */
     RemoveAllTracks(options?: {
         QueueID: number;
         UpdateID: number;
-    }): Promise<any>;
+    }): Promise<{
+        NewUpdateID: number;
+    }>;
     /**
      * RemoveTrackRange
      *
@@ -124,14 +146,16 @@ declare class QueueService extends Service {
      * @param {number} options.UpdateID
      * @param {number} options.StartingIndex
      * @param {number} options.NumberOfTracks
-     * @returns {Promise<Object>} response object, with these properties `NewUpdateID`
+     * @returns {Promise<{ NewUpdateID: number}>} response object.
      */
     RemoveTrackRange(options?: {
         QueueID: number;
         UpdateID: number;
         StartingIndex: number;
         NumberOfTracks: number;
-    }): Promise<any>;
+    }): Promise<{
+        NewUpdateID: number;
+    }>;
     /**
      * ReorderTracks
      *
@@ -141,7 +165,7 @@ declare class QueueService extends Service {
      * @param {number} options.NumberOfTracks
      * @param {number} options.InsertBefore
      * @param {number} options.UpdateID
-     * @returns {Promise<Object>} response object, with these properties `NewUpdateID`
+     * @returns {Promise<{ NewUpdateID: number}>} response object.
      */
     ReorderTracks(options?: {
         QueueID: number;
@@ -149,7 +173,9 @@ declare class QueueService extends Service {
         NumberOfTracks: number;
         InsertBefore: number;
         UpdateID: number;
-    }): Promise<any>;
+    }): Promise<{
+        NewUpdateID: number;
+    }>;
     /**
      * ReplaceAllTracks
      *
@@ -162,7 +188,7 @@ declare class QueueService extends Service {
      * @param {string} options.NewCurrentTrackIndices
      * @param {number} options.NumberOfURIs
      * @param {string} options.EnqueuedURIsAndMetaData
-     * @returns {Promise<Object>} response object, with these properties `NewQueueLength`, `NewUpdateID`
+     * @returns {Promise<{ NewQueueLength: number, NewUpdateID: number}>} response object.
      */
     ReplaceAllTracks(options?: {
         QueueID: number;
@@ -173,7 +199,10 @@ declare class QueueService extends Service {
         NewCurrentTrackIndices: string;
         NumberOfURIs: number;
         EnqueuedURIsAndMetaData: string;
-    }): Promise<any>;
+    }): Promise<{
+        NewQueueLength: number;
+        NewUpdateID: number;
+    }>;
     /**
      * SaveAsSonosPlaylist
      *
@@ -181,12 +210,14 @@ declare class QueueService extends Service {
      * @param {number} options.QueueID
      * @param {string} options.Title
      * @param {string} options.ObjectID
-     * @returns {Promise<Object>} response object, with these properties `AssignedObjectID`
+     * @returns {Promise<{ AssignedObjectID: string}>} response object.
      */
     SaveAsSonosPlaylist(options?: {
         QueueID: number;
         Title: string;
         ObjectID: string;
-    }): Promise<any>;
+    }): Promise<{
+        AssignedObjectID: string;
+    }>;
 }
 import Service = require("./Service");

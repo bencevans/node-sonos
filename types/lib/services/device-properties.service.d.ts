@@ -54,12 +54,14 @@ declare class DevicePropertiesService extends Service {
      * @param {Object} [options] - An object with the following properties
      * @param {string} options.Mode
      * @param {string} options.Options
-     * @returns {Promise<Object>} response object, with these properties `State`
+     * @returns {Promise<{ State: string}>} response object.
      */
     EnterConfigMode(options?: {
         Mode: string;
         Options: string;
-    }): Promise<any>;
+    }): Promise<{
+        State: string;
+    }>;
     /**
      * ExitConfigMode
      *
@@ -75,71 +77,102 @@ declare class DevicePropertiesService extends Service {
      *
      * @param {Object} [options] - An object with the following properties
      * @param {string} options.Source
-     * @returns {Promise<Object>} response object, with these properties `IncludeLinkedZones`
+     * @returns {Promise<{ IncludeLinkedZones: boolean}>} response object.
      */
     GetAutoplayLinkedZones(options?: {
         Source: string;
-    }): Promise<any>;
+    }): Promise<{
+        IncludeLinkedZones: boolean;
+    }>;
     /**
      * GetAutoplayRoomUUID
      *
      * @param {Object} [options] - An object with the following properties
      * @param {string} options.Source
-     * @returns {Promise<Object>} response object, with these properties `RoomUUID`
+     * @returns {Promise<{ RoomUUID: string}>} response object.
      */
     GetAutoplayRoomUUID(options?: {
         Source: string;
-    }): Promise<any>;
+    }): Promise<{
+        RoomUUID: string;
+    }>;
     /**
      * GetAutoplayVolume
      *
      * @param {Object} [options] - An object with the following properties
      * @param {string} options.Source
-     * @returns {Promise<Object>} response object, with these properties `CurrentVolume`
+     * @returns {Promise<{ CurrentVolume: number}>} response object.
      */
     GetAutoplayVolume(options?: {
         Source: string;
-    }): Promise<any>;
+    }): Promise<{
+        CurrentVolume: number;
+    }>;
     /**
      * GetButtonLockState - Get the current button lock state
-     * @returns {Promise<Object>} response object, with these properties `CurrentButtonLockState`
+     * @returns {Promise<{ CurrentButtonLockState: string}>} response object.
      */
-    GetButtonLockState(): Promise<any>;
+    GetButtonLockState(): Promise<{
+        CurrentButtonLockState: string;
+    }>;
     /**
      * GetButtonState
-     * @returns {Promise<Object>} response object, with these properties `State`
+     * @returns {Promise<{ State: string}>} response object.
      */
-    GetButtonState(): Promise<any>;
+    GetButtonState(): Promise<{
+        State: string;
+    }>;
     /**
      * GetHouseholdID
-     * @returns {Promise<Object>} response object, with these properties `CurrentHouseholdID`
+     * @returns {Promise<{ CurrentHouseholdID: string}>} response object.
      */
-    GetHouseholdID(): Promise<any>;
+    GetHouseholdID(): Promise<{
+        CurrentHouseholdID: string;
+    }>;
     /**
      * GetLEDState - Get the current LED state
-     * @returns {Promise<Object>} response object, with these properties `CurrentLEDState`
+     * @returns {Promise<{ CurrentLEDState: string}>} response object.
      */
-    GetLEDState(): Promise<any>;
+    GetLEDState(): Promise<{
+        CurrentLEDState: string;
+    }>;
     /**
      * GetUseAutoplayVolume
      *
      * @param {Object} [options] - An object with the following properties
      * @param {string} options.Source
-     * @returns {Promise<Object>} response object, with these properties `UseVolume`
+     * @returns {Promise<{ UseVolume: boolean}>} response object.
      */
     GetUseAutoplayVolume(options?: {
         Source: string;
-    }): Promise<any>;
+    }): Promise<{
+        UseVolume: boolean;
+    }>;
     /**
      * GetZoneAttributes
-     * @returns {Promise<Object>} response object, with these properties `CurrentZoneName`, `CurrentIcon`, `CurrentConfiguration`
+     * @returns {Promise<{ CurrentZoneName: string, CurrentIcon: string, CurrentConfiguration: string}>} response object.
      */
-    GetZoneAttributes(): Promise<any>;
+    GetZoneAttributes(): Promise<{
+        CurrentZoneName: string;
+        CurrentIcon: string;
+        CurrentConfiguration: string;
+    }>;
     /**
      * GetZoneInfo - Get information about this specific speaker
-     * @returns {Promise<Object>} response object, with these properties `SerialNumber`, `SoftwareVersion`, `DisplaySoftwareVersion`, `HardwareVersion`, `IPAddress`, `MACAddress`, `CopyrightInfo`, `ExtraInfo`, `HTAudioIn`, `Flags`
+     * @returns {Promise<{ SerialNumber: string, SoftwareVersion: string, DisplaySoftwareVersion: string, HardwareVersion: string, IPAddress: string, MACAddress: string, CopyrightInfo: string, ExtraInfo: string, HTAudioIn: number, Flags: number}>} response object.
      */
-    GetZoneInfo(): Promise<any>;
+    GetZoneInfo(): Promise<{
+        SerialNumber: string;
+        SoftwareVersion: string;
+        DisplaySoftwareVersion: string;
+        HardwareVersion: string;
+        IPAddress: string;
+        MACAddress: string;
+        CopyrightInfo: string;
+        ExtraInfo: string;
+        HTAudioIn: number;
+        Flags: number;
+    }>;
     /**
      * RemoveBondedZones
      *
@@ -168,12 +201,15 @@ declare class DevicePropertiesService extends Service {
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.Channel
      * @param {number} options.DurationMilliseconds
-     * @returns {Promise<Object>} response object, with these properties `PlayId`, `ChirpIfPlayingSwappableAudio`
+     * @returns {Promise<{ PlayId: number, ChirpIfPlayingSwappableAudio: boolean}>} response object.
      */
     RoomDetectionStartChirping(options?: {
         Channel: number;
         DurationMilliseconds: number;
-    }): Promise<any>;
+    }): Promise<{
+        PlayId: number;
+        ChirpIfPlayingSwappableAudio: boolean;
+    }>;
     /**
      * RoomDetectionStopChirping
      *

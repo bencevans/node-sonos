@@ -22,11 +22,13 @@ declare class RenderingControlService extends Service {
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
-     * @returns {Promise<Object>} response object, with these properties `CurrentBass`
+     * @returns {Promise<{ CurrentBass: number}>} response object.
      */
     GetBass(options?: {
         InstanceID: number;
-    }): Promise<any>;
+    }): Promise<{
+        CurrentBass: number;
+    }>;
     /**
      * GetEQ - Get equalizer value
      *
@@ -34,122 +36,146 @@ declare class RenderingControlService extends Service {
      * @param {number} options.InstanceID - InstanceID should always be `0`
      * @param {string} options.EQType - Allowed values `DialogLevel` (bool) / `MusicSurroundLevel` (-15/+15) /  `NightMode` (bool) / `SubGain` (-10/+10) / `SurroundEnable` (bool) / `SurroundLevel` (-15/+15) / `SurroundMode` (0 = full, 1 = ambient)
      * @remarks Not all EQ types are available on every speaker
-     * @returns {Promise<Object>} response object, with these properties `CurrentValue`
+     * @returns {Promise<{ CurrentValue: number}>} response object.
      */
     GetEQ(options?: {
         InstanceID: number;
         EQType: string;
-    }): Promise<any>;
+    }): Promise<{
+        CurrentValue: number;
+    }>;
     /**
      * GetHeadphoneConnected
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
-     * @returns {Promise<Object>} response object, with these properties `CurrentHeadphoneConnected`
+     * @returns {Promise<{ CurrentHeadphoneConnected: boolean}>} response object.
      */
     GetHeadphoneConnected(options?: {
         InstanceID: number;
-    }): Promise<any>;
+    }): Promise<{
+        CurrentHeadphoneConnected: boolean;
+    }>;
     /**
      * GetLoudness - Whether or not Loudness is on
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
      * @param {string} options.Channel [ 'Master' / 'LF' / 'RF' ]
-     * @returns {Promise<Object>} response object, with these properties `CurrentLoudness`
+     * @returns {Promise<{ CurrentLoudness: boolean}>} response object.
      */
     GetLoudness(options?: {
         InstanceID: number;
         Channel: string;
-    }): Promise<any>;
+    }): Promise<{
+        CurrentLoudness: boolean;
+    }>;
     /**
      * GetMute
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
      * @param {string} options.Channel [ 'Master' / 'LF' / 'RF' / 'SpeakerOnly' ]
-     * @returns {Promise<Object>} response object, with these properties `CurrentMute`
+     * @returns {Promise<{ CurrentMute: boolean}>} response object.
      */
     GetMute(options?: {
         InstanceID: number;
         Channel: string;
-    }): Promise<any>;
+    }): Promise<{
+        CurrentMute: boolean;
+    }>;
     /**
      * GetOutputFixed
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
-     * @returns {Promise<Object>} response object, with these properties `CurrentFixed`
+     * @returns {Promise<{ CurrentFixed: boolean}>} response object.
      */
     GetOutputFixed(options?: {
         InstanceID: number;
-    }): Promise<any>;
+    }): Promise<{
+        CurrentFixed: boolean;
+    }>;
     /**
      * GetRoomCalibrationStatus
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
-     * @returns {Promise<Object>} response object, with these properties `RoomCalibrationEnabled`, `RoomCalibrationAvailable`
+     * @returns {Promise<{ RoomCalibrationEnabled: boolean, RoomCalibrationAvailable: boolean}>} response object.
      */
     GetRoomCalibrationStatus(options?: {
         InstanceID: number;
-    }): Promise<any>;
+    }): Promise<{
+        RoomCalibrationEnabled: boolean;
+        RoomCalibrationAvailable: boolean;
+    }>;
     /**
      * GetSupportsOutputFixed
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
-     * @returns {Promise<Object>} response object, with these properties `CurrentSupportsFixed`
+     * @returns {Promise<{ CurrentSupportsFixed: boolean}>} response object.
      */
     GetSupportsOutputFixed(options?: {
         InstanceID: number;
-    }): Promise<any>;
+    }): Promise<{
+        CurrentSupportsFixed: boolean;
+    }>;
     /**
      * GetTreble - Get treble
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
-     * @returns {Promise<Object>} response object, with these properties `CurrentTreble`
+     * @returns {Promise<{ CurrentTreble: number}>} response object.
      */
     GetTreble(options?: {
         InstanceID: number;
-    }): Promise<any>;
+    }): Promise<{
+        CurrentTreble: number;
+    }>;
     /**
      * GetVolume - Get volume
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
      * @param {string} options.Channel [ 'Master' / 'LF' / 'RF' ]
-     * @returns {Promise<Object>} response object, with these properties `CurrentVolume`
+     * @returns {Promise<{ CurrentVolume: number}>} response object.
      */
     GetVolume(options?: {
         InstanceID: number;
         Channel: string;
-    }): Promise<any>;
+    }): Promise<{
+        CurrentVolume: number;
+    }>;
     /**
      * GetVolumeDB
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
      * @param {string} options.Channel [ 'Master' / 'LF' / 'RF' ]
-     * @returns {Promise<Object>} response object, with these properties `CurrentVolume`
+     * @returns {Promise<{ CurrentVolume: number}>} response object.
      */
     GetVolumeDB(options?: {
         InstanceID: number;
         Channel: string;
-    }): Promise<any>;
+    }): Promise<{
+        CurrentVolume: number;
+    }>;
     /**
      * GetVolumeDBRange
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
      * @param {string} options.Channel [ 'Master' / 'LF' / 'RF' ]
-     * @returns {Promise<Object>} response object, with these properties `MinValue`, `MaxValue`
+     * @returns {Promise<{ MinValue: number, MaxValue: number}>} response object.
      */
     GetVolumeDBRange(options?: {
         InstanceID: number;
         Channel: string;
-    }): Promise<any>;
+    }): Promise<{
+        MinValue: number;
+        MaxValue: number;
+    }>;
     /**
      * RampToVolume
      *
@@ -160,7 +186,7 @@ declare class RenderingControlService extends Service {
      * @param {number} options.DesiredVolume
      * @param {boolean} options.ResetVolumeAfter
      * @param {string} options.ProgramURI
-     * @returns {Promise<Object>} response object, with these properties `RampTime`
+     * @returns {Promise<{ RampTime: number}>} response object.
      */
     RampToVolume(options?: {
         InstanceID: number;
@@ -169,17 +195,25 @@ declare class RenderingControlService extends Service {
         DesiredVolume: number;
         ResetVolumeAfter: boolean;
         ProgramURI: string;
-    }): Promise<any>;
+    }): Promise<{
+        RampTime: number;
+    }>;
     /**
      * ResetBasicEQ
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
-     * @returns {Promise<Object>} response object, with these properties `Bass`, `Treble`, `Loudness`, `LeftVolume`, `RightVolume`
+     * @returns {Promise<{ Bass: number, Treble: number, Loudness: boolean, LeftVolume: number, RightVolume: number}>} response object.
      */
     ResetBasicEQ(options?: {
         InstanceID: number;
-    }): Promise<any>;
+    }): Promise<{
+        Bass: number;
+        Treble: number;
+        Loudness: boolean;
+        LeftVolume: number;
+        RightVolume: number;
+    }>;
     /**
      * ResetExtEQ
      *
@@ -290,13 +324,15 @@ declare class RenderingControlService extends Service {
      * @param {number} options.InstanceID - InstanceID should always be `0`
      * @param {string} options.Channel [ 'Master' / 'LF' / 'RF' ]
      * @param {number} options.Adjustment
-     * @returns {Promise<Object>} response object, with these properties `NewVolume`
+     * @returns {Promise<{ NewVolume: number}>} response object.
      */
     SetRelativeVolume(options?: {
         InstanceID: number;
         Channel: string;
         Adjustment: number;
-    }): Promise<any>;
+    }): Promise<{
+        NewVolume: number;
+    }>;
     /**
      * SetRoomCalibrationStatus
      *

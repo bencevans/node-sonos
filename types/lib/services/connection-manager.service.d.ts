@@ -19,23 +19,36 @@ declare class ConnectionManagerService extends Service {
     constructor(host: string, port: number);
     /**
      * GetCurrentConnectionIDs
-     * @returns {Promise<Object>} response object, with these properties `ConnectionIDs`
+     * @returns {Promise<{ ConnectionIDs: string}>} response object.
      */
-    GetCurrentConnectionIDs(): Promise<any>;
+    GetCurrentConnectionIDs(): Promise<{
+        ConnectionIDs: string;
+    }>;
     /**
      * GetCurrentConnectionInfo
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.ConnectionID
-     * @returns {Promise<Object>} response object, with these properties `RcsID`, `AVTransportID`, `ProtocolInfo`, `PeerConnectionManager`, `PeerConnectionID`, `Direction`, `Status`
+     * @returns {Promise<{ RcsID: number, AVTransportID: number, ProtocolInfo: string, PeerConnectionManager: string, PeerConnectionID: number, Direction: string, Status: string}>} response object.
      */
     GetCurrentConnectionInfo(options?: {
         ConnectionID: number;
-    }): Promise<any>;
+    }): Promise<{
+        RcsID: number;
+        AVTransportID: number;
+        ProtocolInfo: string;
+        PeerConnectionManager: string;
+        PeerConnectionID: number;
+        Direction: string;
+        Status: string;
+    }>;
     /**
      * GetProtocolInfo
-     * @returns {Promise<Object>} response object, with these properties `Source`, `Sink`
+     * @returns {Promise<{ Source: string, Sink: string}>} response object.
      */
-    GetProtocolInfo(): Promise<any>;
+    GetProtocolInfo(): Promise<{
+        Source: string;
+        Sink: string;
+    }>;
 }
 import Service = require("./Service");

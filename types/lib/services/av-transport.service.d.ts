@@ -30,7 +30,7 @@ declare class AVTransportService extends Service {
      * @param {string} options.ContainerMetaData
      * @param {number} options.DesiredFirstTrackNumberEnqueued
      * @param {boolean} options.EnqueueAsNext
-     * @returns {Promise<Object>} response object, with these properties `FirstTrackNumberEnqueued`, `NumTracksAdded`, `NewQueueLength`, `NewUpdateID`
+     * @returns {Promise<{ FirstTrackNumberEnqueued: number, NumTracksAdded: number, NewQueueLength: number, NewUpdateID: number}>} response object.
      */
     AddMultipleURIsToQueue(options?: {
         InstanceID: number;
@@ -42,7 +42,12 @@ declare class AVTransportService extends Service {
         ContainerMetaData: string;
         DesiredFirstTrackNumberEnqueued: number;
         EnqueueAsNext: boolean;
-    }): Promise<any>;
+    }): Promise<{
+        FirstTrackNumberEnqueued: number;
+        NumTracksAdded: number;
+        NewQueueLength: number;
+        NewUpdateID: number;
+    }>;
     /**
      * AddURIToQueue - Adds songs to the SONOS queue
      *
@@ -53,7 +58,7 @@ declare class AVTransportService extends Service {
      * @param {number} options.DesiredFirstTrackNumberEnqueued - use `0` to add at the end or `1` to insert at the beginning
      * @param {boolean} options.EnqueueAsNext
      * @remarks In NORMAL play mode the songs are added prior to the specified `DesiredFirstTrackNumberEnqueued`.
-     * @returns {Promise<Object>} response object, with these properties `FirstTrackNumberEnqueued`, `NumTracksAdded`, `NewQueueLength`
+     * @returns {Promise<{ FirstTrackNumberEnqueued: number, NumTracksAdded: number, NewQueueLength: number}>} response object.
      */
     AddURIToQueue(options?: {
         InstanceID: number;
@@ -61,7 +66,11 @@ declare class AVTransportService extends Service {
         EnqueuedURIMetaData: string;
         DesiredFirstTrackNumberEnqueued: number;
         EnqueueAsNext: boolean;
-    }): Promise<any>;
+    }): Promise<{
+        FirstTrackNumberEnqueued: number;
+        NumTracksAdded: number;
+        NewQueueLength: number;
+    }>;
     /**
      * AddURIToSavedQueue
      *
@@ -72,7 +81,7 @@ declare class AVTransportService extends Service {
      * @param {string} options.EnqueuedURI
      * @param {string} options.EnqueuedURIMetaData
      * @param {number} options.AddAtIndex
-     * @returns {Promise<Object>} response object, with these properties `NumTracksAdded`, `NewQueueLength`, `NewUpdateID`
+     * @returns {Promise<{ NumTracksAdded: number, NewQueueLength: number, NewUpdateID: number}>} response object.
      */
     AddURIToSavedQueue(options?: {
         InstanceID: number;
@@ -81,7 +90,11 @@ declare class AVTransportService extends Service {
         EnqueuedURI: string;
         EnqueuedURIMetaData: string;
         AddAtIndex: number;
-    }): Promise<any>;
+    }): Promise<{
+        NumTracksAdded: number;
+        NewQueueLength: number;
+        NewUpdateID: number;
+    }>;
     /**
      * BackupQueue
      *
@@ -97,11 +110,14 @@ declare class AVTransportService extends Service {
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
-     * @returns {Promise<Object>} response object, with these properties `DelegatedGroupCoordinatorID`, `NewGroupID`
+     * @returns {Promise<{ DelegatedGroupCoordinatorID: string, NewGroupID: string}>} response object.
      */
     BecomeCoordinatorOfStandaloneGroup(options?: {
         InstanceID: number;
-    }): Promise<any>;
+    }): Promise<{
+        DelegatedGroupCoordinatorID: string;
+        NewGroupID: string;
+    }>;
     /**
      * BecomeGroupCoordinator
      *
@@ -221,14 +237,19 @@ declare class AVTransportService extends Service {
      * @param {string} options.Title
      * @param {string} options.EnqueuedURI
      * @param {string} options.EnqueuedURIMetaData
-     * @returns {Promise<Object>} response object, with these properties `NumTracksAdded`, `NewQueueLength`, `AssignedObjectID`, `NewUpdateID`
+     * @returns {Promise<{ NumTracksAdded: number, NewQueueLength: number, AssignedObjectID: string, NewUpdateID: number}>} response object.
      */
     CreateSavedQueue(options?: {
         InstanceID: number;
         Title: string;
         EnqueuedURI: string;
         EnqueuedURIMetaData: string;
-    }): Promise<any>;
+    }): Promise<{
+        NumTracksAdded: number;
+        NewQueueLength: number;
+        AssignedObjectID: string;
+        NewUpdateID: number;
+    }>;
     /**
      * DelegateGroupCoordinationTo - Delegates the coordinator role to another player in the same group
      *
@@ -260,95 +281,136 @@ declare class AVTransportService extends Service {
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
      * @remarks Send to non-coordinator may return wrong value as only the coordinator value in a group
-     * @returns {Promise<Object>} response object, with these properties `CrossfadeMode`
+     * @returns {Promise<{ CrossfadeMode: boolean}>} response object.
      */
     GetCrossfadeMode(options?: {
         InstanceID: number;
-    }): Promise<any>;
+    }): Promise<{
+        CrossfadeMode: boolean;
+    }>;
     /**
      * GetCurrentTransportActions - Get current transport actions such as Set, Stop, Pause, Play, X_DLNA_SeekTime, Next, X_DLNA_SeekTrackNr
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
      * @remarks Send to non-coordinator returns only `Start` and `Stop` since it cannot control the stream.
-     * @returns {Promise<Object>} response object, with these properties `Actions`
+     * @returns {Promise<{ Actions: string}>} response object.
      */
     GetCurrentTransportActions(options?: {
         InstanceID: number;
-    }): Promise<any>;
+    }): Promise<{
+        Actions: string;
+    }>;
     /**
      * GetDeviceCapabilities
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
-     * @returns {Promise<Object>} response object, with these properties `PlayMedia`, `RecMedia`, `RecQualityModes`
+     * @returns {Promise<{ PlayMedia: string, RecMedia: string, RecQualityModes: string}>} response object.
      */
     GetDeviceCapabilities(options?: {
         InstanceID: number;
-    }): Promise<any>;
+    }): Promise<{
+        PlayMedia: string;
+        RecMedia: string;
+        RecQualityModes: string;
+    }>;
     /**
      * GetMediaInfo - Get information about the current playing media (queue)
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
-     * @returns {Promise<Object>} response object, with these properties `NrTracks`, `MediaDuration`, `CurrentURI`, `CurrentURIMetaData`, `NextURI`, `NextURIMetaData`, `PlayMedium`, `RecordMedium`, `WriteStatus`
+     * @returns {Promise<{ NrTracks: number, MediaDuration: string, CurrentURI: string, CurrentURIMetaData: string, NextURI: string, NextURIMetaData: string, PlayMedium: string, RecordMedium: string, WriteStatus: string}>} response object.
      */
     GetMediaInfo(options?: {
         InstanceID: number;
-    }): Promise<any>;
+    }): Promise<{
+        NrTracks: number;
+        MediaDuration: string;
+        CurrentURI: string;
+        CurrentURIMetaData: string;
+        NextURI: string;
+        NextURIMetaData: string;
+        PlayMedium: string;
+        RecordMedium: string;
+        WriteStatus: string;
+    }>;
     /**
      * GetPositionInfo - Get information about current position (position in queue and time in current song)
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
-     * @returns {Promise<Object>} response object, with these properties `Track`, `TrackDuration`, `TrackMetaData`, `TrackURI`, `RelTime`, `AbsTime`, `RelCount`, `AbsCount`
+     * @returns {Promise<{ Track: number, TrackDuration: string, TrackMetaData: string, TrackURI: string, RelTime: string, AbsTime: string, RelCount: number, AbsCount: number}>} response object.
      */
     GetPositionInfo(options?: {
         InstanceID: number;
-    }): Promise<any>;
+    }): Promise<{
+        Track: number;
+        TrackDuration: string;
+        TrackMetaData: string;
+        TrackURI: string;
+        RelTime: string;
+        AbsTime: string;
+        RelCount: number;
+        AbsCount: number;
+    }>;
     /**
      * GetRemainingSleepTimerDuration - Get time left on sleeptimer.
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
      * @remarks Send to non-coordinator returns error code 800
-     * @returns {Promise<Object>} response object, with these properties `RemainingSleepTimerDuration`, `CurrentSleepTimerGeneration`
+     * @returns {Promise<{ RemainingSleepTimerDuration: string, CurrentSleepTimerGeneration: number}>} response object.
      */
     GetRemainingSleepTimerDuration(options?: {
         InstanceID: number;
-    }): Promise<any>;
+    }): Promise<{
+        RemainingSleepTimerDuration: string;
+        CurrentSleepTimerGeneration: number;
+    }>;
     /**
      * GetRunningAlarmProperties
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
-     * @returns {Promise<Object>} response object, with these properties `AlarmID`, `GroupID`, `LoggedStartTime`
+     * @returns {Promise<{ AlarmID: number, GroupID: string, LoggedStartTime: string}>} response object.
      */
     GetRunningAlarmProperties(options?: {
         InstanceID: number;
-    }): Promise<any>;
+    }): Promise<{
+        AlarmID: number;
+        GroupID: string;
+        LoggedStartTime: string;
+    }>;
     /**
      * GetTransportInfo - Get current transport status, speed and state such as PLAYING, STOPPED, PLAYING, PAUSED_PLAYBACK, TRANSITIONING, NO_MEDIA_PRESENT
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
      * @remarks Send to non-coordinator always returns PLAYING
-     * @returns {Promise<Object>} response object, with these properties `CurrentTransportState`, `CurrentTransportStatus`, `CurrentSpeed`
+     * @returns {Promise<{ CurrentTransportState: string, CurrentTransportStatus: string, CurrentSpeed: string}>} response object.
      */
     GetTransportInfo(options?: {
         InstanceID: number;
-    }): Promise<any>;
+    }): Promise<{
+        CurrentTransportState: string;
+        CurrentTransportStatus: string;
+        CurrentSpeed: string;
+    }>;
     /**
      * GetTransportSettings - Get transport settings
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
      * @remarks Send to non-coordinator returns the settings of it's queue
-     * @returns {Promise<Object>} response object, with these properties `PlayMode`, `RecQualityMode`
+     * @returns {Promise<{ PlayMode: string, RecQualityMode: string}>} response object.
      */
     GetTransportSettings(options?: {
         InstanceID: number;
-    }): Promise<any>;
+    }): Promise<{
+        PlayMode: string;
+        RecQualityMode: string;
+    }>;
     /**
      * Next - Go to next song
      *
@@ -438,14 +500,16 @@ declare class AVTransportService extends Service {
      * @param {number} options.UpdateID - Leave blank
      * @param {number} options.StartingIndex - between 1 and queue-length
      * @param {number} options.NumberOfTracks
-     * @returns {Promise<Object>} response object, with these properties `NewUpdateID`
+     * @returns {Promise<{ NewUpdateID: number}>} response object.
      */
     RemoveTrackRangeFromQueue(options?: {
         InstanceID: number;
         UpdateID: number;
         StartingIndex: number;
         NumberOfTracks: number;
-    }): Promise<any>;
+    }): Promise<{
+        NewUpdateID: number;
+    }>;
     /**
      * ReorderTracksInQueue
      *
@@ -473,7 +537,7 @@ declare class AVTransportService extends Service {
      * @param {number} options.UpdateID
      * @param {string} options.TrackList
      * @param {string} options.NewPositionList
-     * @returns {Promise<Object>} response object, with these properties `QueueLengthChange`, `NewQueueLength`, `NewUpdateID`
+     * @returns {Promise<{ QueueLengthChange: number, NewQueueLength: number, NewUpdateID: number}>} response object.
      */
     ReorderTracksInSavedQueue(options?: {
         InstanceID: number;
@@ -481,7 +545,11 @@ declare class AVTransportService extends Service {
         UpdateID: number;
         TrackList: string;
         NewPositionList: string;
-    }): Promise<any>;
+    }): Promise<{
+        QueueLengthChange: number;
+        NewQueueLength: number;
+        NewUpdateID: number;
+    }>;
     /**
      * RunAlarm
      *
@@ -516,13 +584,15 @@ declare class AVTransportService extends Service {
      * @param {string} options.Title - SONOS playlist title
      * @param {string} options.ObjectID - Leave blank
      * @remarks Send to non-coordinator returns error code 800
-     * @returns {Promise<Object>} response object, with these properties `AssignedObjectID`
+     * @returns {Promise<{ AssignedObjectID: string}>} response object.
      */
     SaveQueue(options?: {
         InstanceID: number;
         Title: string;
         ObjectID: string;
-    }): Promise<any>;
+    }): Promise<{
+        AssignedObjectID: string;
+    }>;
     /**
      * Seek - Seek track in queue, time delta or absolute time in song
      *

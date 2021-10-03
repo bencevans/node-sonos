@@ -23,18 +23,24 @@ declare class MusicServicesService extends Service {
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.ServiceId
      * @param {string} options.Username
-     * @returns {Promise<Object>} response object, with these properties `SessionId`
+     * @returns {Promise<{ SessionId: string}>} response object.
      */
     GetSessionId(options?: {
         ServiceId: number;
         Username: string;
-    }): Promise<any>;
+    }): Promise<{
+        SessionId: string;
+    }>;
     /**
      * ListAvailableServices - Load music service list as xml
      * @remarks Some libraries also support ListAndParseAvailableServices
-     * @returns {Promise<Object>} response object, with these properties `AvailableServiceDescriptorList`, `AvailableServiceTypeList`, `AvailableServiceListVersion`
+     * @returns {Promise<{ AvailableServiceDescriptorList: string, AvailableServiceTypeList: string, AvailableServiceListVersion: string}>} response object.
      */
-    ListAvailableServices(): Promise<any>;
+    ListAvailableServices(): Promise<{
+        AvailableServiceDescriptorList: string;
+        AvailableServiceTypeList: string;
+        AvailableServiceListVersion: string;
+    }>;
     /**
      * UpdateAvailableServices
      * @returns {Promise<Boolean>} request succeeded

@@ -24,13 +24,15 @@ declare class SystemPropertiesService extends Service {
      * @param {number} options.AccountType
      * @param {string} options.AccountID
      * @param {string} options.AccountPassword
-     * @returns {Promise<Object>} response object, with these properties `AccountUDN`
+     * @returns {Promise<{ AccountUDN: string}>} response object.
      */
     AddAccountX(options?: {
         AccountType: number;
         AccountID: string;
         AccountPassword: string;
-    }): Promise<any>;
+    }): Promise<{
+        AccountUDN: string;
+    }>;
     /**
      * AddOAuthAccountX
      *
@@ -43,7 +45,7 @@ declare class SystemPropertiesService extends Service {
      * @param {string} options.RedirectURI
      * @param {string} options.UserIdHashCode
      * @param {number} options.AccountTier
-     * @returns {Promise<Object>} response object, with these properties `AccountUDN`, `AccountNickname`
+     * @returns {Promise<{ AccountUDN: string, AccountNickname: string}>} response object.
      */
     AddOAuthAccountX(options?: {
         AccountType: number;
@@ -54,7 +56,10 @@ declare class SystemPropertiesService extends Service {
         RedirectURI: string;
         UserIdHashCode: string;
         AccountTier: number;
-    }): Promise<any>;
+    }): Promise<{
+        AccountUDN: string;
+        AccountNickname: string;
+    }>;
     /**
      * DoPostUpdateTasks
      * @returns {Promise<Boolean>} request succeeded
@@ -100,30 +105,36 @@ declare class SystemPropertiesService extends Service {
     }): Promise<boolean>;
     /**
      * GetRDM
-     * @returns {Promise<Object>} response object, with these properties `RDMValue`
+     * @returns {Promise<{ RDMValue: boolean}>} response object.
      */
-    GetRDM(): Promise<any>;
+    GetRDM(): Promise<{
+        RDMValue: boolean;
+    }>;
     /**
      * GetString - Get a saved string.
      *
      * @param {Object} [options] - An object with the following properties
      * @param {string} options.VariableName - The key for this variable
      * @remarks Strings are saved in the system with SetString, every speaker should return the same data. Will error when not existing
-     * @returns {Promise<Object>} response object, with these properties `StringValue`
+     * @returns {Promise<{ StringValue: string}>} response object.
      */
     GetString(options?: {
         VariableName: string;
-    }): Promise<any>;
+    }): Promise<{
+        StringValue: string;
+    }>;
     /**
      * GetWebCode
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.AccountType
-     * @returns {Promise<Object>} response object, with these properties `WebCode`
+     * @returns {Promise<{ WebCode: string}>} response object.
      */
     GetWebCode(options?: {
         AccountType: number;
-    }): Promise<any>;
+    }): Promise<{
+        WebCode: string;
+    }>;
     /**
      * ProvisionCredentialedTrialAccountX
      *
@@ -131,13 +142,16 @@ declare class SystemPropertiesService extends Service {
      * @param {number} options.AccountType
      * @param {string} options.AccountID
      * @param {string} options.AccountPassword
-     * @returns {Promise<Object>} response object, with these properties `IsExpired`, `AccountUDN`
+     * @returns {Promise<{ IsExpired: boolean, AccountUDN: string}>} response object.
      */
     ProvisionCredentialedTrialAccountX(options?: {
         AccountType: number;
         AccountID: string;
         AccountPassword: string;
-    }): Promise<any>;
+    }): Promise<{
+        IsExpired: boolean;
+        AccountUDN: string;
+    }>;
     /**
      * RefreshAccountCredentialsX
      *
@@ -187,7 +201,7 @@ declare class SystemPropertiesService extends Service {
      * @param {string} options.AccountToken
      * @param {string} options.AccountKey
      * @param {string} options.OAuthDeviceID
-     * @returns {Promise<Object>} response object, with these properties `NewAccountUDN`
+     * @returns {Promise<{ NewAccountUDN: string}>} response object.
      */
     ReplaceAccountX(options?: {
         AccountUDN: string;
@@ -196,7 +210,9 @@ declare class SystemPropertiesService extends Service {
         AccountToken: string;
         AccountKey: string;
         OAuthDeviceID: string;
-    }): Promise<any>;
+    }): Promise<{
+        NewAccountUDN: string;
+    }>;
     /**
      * ResetThirdPartyCredentials
      * @returns {Promise<Boolean>} request succeeded

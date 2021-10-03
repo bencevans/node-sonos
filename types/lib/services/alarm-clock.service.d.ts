@@ -31,7 +31,7 @@ declare class AlarmClockService extends Service {
      * @param {string} options.PlayMode - Alarm play mode [ 'NORMAL' / 'REPEAT_ALL' / 'SHUFFLE_NOREPEAT' / 'SHUFFLE' ]
      * @param {number} options.Volume - Volume between 0 and 100
      * @param {boolean} options.IncludeLinkedZones - Should grouped players also play the alarm?
-     * @returns {Promise<Object>} response object, with these properties `AssignedID`
+     * @returns {Promise<{ AssignedID: number}>} response object.
      */
     CreateAlarm(options?: {
         StartLocalTime: string;
@@ -44,7 +44,9 @@ declare class AlarmClockService extends Service {
         PlayMode: string;
         Volume: number;
         IncludeLinkedZones: boolean;
-    }): Promise<any>;
+    }): Promise<{
+        AssignedID: number;
+    }>;
     /**
      * DestroyAlarm - Delete an alarm
      *
@@ -57,60 +59,86 @@ declare class AlarmClockService extends Service {
     }): Promise<boolean>;
     /**
      * GetDailyIndexRefreshTime
-     * @returns {Promise<Object>} response object, with these properties `CurrentDailyIndexRefreshTime`
+     * @returns {Promise<{ CurrentDailyIndexRefreshTime: string}>} response object.
      */
-    GetDailyIndexRefreshTime(): Promise<any>;
+    GetDailyIndexRefreshTime(): Promise<{
+        CurrentDailyIndexRefreshTime: string;
+    }>;
     /**
      * GetFormat
-     * @returns {Promise<Object>} response object, with these properties `CurrentTimeFormat`, `CurrentDateFormat`
+     * @returns {Promise<{ CurrentTimeFormat: string, CurrentDateFormat: string}>} response object.
      */
-    GetFormat(): Promise<any>;
+    GetFormat(): Promise<{
+        CurrentTimeFormat: string;
+        CurrentDateFormat: string;
+    }>;
     /**
      * GetHouseholdTimeAtStamp
      *
      * @param {Object} [options] - An object with the following properties
      * @param {string} options.TimeStamp
-     * @returns {Promise<Object>} response object, with these properties `HouseholdUTCTime`
+     * @returns {Promise<{ HouseholdUTCTime: string}>} response object.
      */
     GetHouseholdTimeAtStamp(options?: {
         TimeStamp: string;
-    }): Promise<any>;
+    }): Promise<{
+        HouseholdUTCTime: string;
+    }>;
     /**
      * GetTimeNow
-     * @returns {Promise<Object>} response object, with these properties `CurrentUTCTime`, `CurrentLocalTime`, `CurrentTimeZone`, `CurrentTimeGeneration`
+     * @returns {Promise<{ CurrentUTCTime: string, CurrentLocalTime: string, CurrentTimeZone: string, CurrentTimeGeneration: number}>} response object.
      */
-    GetTimeNow(): Promise<any>;
+    GetTimeNow(): Promise<{
+        CurrentUTCTime: string;
+        CurrentLocalTime: string;
+        CurrentTimeZone: string;
+        CurrentTimeGeneration: number;
+    }>;
     /**
      * GetTimeServer
-     * @returns {Promise<Object>} response object, with these properties `CurrentTimeServer`
+     * @returns {Promise<{ CurrentTimeServer: string}>} response object.
      */
-    GetTimeServer(): Promise<any>;
+    GetTimeServer(): Promise<{
+        CurrentTimeServer: string;
+    }>;
     /**
      * GetTimeZone
-     * @returns {Promise<Object>} response object, with these properties `Index`, `AutoAdjustDst`
+     * @returns {Promise<{ Index: number, AutoAdjustDst: boolean}>} response object.
      */
-    GetTimeZone(): Promise<any>;
+    GetTimeZone(): Promise<{
+        Index: number;
+        AutoAdjustDst: boolean;
+    }>;
     /**
      * GetTimeZoneAndRule
-     * @returns {Promise<Object>} response object, with these properties `Index`, `AutoAdjustDst`, `CurrentTimeZone`
+     * @returns {Promise<{ Index: number, AutoAdjustDst: boolean, CurrentTimeZone: string}>} response object.
      */
-    GetTimeZoneAndRule(): Promise<any>;
+    GetTimeZoneAndRule(): Promise<{
+        Index: number;
+        AutoAdjustDst: boolean;
+        CurrentTimeZone: string;
+    }>;
     /**
      * GetTimeZoneRule
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.Index
-     * @returns {Promise<Object>} response object, with these properties `TimeZone`
+     * @returns {Promise<{ TimeZone: string}>} response object.
      */
     GetTimeZoneRule(options?: {
         Index: number;
-    }): Promise<any>;
+    }): Promise<{
+        TimeZone: string;
+    }>;
     /**
      * ListAlarms - Get the AlarmList as XML
      * @remarks Some libraries also provide a ListAndParseAlarms where the alarm list xml is parsed
-     * @returns {Promise<Object>} response object, with these properties `CurrentAlarmList`, `CurrentAlarmListVersion`
+     * @returns {Promise<{ CurrentAlarmList: string, CurrentAlarmListVersion: string}>} response object.
      */
-    ListAlarms(): Promise<any>;
+    ListAlarms(): Promise<{
+        CurrentAlarmList: string;
+        CurrentAlarmListVersion: string;
+    }>;
     /**
      * SetDailyIndexRefreshTime
      *

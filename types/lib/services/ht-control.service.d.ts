@@ -29,14 +29,18 @@ declare class HTControlService extends Service {
     }): Promise<boolean>;
     /**
      * GetIRRepeaterState
-     * @returns {Promise<Object>} response object, with these properties `CurrentIRRepeaterState`
+     * @returns {Promise<{ CurrentIRRepeaterState: string}>} response object.
      */
-    GetIRRepeaterState(): Promise<any>;
+    GetIRRepeaterState(): Promise<{
+        CurrentIRRepeaterState: string;
+    }>;
     /**
      * GetLEDFeedbackState
-     * @returns {Promise<Object>} response object, with these properties `LEDFeedbackState`
+     * @returns {Promise<{ LEDFeedbackState: string}>} response object.
      */
-    GetLEDFeedbackState(): Promise<any>;
+    GetLEDFeedbackState(): Promise<{
+        LEDFeedbackState: string;
+    }>;
     /**
      * IdentifyIRRemote
      *
@@ -49,9 +53,11 @@ declare class HTControlService extends Service {
     }): Promise<boolean>;
     /**
      * IsRemoteConfigured
-     * @returns {Promise<Object>} response object, with these properties `RemoteConfigured`
+     * @returns {Promise<{ RemoteConfigured: boolean}>} response object.
      */
-    IsRemoteConfigured(): Promise<any>;
+    IsRemoteConfigured(): Promise<{
+        RemoteConfigured: boolean;
+    }>;
     /**
      * LearnIRCode
      *

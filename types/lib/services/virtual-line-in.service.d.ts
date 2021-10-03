@@ -75,12 +75,14 @@ declare class VirtualLineInService extends Service {
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID
      * @param {string} options.CoordinatorID
-     * @returns {Promise<Object>} response object, with these properties `CurrentTransportSettings`
+     * @returns {Promise<{ CurrentTransportSettings: string}>} response object.
      */
     StartTransmission(options?: {
         InstanceID: number;
         CoordinatorID: string;
-    }): Promise<any>;
+    }): Promise<{
+        CurrentTransportSettings: string;
+    }>;
     /**
      * Stop
      *

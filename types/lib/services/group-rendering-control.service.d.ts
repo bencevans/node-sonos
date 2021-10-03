@@ -23,22 +23,26 @@ declare class GroupRenderingControlService extends Service {
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
      * @remarks Should be send to coordinator only
-     * @returns {Promise<Object>} response object, with these properties `CurrentMute`
+     * @returns {Promise<{ CurrentMute: boolean}>} response object.
      */
     GetGroupMute(options?: {
         InstanceID: number;
-    }): Promise<any>;
+    }): Promise<{
+        CurrentMute: boolean;
+    }>;
     /**
      * GetGroupVolume - Get the group volume.
      *
      * @param {Object} [options] - An object with the following properties
      * @param {number} options.InstanceID - InstanceID should always be `0`
      * @remarks Should be send to coordinator only
-     * @returns {Promise<Object>} response object, with these properties `CurrentVolume`
+     * @returns {Promise<{ CurrentVolume: number}>} response object.
      */
     GetGroupVolume(options?: {
         InstanceID: number;
-    }): Promise<any>;
+    }): Promise<{
+        CurrentVolume: number;
+    }>;
     /**
      * SetGroupMute - (Un-/)Mute the entire group
      *
@@ -72,12 +76,14 @@ declare class GroupRenderingControlService extends Service {
      * @param {number} options.InstanceID - InstanceID should always be `0`
      * @param {number} options.Adjustment - Number between -100 and +100
      * @remarks Should be send to coordinator only
-     * @returns {Promise<Object>} response object, with these properties `NewVolume`
+     * @returns {Promise<{ NewVolume: number}>} response object.
      */
     SetRelativeGroupVolume(options?: {
         InstanceID: number;
         Adjustment: number;
-    }): Promise<any>;
+    }): Promise<{
+        NewVolume: number;
+    }>;
     /**
      * SnapshotGroupVolume - Creates a new group volume snapshot,  the volume ratio between all players. It is used by SetGroupVolume and SetRelativeGroupVolume
      *
