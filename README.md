@@ -13,16 +13,16 @@
 </p>
 
 <p align="center">
-  <a href="https://travis-ci.org/bencevans/node-sonos">
-    <img src="https://img.shields.io/travis/bencevans/node-sonos/master.svg?style=flat-square"
-         alt="Travis Build">
+  <a href="https://github.com/bencevans/node-sonos/actions">
+    <img src="https://img.shields.io/github/workflow/status/bencevans/node-sonos/Run%20tests/master?style=flat-square&color=brightgreen"
+         alt="GitHub Actions Build">
   </a>
   <a href="https://www.npmjs.com/package/sonos">
     <img src="https://img.shields.io/npm/v/sonos.svg?style=flat-square"
          alt="NPM Version">
   </a>
   <a href="https://www.npmjs.com/package/sonos">
-    <img src="https://img.shields.io/npm/dm/sonos.svg?style=flat-square"
+    <img src="https://img.shields.io/npm/dm/sonos.svg?style=flat-square&color=brightgreen"
          alt="NPM Downloads">
   </a>
   <a href="https://github.com/feross/standard">
@@ -30,7 +30,7 @@
          alt="Standard Codestyle">
   </a>
   <a href="https://discord.gg/m62rFAV4NU">
-  <img src="https://img.shields.io/discord/782374564054564875" alt="Discord badge" />
+  <img src="https://img.shields.io/discord/782374564054564875?style=flat-square&color=success" alt="Discord badge" />
   </a>
 </p>
 
