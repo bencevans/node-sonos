@@ -7,11 +7,11 @@ sonos.getZoneInfo().then(data => {
   var macCleaned = data.MACAddress.replace(/:/g, '')
   console.log('Cleaned mac %j', macCleaned)
 
-  // To swtich on a playbar do the following
+  // To switch on a playbar do the following
   var uri = 'x-sonos-htastream:RINCON_' + macCleaned + '01400:spdif'
 
-  // To switch on a Play:5 do the following
-  // var uri = 'x-ricon-stream:RINCON_' + macCleaned + '01400'
+  // To switch on a Play:5 and Connect do the following
+  // var uri = 'x-rincon-stream:RINCON_' + macCleaned + '01400'
 
   return sonos.setAVTransportURI(uri).then(result => {
     console.log('Switched to different source!')
