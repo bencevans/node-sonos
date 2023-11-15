@@ -68,7 +68,7 @@ DeviceDiscovery((device) => {
 
   // mute every device...
   device.setMuted(true)
-    .then(d => console.log(`${d.host} now muted`))
+    .then(d => console.log(`${device.host} now muted`))
 })
 
 // find one device
