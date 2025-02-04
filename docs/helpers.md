@@ -90,6 +90,8 @@ Creates object with uri and metadata from playback uri
 
 **region**: `String`, Spotify region is required for all spotify tracks, see `sonos.SpotifyRegion`
 
+**account**: `String`, Spotify account
+
 **Returns**: `Object`, options       {uri: Spotify uri, metadata: metadata}
 
 ### sonos.Helpers.ParseDIDL(didl, host, port)
