@@ -14,10 +14,10 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-    - name: Use node 12
+    - name: Use node 24
       uses: actions/setup-node@v1
       with:
-        node-version: 12
+        node-version: 24
     - name: Install depencencies
       run: npm ci
     - name: Run tests
@@ -30,10 +30,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Use node 12
+      - name: Use node 24
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 24
       - uses: svrooij/secret-gate-action@v1 # see https://github.com/svrooij/secret-gate-action this is to fail quiet until secret is set.
         id: mygate
         with:
