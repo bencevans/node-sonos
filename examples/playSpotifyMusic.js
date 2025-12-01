@@ -24,7 +24,7 @@ sonos.setSpotifyRegion(Regions.EU)
 // your Sonos system.
 
 // var spotifyUri = 'spotify:artistTopTracks:72qVrKXRp9GeFQOesj0Pmv'
-var spotifyUri = 'spotify:track:6sYJuVcEu4gFHmeTLdHzRz'
+const spotifyUri = 'spotify:track:6sYJuVcEu4gFHmeTLdHzRz'
 
 sonos.play(spotifyUri)
   .then(success => {
