@@ -14,7 +14,7 @@
 
 <p align="center">
   <a href="https://github.com/bencevans/node-sonos/actions">
-    <img src="https://img.shields.io/github/workflow/status/bencevans/node-sonos/Run%20tests/master?style=flat-square&color=brightgreen"
+    <img src="https://img.shields.io/github/actions/workflow/status/bencevans/node-sonos/run-tests.yml?branch=master&style=flat-square&color=brightgreen"
          alt="GitHub Actions Build">
   </a>
   <a href="https://www.npmjs.com/package/sonos">
