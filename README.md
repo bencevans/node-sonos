@@ -14,7 +14,7 @@
 
 <p align="center">
   <a href="https://github.com/bencevans/node-sonos/actions">
-    <img src="https://img.shields.io/github/workflow/status/bencevans/node-sonos/Run%20tests/master?style=flat-square&color=brightgreen"
+    <img src="https://img.shields.io/github/actions/workflow/status/bencevans/node-sonos/run-tests.yml?branch=master&style=flat-square&color=brightgreen"
          alt="GitHub Actions Build">
   </a>
   <a href="https://www.npmjs.com/package/sonos">
@@ -187,6 +187,7 @@ node-sonos in use across the interwebs. Missing yours? [Add it](https://github.c
 * **[gladys-sonos](https://github.com/GladysProject/gladys-sonos)** - Control Sonos with [Gladys](https://github.com/GladysProject/Gladys) a Raspberry Pi Home Assistant
 * **[sonos-web](https://github.com/Villarrealized/sonos-web)** - Sonos controller for your web browser
 * **[BudgieStream](https://github.com/filahf/budgie-stream)** - Stream system output to Sonos
+* **[GrooveSensor](https://github.com/recursivefunk/groove-sensor)** - Motion-activated Sonos playback
 
 ### Writeups
 
