@@ -51,10 +51,7 @@ jobs:
       - name: Run tests
         if: steps.mygate.outputs.inputsChecked == 'true'
         run: npm run test
-      - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v6
-        if: steps.mygate.outputs.inputsChecked == 'true'
-        id: semantic
+      - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
