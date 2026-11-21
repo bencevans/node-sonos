@@ -1,6 +1,8 @@
 /* eslint-env mocha */
 /* eslint no-unused-vars: "off" */
 const assert = require('assert')
+const axios = require('axios')
+const os = require('os')
 const SONOS = require('../')
 const Sonos = SONOS.Sonos
 const nock = require('nock')
@@ -473,6 +475,58 @@ describe('Sonos - Mock', function () {
       await sonos.removeFromPlaylist(1, 2)
       scope.done()
     })
+  })
+})
+
+describe('Event subscription callback address', function () {
+  async function checkCallback (interfaces, expectedAddress) {
+    const listenerPath = require.resolve('../lib/events/adv-listener')
+    const cachedListener = require.cache[listenerPath]
+    const networkInterfaces = os.networkInterfaces
+    const configuredAddress = process.env.SONOS_LISTENER
+    const adapter = axios.defaults.adapter
+    try {
+      // The listener selects its callback address when the module loads.
+      delete process.env.SONOS_LISTENER
+      os.networkInterfaces = () => interfaces
+      delete require.cache[listenerPath]
+      const listener = require(listenerPath)
+      listener.startListener = () => {}
+
+      // Capture the outgoing headers and stop before subscription renewal starts.
+      const callbacks = new Set()
+      const captured = new Error('Subscription captured')
+      axios.defaults.adapter = async request => {
+        callbacks.add(request.headers.callback)
+        throw captured
+      }
+      await assert.rejects(listener.subscribeTo({ host: 'localhost', port: 1400 }), err => err === captured)
+      assert.deepStrictEqual([...callbacks], [`<http://${expectedAddress}:${listener.port}/notify>`])
+    } finally {
+      axios.defaults.adapter = adapter
+      require.cache[listenerPath] = cachedListener
+      os.networkInterfaces = networkInterfaces
+      if (configuredAddress !== undefined) process.env.SONOS_LISTENER = configuredAddress
+    }
+  }
+
+  it('skips a public IPv4 address before a private one on the same interface', async function () {
+    await checkCallback({
+      eth0: [{ family: 'IPv4', address: '203.0.113.10' }, { family: 'IPv4', address: '192.168.1.20' }]
+    }, '192.168.1.20')
+  })
+
+  it('uses the first interface with a matching address', async function () {
+    await checkCallback({
+      wlan0: [{ family: 4, address: '172.16.0.5' }],
+      eth0: [{ family: 'IPv4', address: '10.0.0.5' }]
+    }, '172.16.0.5')
+  })
+
+  it('falls back to loopback when no private IPv4 address is available', async function () {
+    await checkCallback({
+      eth0: [{ family: 'IPv4', address: '203.0.113.10' }, { family: 'IPv6', address: 'fd00::1' }]
+    }, '127.0.0.1')
   })
 })
 
